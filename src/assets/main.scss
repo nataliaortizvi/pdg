@@ -1,4 +1,18 @@
+//-----------------------COLOR PALLETTE---------------------------------------
+$MainColorBlue: rgb(24, 29, 61);
+$SecondPink: rgb(246, 86, 100);
+$ThirdViolet: rgb(107, 49, 241);
+$Babyblue: rgb(76, 126, 254);
+$orange: rgb(255, 143, 34);
+$background: rgb(245,244,249);
+$white: rgb(255,255,255);
+$hint: rgb(142, 142, 142);
 
+//------------------------FONTS---------------------------------------
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&display=swap');
+$mainTypo: 'Manrope', sans-serif;
+
+$TitileSize: 40px;
 
 //-------------------------------GLOBAL HEADER------------------------------
 header {
@@ -10,5 +24,23 @@ header {
     height: 60px;
     position: fixed;
     z-index: 100;
-    
   }
+
+.titlesStyle {
+  font-size:40px;
+  font-weight: 700;
+  color: $SecondPink;
+  font-family: $mainTypo;
+}
+
+.btnMain {
+  background-color: $SecondPink;
+  width:250px;
+  height:42px;
+  border-radius: 31.5px;
+  border: none;
+  color: $white;
+  font-size: 17px;
+  font-family: $mainTypo;
+  font-weight:700;
+}
