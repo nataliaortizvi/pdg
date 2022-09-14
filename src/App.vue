@@ -11,13 +11,12 @@
    <!-----------------------------GLOBAL HEADER------------------------------->
    <header>
 
-    <h1>VALIDATA</h1>
+    <h1>LOGO</h1>
 
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/nosotros">Nosotros</RouterLink>
-      <RouterLink to="/calculadora">Calculadora</RouterLink>
-      <RouterLink to="/analisis">Tipos de análisis</RouterLink>
+    <nav class="nav">
+      <RouterLink to="/" class="link">Home</RouterLink>
+      <RouterLink to="/calculadora" class="link">Calculadora</RouterLink>
+      <RouterLink to="/analisis" class="link">Tipos de análisis</RouterLink>
     </nav>
         
   </header>
@@ -28,10 +27,9 @@
   <RouterView />
 </template>
 
-
 <style lang="scss">
 
-
+@import 'src/assets/main.scss';
 
   //----STYLE RESET-----
   * {
@@ -39,6 +37,11 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
+  }
+
+  .link{
+    margin-left: 80px;
+    color: $MainColorBlue;
   }
 
 </style>

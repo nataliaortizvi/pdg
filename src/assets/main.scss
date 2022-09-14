@@ -3,44 +3,90 @@ $MainColorBlue: rgb(24, 29, 61);
 $SecondPink: rgb(246, 86, 100);
 $ThirdViolet: rgb(107, 49, 241);
 $Babyblue: rgb(76, 126, 254);
-$orange: rgb(255, 143, 34);
-$background: rgb(245,244,249);
-$white: rgb(255,255,255);
-$hint: rgb(142, 142, 142);
+$Orange: rgb(255, 143, 34);
+$Background: rgb(245,244,249);
+$White: rgb(255,255,255);
+$Hint: rgb(142, 142, 142);
 
 //------------------------FONTS---------------------------------------
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&display=swap');
-$mainTypo: 'Manrope', sans-serif;
+$MainTypo: 'Manrope', sans-serif;
 
-$TitileSize: 40px;
+$TitleSize: 20px;
 
 //-------------------------------GLOBAL HEADER------------------------------
 header {
-    background-color: rgb(245, 243, 237);
-    padding: 1rem;
+    background-color: $Background;
     display:flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     height: 60px;
     position: fixed;
     z-index: 100;
+    font-family: $MainTypo;
+    padding: 0px 30px 0px 30px;
+  }
+
+  body {
+    background-color: $Background;
   }
 
 .titlesStyle {
   font-size:40px;
   font-weight: 700;
   color: $SecondPink;
-  font-family: $mainTypo;
+  font-family: $MainTypo;
 }
 
-.btnMain {
+.btn {
   background-color: $SecondPink;
   width:250px;
   height:42px;
   border-radius: 31.5px;
   border: none;
-  color: $white;
+  color: $White;
   font-size: 17px;
-  font-family: $mainTypo;
+  font-family: $MainTypo;
   font-weight:700;
+
+    &--small {
+      background-color: $SecondPink;
+      width:140px;
+      height:42px;
+      border-radius: 31.5px;
+      border: none;
+      color: $White;
+      font-size: 17px;
+      font-family: $MainTypo;
+      font-weight:700;
+  
+    }
+
+    &--disabled {
+      background-color: $Hint;
+      width:140px;
+      height:42px;
+      border-radius: 31.5px;
+      border: none;
+      color: $White;
+      font-size: 17px;
+      font-family: $MainTypo;
+      font-weight:700;
+    }
 }
+
+.imput {
+  width: 500px;
+  height: 42px;
+  border-radius:31.5px;
+  background-color: transparent;
+  border: 1px solid $MainColorBlue;
+  
+}
+  ::placeholder {
+    padding: 20px 22px 0px 22px;
+    color: $Hint;
+    font-family: $MainTypo;
+    font-size:18px;
+  }

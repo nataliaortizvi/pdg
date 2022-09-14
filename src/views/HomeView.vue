@@ -1,19 +1,13 @@
 <template>
 
-  <section class="buscador">
-
-    <h1 class="titlesStyle">Bienvenido a “Validata”</h1>
-    <br>
-    <h2>¿Qué variable necesitas medir hoy?</h2>
-    <section class="RightItems">
-      <button class="btnMain">Siguiente</button>
-      <input id="search" placeholder="Search..."/>
-      <span class="icon"><i class="fa fa-search"></i></span>
+  <section class="searcher">
+    <h2 class="titleVar">¿Qué variable necesitas medir hoy?</h2>
+    <div class="rightItems">
+      <input class="imput" id="search" placeholder="Search..."/>
+      <button class="btn--small">Siguiente</button>
       
       <!--input type="search" id="search" placeholder="Search..."/-->
-    </section>
-    
-    <a>¿No está tu variable? Pidenos que la agregemos</a>
+    </div>
 
   </section>
 
@@ -23,25 +17,35 @@
 
 </template>
 
-
-
 <script>
 
 </script>
-
-
 
 <style lang="scss" scoped>
 
 @import 'src/assets/main.scss';
 
-  .buscador{
-    padding-top: 100px;
-    padding-bottom: 50px;
+  .searcher {
+    padding: 100px 30px 50px 30px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    font-family: $MainTypo;
+    color: $MainColorBlue;
+    font-size: $TitleSize;
+    width: 100%;
+
+    .titleVar {
+      width: 400px;
+    }
+
+    .rightItems {
+      display: flex;
+      flex-direction: row;
+      
+    }
+
   }
 
 </style>
