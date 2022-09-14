@@ -1,9 +1,43 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+<template>
+
+  <section class="buscador">
+
+    <h1>Bienvenido a “Validata”</h1>
+    <br>
+    <h2>¿Qué variable necesitas medir hoy?</h2>
+    <section class="RightItems">
+      <input id="search" placeholder="Search..."/>
+      <span class="icon"><i class="fa fa-search"></i></span>
+      <!--input type="search" id="search" placeholder="Search..."/-->
+    </section>
+    
+    <a>¿No está tu variable? Pidenos que la agregemos</a>
+
+  </section>
+
+  <section class="manual">
+    <h1>¿Cómo usar Validata?</h1>
+  </section>
+
+</template>
+
+
+
+<script>
+
 </script>
 
-<template>
-  <main>
-    <TheWelcome />
-  </main>
-</template>
+
+
+<style lang="scss" scoped>
+
+  .buscador{
+    padding-top: 100px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+</style>
