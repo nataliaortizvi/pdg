@@ -1,6 +1,31 @@
-<script setup>
+<script>
+
   import { RouterLink, RouterView } from 'vue-router'
 
+  export default {
+    
+    el: '#navbar',
+    data () {
+      return {
+        view: {
+          topOfPage: true
+        }
+      }
+    },
+    beforeMount() {
+      window.addEventListener('scroll', this.handleScroll)
+    },
+    methods: {
+      handleScroll(){
+        if(window.pageYOffset>-0){
+          if(this.view.topOfPage) this.view.topOfPage = false
+        } else {
+          if(!this.view.topOfPage) this.view.topOfPage = true
+        }
+      }
+    }
+  }
+  
 
 </script>
 
@@ -9,14 +34,12 @@
 <template>
 
    <!-----------------------------GLOBAL HEADER------------------------------->
-   <header>
-
+   <header id="navbar" :class="{'onScroll': !view.topOfPage}">
     <h1>LOGO</h1>
-
-    <nav class="nav">
-      <RouterLink to="/" class="link">Home</RouterLink>
-      <RouterLink to="/calculadora" class="link">Calculadora</RouterLink>
-      <RouterLink to="/analisis" class="link">Tipos de análisis</RouterLink>
+    <nav >
+      <RouterLink to="/" id="linkss" class="link">Home</RouterLink>
+      <RouterLink to="/calculadora" id="linkss" class="link">Calculadora</RouterLink>
+      <RouterLink to="/analisis" id="linkss" class="link">Tipos de análisis</RouterLink>
     </nav>
         
   </header>
