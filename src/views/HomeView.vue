@@ -68,6 +68,7 @@
       margin-left: 30px;
       color: $White;
       width: 40%;
+      font-size: $BannerTextSize;
     }
   }
 
