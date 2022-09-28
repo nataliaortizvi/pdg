@@ -1,21 +1,26 @@
 <script>
 import { RouterLink, RouterView } from "vue-router";
-  
+import Modal from "./components/Modal.vue";
+import Help from './components/Help.vue';
+
 export default {
   components: {
     RouterLink,
     RouterView,
+    Modal,
+    Help,
   },
 
   el: "#navbar",
   data() {
     return {
+      showModal: false,
       view: {
         topOfPage: true,
       },
     };
   },
-  
+
   beforeMount() {
     window.addEventListener("scroll", this.handleScroll);
   },
@@ -28,8 +33,15 @@ export default {
         if (!this.view.topOfPage) this.view.topOfPage = true;
       }
     },
-  },
 
+    openModal() {
+      this.showModal = true;
+    },
+
+    closeModal() {
+      this.showModal = false;
+    },
+  },
 };
 </script>
 
@@ -40,19 +52,28 @@ export default {
     <h1>LOGO</h1>
     <nav>
       <RouterLink to="/" id="linkss" class="link">Home</RouterLink>
-      <RouterLink to="/calculadora" id="linkss" class="link">Calculadora</RouterLink>
-      <RouterLink to="/analisis" id="linkss" class="link">Tipos de análisis</RouterLink>
+      <RouterLink to="/analisis" id="linkss" class="link"
+        >Tipos de análisis</RouterLink
+      >
+      <RouterLink to="/calculadora" id="linkss" class="link"
+        >Calculadora</RouterLink
+      >
     </nav>
   </header>
 
-   <!---ICON LIBRARY--->
-   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+  <button class="btn helpBtn" @click="openModal">?</button>
+  <Modal
+    :showButton="true"
+    title="Are you sure you want to add this book to Bookie?"
+    v-if="showModal"
+    @close="closeModal"
+    class="modal"
+  >
+    <Help></Help>
+  </Modal>
 
- 
-<!------------------------BODY------------------------->
-  <RouterView/>
-  
-
+  <!------------------------BODY------------------------->
+  <RouterView />
 </template>
 
 
