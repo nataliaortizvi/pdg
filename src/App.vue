@@ -64,7 +64,6 @@ export default {
   <button class="btn helpBtn" @click="openModal">?</button>
   <Modal
     :showButton="true"
-    title="Are you sure you want to add this book to Bookie?"
     v-if="showModal"
     @close="closeModal"
     class="modal"

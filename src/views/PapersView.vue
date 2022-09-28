@@ -15,7 +15,7 @@ export default {
 
   data() {
     return {
-      showModal: true,
+      showModal: false,
       currentVariable: {},
     };
   },
@@ -31,8 +31,8 @@ export default {
 
     p() {
       console.log(this.currentVariable.name);
-      console.log('route: '+ this.$route.params.varId);
-    }
+      console.log("route: " + this.$route.params.varId);
+    },
   },
 
   computed: {
@@ -40,17 +40,40 @@ export default {
     allVariables() {
       return this.variablesStore.getVariables;
     },
+
+   
   },
 
   mounted() {
     this.currentVariable = this.variablesStore.getVariableById(
       this.$route.params.varId
     );
+
+    if (this.currentVariable.name === undefined) {
+      console.log("returnnnnn");
+      this.showModal = true;
+    }
+
   },
 };
 </script>
 
 <template>
+  <Modal
+    :showButton="false"
+    title="Are you sure you want to add this book to Bookie?"
+    v-if="showModal"
+    @close="closeModal"
+    class="modal"
+  >
+    <h2>Ups! La variable que ingresaste no se encuentra.</h2>
+    <p>Puedes volver al Home o hacer una solicitud para que la variable que agregaste sea agregada.</p>
+    <RouterLink to="/">
+      <button class="btn --small --pink">Volver al home</button>
+    </RouterLink>
+    <button class="btn --small --pink">Solicitar</button>
+  </Modal>
+
   <section class="searcher">
     <h2 class="titlesStyle titleVar">Buscar otra variable</h2>
     <div class="rightItems">
@@ -81,7 +104,7 @@ export default {
       :name="this.currentVariable.name"
       :papers="this.currentVariable.papers"
     >
-  </CardPaperSmall>
+    </CardPaperSmall>
   </section>
 </template>
   

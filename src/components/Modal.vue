@@ -19,7 +19,7 @@ export default {
 <template>
   <div class="backdrop" @click.self="cerrarModal">
     <section class="modalContainer">
-      <img src="/imgs/exitBtn.png" @click="closeModal" />
+      <img src="/imgs/exitBtn.png" @click="closeModal" v-if="showButton"/>
       <slot></slot>
     </section>
   </div>
