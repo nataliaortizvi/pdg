@@ -17,6 +17,10 @@ $TitleSize: 30px;
 $BodyTextSize: 17px;
 
 //-------------------------------GLOBAL HEADER------------------------------
+* {
+  font-family: $MainTypo;
+}
+
 header {
 
     position: fixed;
@@ -60,6 +64,7 @@ header {
   font-size: 17px;
   font-family: $MainTypo;
   font-weight:700;
+  cursor: pointer;
 
     &--small {
       background-color: $SecondPink;
@@ -69,6 +74,8 @@ header {
 
     &--disabled {
       background-color: $Hint;
+      width:140px;
+      cursor: not-allowed;
     }
 }
 
@@ -78,6 +85,10 @@ header {
   border-radius:31.5px;
   background-color: transparent;
   border: 1px solid $MainColorBlue;  
+
+  &--desabled {
+    pointer-events: none;
+  }
 }
   ::placeholder {
     padding: 20px 22px 0px 22px;

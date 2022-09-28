@@ -28,8 +28,8 @@ export default {
   </section>
 
   <section class="manual">
-    <h3>¿Aún no sabes cómo usar validata?</h3>
-    <h1>Aquí te enseñamos</h1>
+    <h3 class="manual__titleOne">¿Aún no sabes cómo usar validata?</h3>
+    <h1 class="manual__titleTwo">Aquí te enseñamos</h1>
     <Help></Help>
   </section>
 </template>
@@ -78,6 +78,23 @@ export default {
     color: $White;
     width: 40%;
     font-size: $BannerTextSize;
+  }
+}
+
+.manual {
+  margin: 30px;
+  &__titleOne {
+    font-family: $MainTypo;
+    font-weight: 300;
+    font-size: $TitleSize;
+    color: $MainColorBlue
+  }
+
+  &__titleTwo {
+    font-family: $MainTypo;
+    font-weight: 700;
+    font-size: 51px;
+    color: $SecondPink;
   }
 }
 </style>
