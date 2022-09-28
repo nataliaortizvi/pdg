@@ -44,12 +44,13 @@ export default {
 
 .modalContainer {
   display: flex;
-  width: 80vw;
-  height: 90vh;
-  padding: 30px;
+  width: auto;
+  height: auto;
   border-radius: 20px;
   background: $Background;
   position: relative;
+  justify-content: center;
+  padding: 30px;
 
   img {
     width: 50px;

@@ -326,7 +326,6 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 20px;
 
   .progress {
     display: flex;
@@ -523,6 +522,10 @@ export default {
           .ejemploInput {
             input {
               margin: 10px;
+            }
+
+            ::placeholder {
+              padding-left: 10px;
             }
           }
         }

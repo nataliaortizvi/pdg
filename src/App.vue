@@ -1,7 +1,7 @@
 <script>
 import { RouterLink, RouterView } from "vue-router";
 import Modal from "./components/Modal.vue";
-import Help from './components/Help.vue';
+import Help from "./components/Help.vue";
 
 export default {
   components: {
@@ -62,13 +62,8 @@ export default {
   </header>
 
   <button class="btn helpBtn" @click="openModal">?</button>
-  <Modal
-    :showButton="true"
-    v-if="showModal"
-    @close="closeModal"
-    class="modal"
-  >
-    <Help></Help>
+  <Modal :showButton="true" v-if="showModal" @close="closeModal" class="modal">
+    <Help class="helper"></Help>
   </Modal>
 
   <!------------------------BODY------------------------->
@@ -94,5 +89,15 @@ export default {
 .link {
   margin-left: 80px;
   color: $MainColorBlue;
+}
+
+.modal {
+  height: 80%;
+  width: 80vw;
+
+  .helper {
+    height: 100%;
+    width: 100%;
+  }
 }
 </style>

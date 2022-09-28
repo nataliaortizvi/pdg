@@ -40,8 +40,6 @@ export default {
     allVariables() {
       return this.variablesStore.getVariables;
     },
-
-   
   },
 
   mounted() {
@@ -53,25 +51,25 @@ export default {
       console.log("returnnnnn");
       this.showModal = true;
     }
-
   },
 };
 </script>
 
 <template>
-  <Modal
-    :showButton="false"
-    title="Are you sure you want to add this book to Bookie?"
-    v-if="showModal"
-    @close="closeModal"
-    class="modal"
-  >
-    <h2>Ups! La variable que ingresaste no se encuentra.</h2>
-    <p>Puedes volver al Home o hacer una solicitud para que la variable que agregaste sea agregada.</p>
-    <RouterLink to="/">
-      <button class="btn --small --pink">Volver al home</button>
-    </RouterLink>
-    <button class="btn --small --pink">Solicitar</button>
+  <Modal :showButton="false" v-if="showModal" @close="closeModal" class="modal">
+    <div class="modalInfo">
+      <h2>Ups! La variable que ingresaste no se encuentra.</h2>
+      <p>
+        Puedes volver al Home o hacer una solicitud para que la variable que
+        agregaste sea agregada.
+      </p>
+      <div class="modalButtons">
+        <RouterLink to="/">
+          <button class="btn --small --pink btnHere">Volver al home</button>
+        </RouterLink>
+        <button class="btn --small --pink">Solicitar</button>
+      </div>
+    </div>
   </Modal>
 
   <section class="searcher">
@@ -112,6 +110,35 @@ export default {
 <style lang="scss" scoped>
 @import "src/assets/main.scss";
 
+
+.modal {
+  .modalInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  
+    h2 {
+      color: $SecondPink;
+      font-size: $TitleSize;
+    }
+
+    p {
+      color: $MainColorBlue;
+      font-size: $BodyTextSize;
+      margin-top: 20px;
+    }
+  }
+
+  .modalButtons {
+    margin-top: 30px;
+
+    .btnHere {
+      margin-right: 20px;
+    }
+  }
+
+}
 .results {
   width: 100vw;
   height: 100vh;
