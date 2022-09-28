@@ -49,7 +49,7 @@ export default {
 <template>
   <!--------------------------GLOBAL HEADER---------------------->
   <header id="navbar" :class="{ onScroll: !view.topOfPage }">
-    <h1>LOGO</h1>
+    <h1 class="logo">ValiData</h1>
     <nav>
       <RouterLink to="/" id="linkss" class="link">Home</RouterLink>
       <RouterLink to="/analisis" id="linkss" class="link"
@@ -85,6 +85,10 @@ export default {
   margin: 0;
   padding: 0;
   text-decoration: none;
+}
+
+.logo {
+  color: $SecondPink;
 }
 
 .link {
