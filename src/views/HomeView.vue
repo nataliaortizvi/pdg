@@ -22,7 +22,7 @@ export default {
 
 <template>
   <section class="searcher">
-    <h2 class="titlesStyle titleVar">¿Qué variable necesitas medir hoy?</h2>
+    <h2 class="titlesStyle titlesStyle--blue titleVar">¿Qué variable necesitas medir hoy?</h2>
     <div class="rightItems">
       <input
         class="input input--variable"

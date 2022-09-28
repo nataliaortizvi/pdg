@@ -25,7 +25,7 @@ export default {
                  
 <style lang="scss" scoped>
 @import "src/assets/main.scss";
-
+ 
 .cardContainer {
   height: 200px;
   background-color: $White;
@@ -34,5 +34,25 @@ export default {
   margin: 30px 40px;
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  color: $MainColorBlue;
+  position: relative;
+
+
+  .titleTxt {
+     color: $SecondPink;
+  }
+
+  .authorTxt {
+    color: $Hint;
+  }
+  .yearTxt {
+    color: $Hint;
+    position: absolute;
+    right: 30px
+  }
+
+  
+  
 }
 </style>
