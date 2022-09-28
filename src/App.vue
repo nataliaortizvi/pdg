@@ -1,15 +1,11 @@
 <script>
 
   import { RouterLink, RouterView } from 'vue-router';
-  import Help from "../src/components/Help.vue";
-import Help1 from '../src/components/Help.vue';
+  
 
   export default {
 
-    components: {
-    Help,
-    Help1
-},
+    
     
     el: '#navbar',
     data () {
@@ -49,13 +45,11 @@ import Help1 from '../src/components/Help.vue';
       <RouterLink to="/analisis" id="linkss" class="link">Tipos de análisis</RouterLink>
     </nav>
   </header>
-  
- 
+
    <!---ICON LIBRARY--->
    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
   <RouterView />
-  <Help1></Help1>
 </template>
 
 <style lang="scss">
