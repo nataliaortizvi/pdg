@@ -1,15 +1,26 @@
 <script>
-import Help from '../components/Help.vue';
+import Help from "../components/Help.vue";
 
 export default {
   components: {
     Help,
   },
+
+  data() {
+    return {
+      searchInput: "",
+    };
+  },
+
+  methods: {
+    p(){
+      console.log(this.searchInput)
+    }
+  },
 };
 </script>
 
 <template>
-
   <section class="searcher">
     <h2 class="titlesStyle titleVar">¿Qué variable necesitas medir hoy?</h2>
     <div class="rightItems">
@@ -17,14 +28,19 @@ export default {
         class="input input--variable"
         id="search"
         placeholder="Escribe tu variable"
+        v-model="this.searchInput"
       />
-      <button class="btn btn--small">Siguiente</button>
+      <RouterLink :key="this.searchInput" :to="`/papers/${this.searchInput}`">
+        <button class="btn --small --pink" @click="p">Buscar</button>
+      </RouterLink>
     </div>
   </section>
 
   <section class="banner">
-    <img class="banner__img" src="src/assets/imgs/banner.png" />
-    <h2 class="titlesStyle banner__text">Validata te apoya en los procesos de validación de tus hipótesis</h2>
+    <img class="banner__img" src="/imgs/banner.png" />
+    <h2 class="titlesStyle banner__text">
+      Validata te apoya en los procesos de validación de tus hipótesis
+    </h2>
   </section>
 
   <section class="manual">
@@ -54,7 +70,15 @@ export default {
     flex-direction: row;
 
     .input--variable {
+      padding-left: 20px;
+      font-family: $MainTypo;
+      font-size: 18px;
+      color: $MainColorBlue;
       margin-right: 17px;
+
+      &::placeholder {
+        color: $Hint;
+      }
     }
   }
 }

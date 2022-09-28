@@ -4,8 +4,8 @@ $SecondPink: rgb(246, 86, 100);
 $ThirdViolet: rgb(107, 49, 241);
 $Babyblue: rgb(76, 126, 254);
 $Orange: rgb(255, 143, 34);
-$Background: rgb(245,244,249);
-$White: rgb(255,255,255);
+$Background: rgb(245, 244, 249);
+$White: rgb(255, 255, 255);
 $Hint: rgb(142, 142, 142);
 
 //------------------------FONTS---------------------------------------
@@ -19,69 +19,87 @@ $BodyTextSize: 17px;
 //-------------------------------GLOBAL HEADER------------------------------
 header {
 
-    position: fixed;
-    width: 100%;
-    height: 60px;
-    background-color: transparent;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    font-family: $MainTypo;
-    padding: 0px 30px 0px 30px;
-    transition: all .2s ease-in-out;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  background-color: $Background;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  font-family: $MainTypo;
+  padding: 0px 30px 0px 30px;
+  transition: all .2s ease-in-out;
+}
+
+.onScroll {
+  box-shadow: 0 0 10px #aaa;
+  background-color: $MainColorBlue;
+
+  .link {
+    color: $White;
   }
-  .onScroll {
-    box-shadow: 0 0 10px #aaa;
-    background-color: $MainColorBlue;
-    .link {
-      color: $White;
-    }
-  }
-  
-  body {
-    background-color: $Background;
-  }
+}
+
+body {
+  background-color: $Background;
+}
 
 .titlesStyle {
   font-size: $TitleSize;
   font-weight: 700;
-  color: $MainColorBlue;
   font-family: $MainTypo;
+
+  &.--blue {
+    color: $MainColorBlue;
+  }
+  &.--pink {
+    color: $SecondPink;
+  }
 }
 
 .btn {
   background-color: $SecondPink;
-  width:250px;
-  height:42px;
+  width: 250px;
+  height: 42px;
   border-radius: 31.5px;
   border: none;
   color: $White;
   font-size: 17px;
   font-family: $MainTypo;
-  font-weight:700;
+  font-weight: 700;
 
-    &--small {
-      background-color: $SecondPink;
-      width:140px;
-  
-    }
+  &.--small {
+    width: 140px;
+  }
 
-    &--disabled {
-      background-color: $Hint;
-    }
+  &.--disabled {
+    background-color: $Hint;
+  }
+
+  &.--blue {
+    background-color: $MainColorBlue;
+  }
+  &.--pink {
+    background-color: $SecondPink;
+  }
+}
+
+.helpBtn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50px;
+  position: fixed;
+  z-index: 30;
+  bottom: 20px;
+  right: 20px;
 }
 
 .input {
   width: 500px;
   height: 42px;
-  border-radius:31.5px;
+  border-radius: 31.5px;
   background-color: transparent;
-  border: 1px solid $MainColorBlue;  
+  border: 1px solid $MainColorBlue;
 }
-  ::placeholder {
-    padding: 20px 22px 0px 22px;
-    color: $Hint;
-    font-family: $MainTypo;
-    font-size:18px;
-  }
+
