@@ -45,7 +45,7 @@ export default {
 .modalContainer {
   display: flex;
   width: 80vw;
-  height: 80vh;
+  height: 90vh;
   padding: 30px;
   border-radius: 20px;
   background: $Background;

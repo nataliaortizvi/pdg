@@ -17,6 +17,10 @@ $TitleSize: 30px;
 $BodyTextSize: 17px;
 
 //-------------------------------GLOBAL HEADER------------------------------
+* {
+  font-family: $MainTypo;
+}
+
 header {
 
   position: fixed;
@@ -67,14 +71,17 @@ body {
   color: $White;
   font-size: 17px;
   font-family: $MainTypo;
-  font-weight: 700;
+  font-weight:700;
+  cursor: pointer;
 
   &.--small {
     width: 140px;
   }
 
-  &.--disabled {
+  &--disabled {
     background-color: $Hint;
+    width:140px;
+    cursor: not-allowed;
   }
 
   &.--blue {
@@ -100,6 +107,10 @@ body {
   height: 42px;
   border-radius: 31.5px;
   background-color: transparent;
-  border: 1px solid $MainColorBlue;
+  border: 1px solid $MainColorBlue;  
+
+  &--desabled {
+    pointer-events: none;
+  }
 }
 

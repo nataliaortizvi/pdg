@@ -8,37 +8,60 @@ export default {
           num: 1,
           paso: "Paso 1",
           nombre: "Hipótesis",
-          descrip: "la info",
+          descripOne:
+            "Antes de iniciar debes saber que todos los proyectos de investigación necesitan una hipótesis que debe ser comprobada.",
+          descripTwo:
+            "Esta hipótesis debe tener al menos una variable que es la que necesitas medir.",
         },
         {
           num: 2,
           paso: "Paso 2",
           nombre: "Hipótesis nula y alternativa",
-          descrip: "la info",
+          descripOne:
+            "Cuando definas la varible y construyas tu hipótesis debes definir tu hipótesis nula y su alternativa. ",
+          descripTwo:
+            "La hipotesis alternativa es el enunciado de lo que quieres afirmar o demostrar con la validación.",
+          descripThree:
+            "La hipótesis nula es lo contrario a la hipótesis alternartiva",
+          descripFour: "Las manzana caen del árbol  debido a la gravedad.",
+          descripFive: "Las manzanas NO caen del arból debido a la gravedad",
+          descripSix: "Ejemplo",
         },
         {
           num: 3,
           paso: "Paso 3",
           nombre: "Buscar la variable",
-          descrip: "la info",
+          descripOne:
+            "Cuando tengas esto definido, podrás buscar en la barra de busqueda de Validata la variable que necesitas medir",
+          descripTwo: "Así conocerás diferentes formas de medir esa variable",
+          descripThree: "Ejemplo",
+          descripFour: "La confianza se puede medir por la confiabilidad:",
+          descripFive:
+            "Confiabilidad = capacidades + benevolencia + integridad",
         },
         {
           num: 4,
           paso: "Paso 4",
-          nombre: "Buscar la variable",
-          descrip: "la info",
+          nombre: "Tipo de análisis",
+          descripOne:
+            "Validata te mostrará cuál será el mejor tipo de análisis para validar la hipótesis y así puedas desarrollar el expriemento y obtener los datos a analizar.",
+          descripTwo: "Ejemplo",
+          descripThree:
+            "Para analizar 2 grupos con igual cantidad de elementos usa:",
+          descripFour: "Paired T-test",
         },
         {
           num: 5,
           paso: "Paso 5",
-          nombre: "Buscar la variable",
-          descrip: "la info",
+          nombre: "Calculadora",
+          descripOne: "En Validata encontrarás una calculadora especializada que realizará los calculos automaticos.",
+          descripTwo: "Solo tendrás que ingresar los datos recolectados y presionar:"
         },
         {
           num: 6,
           paso: "Paso 6",
-          nombre: "Buscar la variable",
-          descrip: "la info",
+          nombre: "Interpretación y conclusión",
+          descripOne: "Validata te ayudará a interpretar los datos y entenderlos para que puedas presentarlos y dar una conclusión en tu investigación",
         },
       ],
 
@@ -98,20 +121,196 @@ export default {
     <!------------------------steps info------------------------>
     <div class="data">
       <div v-for="step in steps" :key="step.paso" class="relative">
-        <div v-if="currentstep === step.num">
-          <h1>{{ step.paso }}</h1>
-          <h3>{{ step.nombre }}</h3>
-          <a>{{ step.descrip }}</a>
+        <!------------Step 1---------->
+        <div
+          class="cardInfo"
+          :class="{ stepOneShow: step.num == 1 }"
+          v-if="currentstep === step.num"
+        >
+          <div class="cardInfo__header">
+            <h1 class="step">{{ step.paso }}</h1>
+            <h3 class="name">{{ step.nombre }}</h3>
+          </div>
+          <div class="cardInfo__descrip">
+            <p class="descripOne">{{ step.descripOne }}</p>
+            <p class="descripTwo">{{ step.descripTwo }}</p>
+          </div>
+          <div class="buttons buttons--buttonOne">
+            <button class="btn btn--small" @click="back" v-if="!isFirstStep">
+              Anterior
+            </button>
+            <button class="btn btn--small" @click="next" v-if="!isLastStep">
+              Siguiente
+            </button>
+          </div>
         </div>
-      </div>
 
-      <div class="buttons">
-        <button class="btn btn--small" @click="back" v-if="!isFirstStep">
-          Anterior
-        </button>
-        <button class="btn btn--small" @click="next" v-if="!isLastStep">
-          Siguiente
-        </button>
+        <!------------Step 2---------->
+        <div
+          class="cardInfo"
+          :class="{ stepTwoShow: step.num === 2 }"
+          v-if="currentstep === step.num"
+        >
+          <div class="cardInfo__header">
+            <h1 class="step">{{ step.paso }}</h1>
+            <h3 class="name">{{ step.nombre }}</h3>
+          </div>
+          <div class="textIntro">
+            <p class="textIntro__text">{{ step.descripOne }}</p>
+          </div>
+          <div class="gridText">
+            <div class="gridText__top">
+              <p class="Left">{{ step.descripTwo }}</p>
+              <div class="line"></div>
+              <p class="Right">{{ step.descripThree }}</p>
+            </div>
+
+            <div class="gridText__center">
+              <p>
+                <strong>{{ step.descripSix }}</strong>
+              </p>
+            </div>
+
+            <div class="gridText__bottom">
+              <p class="Left">{{ step.descripFour }}</p>
+              <div class="line"></div>
+              <p class="Right">{{ step.descripFive }}</p>
+            </div>
+          </div>
+          <div class="buttons buttons--buttonTwo">
+            <button class="btn btn--small" @click="back" v-if="!isFirstStep">
+              Anterior
+            </button>
+            <button class="btn btn--small" @click="next" v-if="!isLastStep">
+              Siguiente
+            </button>
+          </div>
+        </div>
+
+        <!------------Step 3---------->
+        <div
+          class="cardInfo"
+          :class="{ stepThreeShow: step.num === 3 }"
+          v-if="currentstep === step.num"
+        >
+          <div class="cardInfo__header">
+            <h1 class="step">{{ step.paso }}</h1>
+            <h3 class="name">{{ step.nombre }}</h3>
+          </div>
+          <div class="textIntro">
+            <p class="textIntro__text">{{ step.descripOne }}</p>
+            <p class="textIntro__text">{{ step.descripTwo }}</p>
+          </div>
+
+          <div class="cardInfo__ejemplo">
+            <p>
+              <strong>{{ step.descripThree }}</strong>
+            </p>
+            <div class="ejemploInput">
+              <input
+                class="input input--desabled"
+                id="search"
+                placeholder="Confianza"
+              />
+              <button class="btn btn--disabled">Buscar</button>
+            </div>
+            <p>{{ step.descripFour }}</p>
+            <p>
+              <strong>{{ step.descripFive }}</strong>
+            </p>
+          </div>
+
+          <div class="buttons buttons--buttonThree">
+            <button class="btn btn--small" @click="back" v-if="!isFirstStep">
+              Anterior
+            </button>
+            <button class="btn btn--small" @click="next" v-if="!isLastStep">
+              Siguiente
+            </button>
+          </div>
+        </div>
+
+        <!------------Step 4---------->
+        <div
+          class="cardInfo"
+          :class="{ stepFourShow: step.num === 4 }"
+          v-if="currentstep === step.num"
+        >
+          <div class="cardInfo__header">
+            <h1 class="step">{{ step.paso }}</h1>
+            <h3 class="name">{{ step.nombre }}</h3>
+          </div>
+          <div class="textIntro">
+            <p class="textIntro__text">{{ step.descripOne }}</p>
+          </div>
+          <div class="cardInfo__ejemplo">
+            <p class="ejemploText">
+              <strong>{{ step.descripTwo }}</strong>
+            </p>
+            <p>{{ step.descripThree }}</p>
+            <p>
+              <strong>{{ step.descripFour }}</strong>
+            </p>
+          </div>
+          <div class="buttons buttons--buttonFour">
+            <button class="btn btn--small" @click="back" v-if="!isFirstStep">
+              Anterior
+            </button>
+            <button class="btn btn--small" @click="next" v-if="!isLastStep">
+              Siguiente
+            </button>
+          </div>
+        </div>
+
+         <!------------Step 5---------->
+         <div
+          class="cardInfo"
+          :class="{ stepFiveShow: step.num === 5 }"
+          v-if="currentstep === step.num"
+        >
+          <div class="cardInfo__header">
+            <h1 class="step">{{ step.paso }}</h1>
+            <h3 class="name">{{ step.nombre }}</h3>
+          </div>
+          <div class="textIntro">
+            <p class="textIntro__text">{{ step.descripOne }}</p>
+            <p class="textIntro__texts">{{step.descripTwo}}</p>
+            <button class="btn btn--disabled">Calcular</button>
+          </div>
+         
+          <div class="buttons buttons--buttonFive">
+            <button class="btn btn--small" @click="back" v-if="!isFirstStep">
+              Anterior
+            </button>
+            <button class="btn btn--small" @click="next" v-if="!isLastStep">
+              Siguiente
+            </button>
+          </div>
+        </div>
+
+        <!------------Step 6---------->
+        <div
+          class="cardInfo"
+          :class="{ stepSixShow: step.num === 6 }"
+          v-if="currentstep === step.num"
+        >
+          <div class="cardInfo__header">
+            <h1 class="step">{{ step.paso }}</h1>
+            <h3 class="name">{{ step.nombre }}</h3>
+          </div>
+          <div class="textIntro">
+            <p class="textIntro__text">{{ step.descripOne }}</p>
+          </div>
+         
+          <div class="buttons buttons--buttonSix">
+            <button class="btn btn--small" @click="back" v-if="!isFirstStep">
+              Anterior
+            </button>
+            <button class="btn btn--small" @click="next" v-if="!isLastStep">
+              Siguiente
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -206,11 +405,265 @@ export default {
     border-radius: 20px;
     width: 900px;
     height: 540px;
+    position: relative;
+
+    .cardInfo {
+      display: none;
+
+      .step {
+        font-size: 23px;
+        color: $Hint;
+        font-weight: 300;
+      }
+
+      .name {
+        font-size: $TitleSize;
+        color: $ThirdViolet;
+        font-weight: 700;
+      }
+
+      .descripOne {
+        color: $MainColorBlue;
+        font-size: $BodyTextSize;
+        margin-top: 80px;
+      }
+
+      .descripTwo {
+        color: $MainColorBlue;
+        font-size: $BodyTextSize;
+        margin-top: 20px;
+      }
+    }
+
+    .stepOneShow {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stepTwoShow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .cardInfo__header {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .textIntro {
+        display: flex;
+        justify-items: center;
+        margin-top: 20px;
+        width: 400px;
+        text-align: center;
+        color: $MainColorBlue;
+      }
+
+      .gridText {
+        margin-top: 20px;
+        color: $MainColorBlue;
+
+        &__top {
+          display: flex;
+          gap: 50px;
+        }
+
+        &__center {
+          display: flex;
+          justify-content: center;
+          margin: 10px 0px 20px 0px;
+        }
+
+        &__bottom {
+          display: flex;
+          text-align: center;
+          gap: 40px;
+        }
+
+        .Left {
+          width: 50%;
+        }
+        .Right {
+          width: 50%;
+        }
+
+        .line {
+          width: 2px;
+          height: 70px;
+          background-color: $SecondPink;
+        }
+      }
+    }
+
+    .stepThreeShow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        color: $MainColorBlue;
+      }
+
+      .cardInfo__header {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cardInfo {
+        &__ejemplo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border: 1px solid $SecondPink;
+          padding: 10px;
+          .ejemploInput {
+            input {
+              margin: 10px;
+            }
+          }
+        }
+      }
+
+      .textIntro {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        margin-top: 20px;
+        width: 450px;
+        text-align: center;
+
+        &__text {
+          margin-bottom: 20px;
+        }
+      }
+    }
+
+    .stepFourShow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        color: $MainColorBlue;
+        text-align: center;
+      }
+
+      .cardInfo__header {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .textIntro {
+        width: 580px;
+        margin: 70px 0px 20px 0px;
+      }
+      
+      .cardInfo__ejemplo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid $SecondPink;
+        padding: 10px;
+
+          .ejemploText {
+            margin-bottom: 10px;
+          }
+      }
+
+      
+    }
+
+    .stepFiveShow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        color: $MainColorBlue;
+        text-align: center;
+      }
+
+      .cardInfo__header {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .textIntro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 70px;
+        &__text {
+          width: 400px;
+          margin-bottom: 20px;
+        }
+        &__texts {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .stepSixShow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        color: $MainColorBlue;
+        text-align: center;
+      }
+
+      .cardInfo__header {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .textIntro {
+        width: 500px;
+        margin-top: 140px;
+      }      
+
+    }
 
     .buttons {
       display: flex;
       flex-direction: row;
+      justify-content: center;
       gap: 20px;
+
+      &--buttonOne {
+        margin-top: 140px;
+      }
+
+      &--buttonTwo {
+        margin-top: 30px;
+      }
+
+      &--buttonThree {
+        margin-top: 30px;
+      }
+
+      &--buttonFour {
+        margin-top: 74px;
+      }
+
+      &--buttonFive {
+        margin-top: 98px;
+      }
+
+      &--buttonSix {
+        margin-top: 122px;
+      }
     }
   }
 }
