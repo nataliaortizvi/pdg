@@ -28,6 +28,11 @@ export default {
     closeModal() {
       this.showModal = false;
     },
+
+    p() {
+      console.log(this.currentVariable.name);
+      console.log('route: '+ this.$route.params.varId);
+    }
   },
 
   computed: {
@@ -54,7 +59,7 @@ export default {
         id="search"
         placeholder="Escribe tu variable"
       />
-      <button class="btn --small --pink">Buscar</button>
+      <button class="btn --small --pink" @click="p">Buscar</button>
     </div>
   </section>
 
@@ -73,11 +78,9 @@ export default {
     </h2>
 
     <CardPaperSmall
-      v-for="variable in currentVariable"
-      :key="variable.name"
-      :papers="variable.papers"
+      :name="this.currentVariable.name"
+      :papers="this.currentVariable.papers"
     >
-    {{variable.name}}
   </CardPaperSmall>
   </section>
 </template>
