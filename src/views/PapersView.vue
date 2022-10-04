@@ -91,7 +91,7 @@ export default {
     </div>
 
     <p class="titlesStyle titleResultsFind">
-      <span class="resultsNumber">0</span> Resultados encontrados
+      <span class="resultsNumber">3</span> Resultados encontrados
     </p>
 
     <h2 class="titlesStyle --blue titleFind">

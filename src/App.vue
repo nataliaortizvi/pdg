@@ -47,7 +47,7 @@ export default {
 
 
 <template>
-  <!--------------------------GLOBAL HEADER---------------------->
+  <!-----------------------GLOBAL HEADER--------------------->
   <header id="navbar" :class="{ onScroll: !view.topOfPage }">
     <h1 class="logo">ValiData</h1>
     <nav>
