@@ -47,7 +47,7 @@ export default {
   width: auto;
   height: auto;
   border-radius: 20px;
-  background: $Background;
+  background: $White;
   position: relative;
   justify-content: center;
   padding: 30px;

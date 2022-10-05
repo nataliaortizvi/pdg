@@ -31,12 +31,18 @@ export default {
   background-color: $White;
   border-radius: 20px;
   box-shadow: 0px 5px 10px 1px rgb(216, 216, 216);
-  margin: 30px 40px;
+  margin: 30px 150px;
   display: flex;
   flex-direction: column;
   padding: 20px;
   color: $MainColorBlue;
   position: relative;
+
+  transition: 0.2s linear;
+  
+  &:hover {
+    transform: scale(1.03);
+  }
 
 
   .titleTxt {

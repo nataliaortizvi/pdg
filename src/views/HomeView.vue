@@ -87,7 +87,7 @@ export default {
   width: 100%;
   display: flex;
   align-items: center;
-  height: 507px;
+  height: 450px;
   background-color: rgba(24, 29, 61, 0.5);
 
   .banner__img {
@@ -95,6 +95,8 @@ export default {
     position: absolute;
     top: 232px;
     z-index: -5;
+    width: 100%;
+    height: 450px;
   }
 
   .banner__text {

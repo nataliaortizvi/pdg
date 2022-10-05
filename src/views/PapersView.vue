@@ -17,6 +17,7 @@ export default {
     return {
       showModal: false,
       currentVariable: {},
+      resultsNumber: "...",
     };
   },
 
@@ -29,10 +30,6 @@ export default {
       this.showModal = false;
     },
 
-    p() {
-      console.log(this.currentVariable.name);
-      console.log("route: " + this.$route.params.varId);
-    },
   },
 
   computed: {
@@ -50,6 +47,8 @@ export default {
     if (this.currentVariable.name === undefined) {
       console.log("returnnnnn");
       this.showModal = true;
+    }else{
+      this.resultsNumber = this.currentVariable.papers.length;
     }
   },
 };
@@ -80,7 +79,7 @@ export default {
         id="search"
         placeholder="Escribe tu variable"
       />
-      <button class="btn --small --pink" @click="p">Buscar</button>
+      <button class="btn --small --pink">Buscar</button>
     </div>
   </section>
 
@@ -90,15 +89,14 @@ export default {
       <h2 class="titlesStyle --pink">Resultados</h2>
     </div>
 
-    <p class="titlesStyle titleResultsFind">
-      <span class="resultsNumber">3</span> Resultados encontrados
+    <p class="titlesStyle titleResultsFind">{{this.resultsNumber}} Resultados encontrados
     </p>
 
     <h2 class="titlesStyle --blue titleFind">
-      Encontramos 3 formas para medir la Confianza
+      Encontramos {{this.resultsNumber}} formas para medir la Confianza
     </h2>
 
-    <CardPaperSmall
+    <CardPaperSmall class="cardItem"
       :name="this.currentVariable.name"
       :papers="this.currentVariable.papers"
     >
@@ -142,7 +140,7 @@ export default {
 .results {
   width: 100vw;
   height: 100vh;
-  padding: 30px 30px;
+  padding: 30px 50px;
 
   div {
     display: flex;
@@ -155,6 +153,8 @@ export default {
       width: 30px;
       height: 30px;
     }
+
+  
   }
 
   .titleResultsFind {
@@ -167,7 +167,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding: 10px 470px;
+    padding: 10px 370px;
   }
 }
 .searcher {

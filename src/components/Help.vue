@@ -333,18 +333,18 @@ export default {
     //background-color: rgb(150, 212, 238);
 
     .stillBar {
-      height: 540px;
+      height: 490px;
       width: 2px;
       margin-top: 5px;
-      margin-left: 24px;
+      margin-left: 25px;
       position: absolute;
-      background-color: rgb(178, 178, 178);
+      background-color: rgb(209, 209, 209);
     }
 
     .progressCircles {
       display: flex;
       flex-direction: column;
-      gap: 50px;
+      gap: 40px;
 
       .circle {
         height: 50px;
@@ -352,11 +352,11 @@ export default {
         border-radius: 50px;
         border-style: solid;
         border-width: 2px;
-        border-color: rgb(178, 178, 178);
+        border-color: rgb(209, 209, 209);
         transition: all 0.3s ease-in-out 0.4s;
         background-color: $Background;
         z-index: 10;
-        color: rgb(178, 178, 178);
+        color: rgb(209, 209, 209);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -381,7 +381,7 @@ export default {
       position: absolute;
       border-radius: 50px;
       margin-top: 5px;
-      margin-left: 24px;
+      margin-left: 25px;
 
       .animatedBar {
         width: 2px;
@@ -389,7 +389,7 @@ export default {
         transition: all 0.5s ease-in-out 0.1s;
       }
       .activeBar {
-        height: 100px;
+        height: 90px;
         background-color: $ThirdViolet;
       }
     }
@@ -399,11 +399,11 @@ export default {
     display: flex;
     flex-direction: column;
     margin: 0px 20px;
-    padding: 50px;
+    padding: 35px 50px;
     background-color: $White;
     border-radius: 20px;
     width: 900px;
-    height: 540px;
+    height: 490px;
     position: relative;
 
     .cardInfo {
@@ -522,6 +522,7 @@ export default {
           .ejemploInput {
             input {
               margin: 10px;
+              width: 350px;
             }
 
             ::placeholder {
@@ -563,7 +564,7 @@ export default {
       }
 
       .textIntro {
-        width: 580px;
+        width: auto;
         margin: 70px 0px 20px 0px;
       }
       

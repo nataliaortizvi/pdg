@@ -62,7 +62,7 @@ export default {
   </header>
 
   <button class="btn helpBtn" @click="openModal">?</button>
-  <Modal :showButton="true" v-if="showModal" @close="closeModal" class="modal">
+  <Modal :showButton="true" v-if="showModal" @close="closeModal">
     <Help class="helper"></Help>
   </Modal>
 
@@ -91,13 +91,9 @@ export default {
   color: $MainColorBlue;
 }
 
-.modal {
-  height: 80%;
-  width: 80vw;
-
-  .helper {
-    height: 100%;
-    width: 100%;
-  }
+.helper {
+  height: 80vh;
+  width: 800px;
 }
+
 </style>
