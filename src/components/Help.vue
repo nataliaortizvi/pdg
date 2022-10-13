@@ -9,9 +9,12 @@ export default {
           paso: "Paso 1",
           nombre: "Hipótesis",
           descripOne:
-            "Antes de iniciar debes saber que todos los proyectos de investigación necesitan una hipótesis que debe ser comprobada.",
+            "Antes de iniciar debes saber que todos los proyectos de investigación en áreas creativas también necesitan una hipótesis que debe ser comprobada.",
           descripTwo:
             "Esta hipótesis debe tener al menos una variable que es la que necesitas medir.",
+          descripThree: 'Ejemplo',
+          descripFour: 'Hipotesis: Mientras más alta este del suelo una manzana, su velocidad de caida es mayor.', 
+          descripFive: 'Variable: Velocidad',
         },
         {
           num: 2,
@@ -23,8 +26,8 @@ export default {
             "La hipotesis alternativa es el enunciado de lo que quieres afirmar o demostrar con la validación.",
           descripThree:
             "La hipótesis nula es lo contrario a la hipótesis alternartiva",
-          descripFour: "Las manzana caen del árbol  debido a la gravedad.",
-          descripFive: "Las manzanas NO caen del arból debido a la gravedad",
+          descripFour: "Las manzana caen del árbol más rápido si estan más altas.",
+          descripFive: "Las manzanas NO caen del árbol más rápido su estan más altas",
           descripSix: "Ejemplo",
         },
         {
@@ -35,9 +38,9 @@ export default {
             "Cuando tengas esto definido, podrás buscar en la barra de busqueda de Validata la variable que necesitas medir",
           descripTwo: "Así conocerás diferentes formas de medir esa variable",
           descripThree: "Ejemplo",
-          descripFour: "La confianza se puede medir por la confiabilidad:",
+          descripFour: "La velocidad es el cambio de posición dividido el tiempo",
           descripFive:
-            "Confiabilidad = capacidades + benevolencia + integridad",
+            "Velocidad: cambio de posición / tiempo",
         },
         {
           num: 4,
@@ -47,7 +50,7 @@ export default {
             "Validata te mostrará cuál será el mejor tipo de análisis para validar la hipótesis y así puedas desarrollar el expriemento y obtener los datos a analizar.",
           descripTwo: "Ejemplo",
           descripThree:
-            "Para analizar 2 grupos con igual cantidad de elementos usa:",
+            "Puedes hacer un Paired T-test con dos grupos de igual cantidad de manzanas, uno que esta más alto que el otro y recolectar los datos con cada uno",
           descripFour: "Paired T-test",
         },
         {
@@ -134,6 +137,11 @@ export default {
           <div class="cardInfo__descrip">
             <p class="descripOne">{{ step.descripOne }}</p>
             <p class="descripTwo">{{ step.descripTwo }}</p>
+            <div class="cardInfo__ejemploOne">
+              <strong><p class="descripThree">{{ step.descripThree}}</p></strong>
+              <p>{{ step.descripFour}}</p>
+              <p> {{step.descripFive}} </p>
+            </div>
           </div>
           <div class="buttons buttons--buttonOne">
             <button class="btn btn--small" @click="back" v-if="!isFirstStep">
@@ -210,7 +218,7 @@ export default {
               <input
                 class="input input--desabled"
                 id="search"
-                placeholder="Confianza"
+                placeholder="Velocidad"
               />
               <button class="btn btn--disabled">Buscar</button>
             </div>
@@ -247,10 +255,10 @@ export default {
             <p class="ejemploText">
               <strong>{{ step.descripTwo }}</strong>
             </p>
-            <p>{{ step.descripThree }}</p>
             <p>
               <strong>{{ step.descripFour }}</strong>
             </p>
+            <p>{{ step.descripThree }}</p>
           </div>
           <div class="buttons buttons--buttonFour">
             <button class="btn btn--small" @click="back" v-if="!isFirstStep">
@@ -421,16 +429,26 @@ export default {
         font-weight: 700;
       }
 
+      
       .descripOne {
         color: $MainColorBlue;
         font-size: $BodyTextSize;
-        margin-top: 80px;
+        margin-top: 50px;
       }
 
       .descripTwo {
         color: $MainColorBlue;
         font-size: $BodyTextSize;
         margin-top: 20px;
+      }
+
+      .cardInfo__ejemploOne {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid $SecondPink;
+        padding: 10px;
+        margin-top: 30px;
       }
     }
 
@@ -646,7 +664,7 @@ export default {
       gap: 20px;
 
       &--buttonOne {
-        margin-top: 140px;
+        margin-top: 50px;
       }
 
       &--buttonTwo {
@@ -658,7 +676,7 @@ export default {
       }
 
       &--buttonFour {
-        margin-top: 74px;
+        margin-top: 52px;
       }
 
       &--buttonFive {

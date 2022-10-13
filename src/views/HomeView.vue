@@ -119,7 +119,7 @@ export default {
   &__titleTwo {
     font-family: $MainTypo;
     font-weight: 700;
-    font-size: 51px;
+    font-size: $TitleSize;
     color: $SecondPink;
   }
 }

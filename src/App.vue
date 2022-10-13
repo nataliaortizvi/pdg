@@ -52,12 +52,8 @@ export default {
     <h1 class="logo">ValiData</h1>
     <nav>
       <RouterLink to="/" id="linkss" class="link">Home</RouterLink>
-      <RouterLink to="/analisis" id="linkss" class="link"
-        >Tipos de análisis</RouterLink
-      >
-      <RouterLink to="/calculadora" id="linkss" class="link"
-        >Calculadora</RouterLink
-      >
+      <RouterLink to="/analisis" id="linkss" class="link">Tipos de análisis</RouterLink>
+      <RouterLink to="/calculadora" id="linkss" class="link">Calculadora</RouterLink>
     </nav>
   </header>
 
@@ -67,7 +63,21 @@ export default {
   </Modal>
 
   <!------------------------BODY------------------------->
+  <!-----------------------FOOTER------------------------>
   <RouterView />
+  <footer>
+    <div class="footer">
+      <h1 class="logo logoFooter">ValiData</h1>
+      <div class="footer__links">
+        <RouterLink to="/" id="linkss" class="linkWhite">Home</RouterLink>
+        <RouterLink to="/analisis" id="linkss" class="linkWhite">Tipos de análisis</RouterLink>
+        <RouterLink to="/calculadora" id="linkss" class="linkWhite">Calculadora</RouterLink>
+      </div>
+      <div class="footer__CR"> 
+        <p class="copyright">Validata Digital Library designed. Copyright © 2022 Validata</p>
+      </div>
+    </div>
+  </footer>
 </template>
 
 
@@ -96,4 +106,39 @@ export default {
   width: 800px;
 }
 
+.footer {
+  background-color: $MainColorBlue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .logoFooter {
+    margin-top: 30px;
+  }
+  &__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0px;
+
+    .linkWhite {
+      color: $White;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__CR {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100vw;
+    margin-bottom: 30px;
+
+    .copyright {
+      color: $White;
+      margin-left: 25px;
+      font-size: 13px;
+    }
+  }
+}
 </style>

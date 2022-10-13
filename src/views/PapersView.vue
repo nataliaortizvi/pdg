@@ -15,19 +15,17 @@ export default {
 
   data() {
     return {
-      showModal: false,
+      showModalNotFound: false,
       currentVariable: {},
       resultsNumber: "...",
     };
   },
 
   methods: {
-    openModal() {
-      this.showModal = true;
-    },
 
-    closeModal() {
-      this.showModal = false;
+    //modal not found
+    closeModalNotFound() {
+      this.showModalNotFound = false;
     },
 
   },
@@ -46,7 +44,7 @@ export default {
 
     if (this.currentVariable.name === undefined) {
       console.log("returnnnnn");
-      this.showModal = true;
+      this.showModalNotFound = true;
     }else{
       this.resultsNumber = this.currentVariable.papers.length;
     }
@@ -55,7 +53,7 @@ export default {
 </script>
 
 <template>
-  <Modal :showButton="false" v-if="showModal" @close="closeModal" class="modal">
+  <Modal :showButton="false" v-if="showModalNotFound" @close="closeModalNotFound" class="modal">
     <div class="modalInfo">
       <h2>Ups! La variable que ingresaste no se encuentra.</h2>
       <p>
@@ -93,7 +91,7 @@ export default {
     </p>
 
     <h2 class="titlesStyle --blue titleFind">
-      Encontramos {{this.resultsNumber}} formas para medir la Confianza
+      Encontramos {{this.resultsNumber}} formas para medir {{this.currentVariable.name}}
     </h2>
 
     <CardPaperSmall class="cardItem"
