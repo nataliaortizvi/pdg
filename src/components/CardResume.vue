@@ -11,18 +11,16 @@ export default {
         context: String,
   },
 
-  methods: {
-    prueba() {
-      console.log(this.title)
-    },
-  },
 };
 </script>
 
 <template>
     <h1>{{this.title}}</h1>
-    <h1>hola</h1>
-    <button @click="pruebaa">prueba</button>
+    <b>{{this.definition}}</b>
+    <b>{{this.requirements}}</b>
+    <b>{{this.formula}}</b>
+    <b>{{this.definitionFormula}}</b>
+    <b>{{this.context}}</b>
 </template>
 
 <style>
