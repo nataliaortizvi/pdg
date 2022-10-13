@@ -18,14 +18,18 @@ export default {
       showModalNotFound: false,
       currentVariable: {},
       resultsNumber: "...",
+      searchInput: "",
     };
   },
 
   methods: {
-
     //modal not found
     closeModalNotFound() {
       this.showModalNotFound = false;
+    },
+
+    p() {
+      location.reload();
     },
 
   },
@@ -47,7 +51,21 @@ export default {
       this.showModalNotFound = true;
     }else{
       this.resultsNumber = this.currentVariable.papers.length;
-    }
+    };
+  },
+
+  updated() {
+    this.currentVariable = this.variablesStore.getVariableById(
+      this.$route.params.varId
+    );
+
+    if (this.currentVariable.name === undefined) {
+      console.log("returnnnnn");
+      this.showModalNotFound = true;
+    }else{
+      this.resultsNumber = this.currentVariable.papers.length;
+    };
+    
   },
 };
 </script>
@@ -76,8 +94,16 @@ export default {
         class="input input--variable"
         id="search"
         placeholder="Escribe tu variable"
+        v-model="this.searchInput"
       />
-      <button class="btn --small --pink">Buscar</button>
+      <RouterLink :key="this.searchInput" :to="`/papers/${this.searchInput}`">
+        <button class="btn --small --pink"  @click="
+          () => {
+            this.searchInput = ''
+          }
+        ">Buscar</button>
+      </RouterLink>
+
     </div>
   </section>
 
