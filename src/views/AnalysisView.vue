@@ -29,7 +29,7 @@ export default {
   },
 
   mounted() {
-    this.currentAnalisis = this.analisisStore.getAnalisis;
+    this.currentAnalisis = this.analisisStore.getAnalisis[0];
   },
 };
 </script>
@@ -52,7 +52,7 @@ export default {
       <h2 class="titlesStyle --pink">Análisis de grupos</h2>
       <div class="cardSection">
         <CardAnalisisSmall
-        :tiposAnalisis="this.currentAnalisis[0].grupoDeAnalisis"
+        :tiposAnalisis="this.currentAnalisis.grupoDeAnalisis"
         > </CardAnalisisSmall>
       </div>
     </div>
@@ -62,7 +62,7 @@ export default {
       <p>La correlación es útil para describir relaciones entre datos variables.<br> <strong>Por ejemplo: </strong>las horas que se dedican a estudiar una asignatura y la calificación obtenida en el examen correspondiente</p>
       <div class="cardSection">
         <CardAnalisisSmall
-        :tiposAnalisis="this.currentAnalisis[0].coorelacion"
+        :tiposAnalisis="this.currentAnalisis.correlacion"
         > </CardAnalisisSmall>
       </div>
     </div>
