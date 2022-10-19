@@ -28,13 +28,13 @@ export default {
                 <div class="requirementsText__hereIsTheFormula">
                     <strong>
                         <ul>
-                            <li>Entendieno esta definición,</li>
+                            <li>Entendiendo esta definición,</li>
                             <li class="important2">aquí te presentamos la formula:</li>
                         </ul>
                     </strong>
                 </div>
             </div>
-            <img class="imgDefinition" src="../../dist/imgs/trust.png">
+            <img class="imgDefinition" src="../../public/imgs/trust.png">
         </div>  
         <div class="resume__formula">
             <strong><p>{{this.formula}}</p></strong>

@@ -1,19 +1,18 @@
 <script>
 //js
 import Modal from "../components/Modal.vue";
-import CardResume from "../components/CardResume.vue";
+import CardPaperBig from "../components/CardPaperBig.vue";
 
 export default {
   components: {
     Modal,
-    CardResume,
+    CardPaperBig,
   },
 
   data() {
     return {
       showModalResume: false,
       currentResume: {},
-      //currentPosition,
     };
   },
 
@@ -60,7 +59,7 @@ export default {
     v-if="this.showModalResume"
     @close="closeModalResume"
   >
-    <CardResume
+    <CardPaperBig
       :title="this.currentResume[0].title"
       :definition="this.currentResume[0].definition"
       :requirements="this.currentResume[0].requirements"
@@ -68,7 +67,7 @@ export default {
       :definitionFormula="this.currentResume[0].definitionFormula"
       :context="this.currentResume[0].context"
     >
-    </CardResume>
+    </CardPaperBig>
   </Modal>
 
   <section

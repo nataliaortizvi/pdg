@@ -27,11 +27,6 @@ export default {
     closeModalNotFound() {
       this.showModalNotFound = false;
     },
-
-    p() {
-      location.reload();
-    },
-
   },
 
   computed: {
@@ -49,9 +44,9 @@ export default {
     if (this.currentVariable.name === undefined) {
       console.log("returnnnnn");
       this.showModalNotFound = true;
-    }else{
+    } else {
       this.resultsNumber = this.currentVariable.papers.length;
-    };
+    }
   },
 
   updated() {
@@ -62,16 +57,20 @@ export default {
     if (this.currentVariable.name === undefined) {
       console.log("returnnnnn");
       this.showModalNotFound = true;
-    }else{
+    } else {
       this.resultsNumber = this.currentVariable.papers.length;
-    };
-    
+    }
   },
 };
 </script>
 
 <template>
-  <Modal :showButton="false" v-if="showModalNotFound" @close="closeModalNotFound" class="modal">
+  <Modal
+    :showButton="false"
+    v-if="showModalNotFound"
+    @close="closeModalNotFound"
+    class="modal"
+  >
     <div class="modalInfo">
       <h2>Ups! La variable que ingresaste no se encuentra.</h2>
       <p>
@@ -97,13 +96,17 @@ export default {
         v-model="this.searchInput"
       />
       <RouterLink :key="this.searchInput" :to="`/papers/${this.searchInput}`">
-        <button class="btn --small --pink"  @click="
-          () => {
-            this.searchInput = ''
-          }
-        ">Buscar</button>
+        <button
+          class="btn --small --pink"
+          @click="
+            () => {
+              this.searchInput = '';
+            }
+          "
+        >
+          Buscar
+        </button>
       </RouterLink>
-
     </div>
   </section>
 
@@ -113,14 +116,17 @@ export default {
       <h2 class="titlesStyle --pink">Resultados</h2>
     </div>
 
-    <p class="titlesStyle titleResultsFind">{{this.resultsNumber}} Resultados encontrados
+    <p class="titlesStyle titleResultsFind">
+      {{ this.resultsNumber }} Resultados encontrados
     </p>
 
     <h2 class="titlesStyle --blue titleFind">
-      Encontramos {{this.resultsNumber}} formas para medir {{this.currentVariable.name}}
+      Encontramos {{ this.resultsNumber }} formas para medir
+      {{ this.currentVariable.name }}
     </h2>
 
-    <CardPaperSmall class="cardItem"
+    <CardPaperSmall
+      class="cardItem"
       :name="this.currentVariable.name"
       :papers="this.currentVariable.papers"
     >
@@ -137,8 +143,8 @@ export default {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding:30px;
-  
+    padding: 30px;
+
     h2 {
       color: $SecondPink;
       font-size: $TitleSize;
@@ -158,7 +164,6 @@ export default {
       margin-right: 20px;
     }
   }
-
 }
 .results {
   width: 100vw;
@@ -175,8 +180,6 @@ export default {
       width: 30px;
       height: 30px;
     }
-
-  
   }
 
   .titleResultsFind {
@@ -224,4 +227,5 @@ export default {
     }
   }
 }
+
 </style>
