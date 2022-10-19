@@ -24,7 +24,7 @@ export default {
   props: {
     tiposAnalisis: {
       type: Array,
-      default: () => ["img", "title", "descrip", "what", "how"],
+      default: () => ["img", "title", "descrip", "what"],
     },
   },
 };
