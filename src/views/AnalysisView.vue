@@ -28,7 +28,7 @@ export default {
   <section class="allAnalisis">
     <div class="allAnalisis__header">
       <div class="header__title">
-        <img src="../../dist/icons/analisis.svg" />
+        <img src="../../public/icons/analisis.svg" />
         <h2 class="titlesStyle --pink">Tipos de análisis</h2>
       </div>
       <p class="header__description">
