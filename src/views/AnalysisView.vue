@@ -50,6 +50,7 @@ export default {
 
     <div class="groupAnalisis">
       <h2 class="titlesStyle --pink">Análisis de grupos</h2>
+      <p>Análisis de grupos o agrupamiento es la tarea de agrupar objetos por similitud, en grupos o conjuntos de manera que los miembros del mismo grupo tengan características similares.</p>
       <div class="cardSection">
         <CardAnalisisSmall
         :tiposAnalisis="this.currentAnalisis.grupoDeAnalisis"
@@ -100,12 +101,21 @@ export default {
   }
 
   .groupAnalisis {
-    margin: 50px 0px;
+    margin: 30px 0px;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+    }
+    p {
+      width: 800px;
+    }
 
     .cardSection {
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: center;
+      gap:50px;
       padding: 0px 50px;
     }
   }
