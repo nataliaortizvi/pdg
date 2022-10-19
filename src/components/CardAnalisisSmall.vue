@@ -23,8 +23,8 @@ export default {
   },
 
   methods: {
-     //modal analisis full
-     openModalResume(analisisSelect) {
+    //modal analisis full
+    openModalAnalisis(analisisSelect) {
       this.showModalAnalisis = true;
 
       this.currentAnalisis = this.tiposAnalisis.filter(
@@ -32,7 +32,7 @@ export default {
       );
     },
 
-    closeModalResume() {
+    closeModalAnalisis() {
       this.showModalResume = false;
     },
   },
@@ -40,11 +40,31 @@ export default {
 </script>
 
 <template>
+  <Modal
+    class="modalAnalisis"
+    :showButton="true"
+    v-if="this.showModalAnalisis"
+    @close="closeModalAnalisis"
+  >
+    <CardAnalisisBig
+      :title="this.currentResume[0].title"
+      :img="this.currentResume[0].img"
+      :descrip="this.currentResume[0].descrip"
+      :what="this.currentResume[0].what"
+      :how="this.currentResume[0].how"
+    >
+    </CardAnalisisBig>
+  </Modal>
+
   <div
     class="cardContainerAnalisis"
     v-for="cadaTipoAnalisis in this.tiposAnalisis"
     :key="cadaTipoAnalisis.title"
-    @click="prueba"
+    @click="
+      () => {
+        openModalResume(paper.title);
+      }
+    "
   >
     <div class="cardContainerAnalisis__line"></div>
     <img :src="cadaTipoAnalisis.img" />
