@@ -6,15 +6,16 @@ components: {
     Modal,
 },
 
+methods: {
+  prueba () {
+    console.log(this.tiposAnalisis.grupoDeAnalisis);
+  }
+},
+
 props: {
-    name: String,
     tiposAnalisis: {
         type: Array,
-        default: ()=> [
-            "img",
-            "title",
-            "descrip",
-        ],
+        default: ()=> ["img", "title", "descrip",],
     },
 },
 }
@@ -23,13 +24,13 @@ props: {
 <template>
   <div 
   class="cardContainerAnalisis"
-  v-for="tipoAnalisiss in tiposAnalisis"
-  :key="tipoAnalisiss.title">
+  v-for="cadaTipoAnalisis in this.tiposAnalisis.grupoDeAnalisis"
+  :key="cadaTipoAnalisis.title" @click="prueba">
         <div class="cardContainerAnalisis__line"></div>
-        <img src="{{analisiss.img}}" >
+        <img :src=cadaTipoAnalisis.img>
         <div class="cardContainerAnalisis__title">
-          <h2>{{tipoAnalisiss.title}}</h2>
-          <p>{{tipoAnalisiss.descrip}}</p>
+          <h2>{{cadaTipoAnalisis.title}}</h2>
+          <p>{{cadaTipoAnalisis.descrip}}</p>
         </div>
       </div>
 </template>

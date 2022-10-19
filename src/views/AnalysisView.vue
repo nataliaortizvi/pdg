@@ -1,5 +1,5 @@
 <script>
-import CardAnalisisSmall from "../components/CardAnalisisSmall.vue"
+import CardAnalisisSmall from "../components/CardAnalisisSmall.vue";
 
 import { mapStores } from "pinia";
 import { useAnalisisStore } from "../stores/tiposAnalisis";
@@ -9,19 +9,29 @@ export default {
     CardAnalisisSmall,
   },
 
-  data () {
+  data() {
     return {
       currentAnalisis: {},
-    }
+    };
+  },
+
+  methods: {
+    prueba2() {
+      console.log(this.currentAnalisis);
+    },
   },
 
   computed: {
     ...mapStores(useAnalisisStore),
-    allAnalisiss() {
-      return this.analisisStore.getAnalisiss;
-    }
-  }
-}
+    allAnalisis() {
+      return this.analisisStore.getAnalisis;
+    },
+  },
+
+  mounted() {
+    this.currentAnalisis = this.analisisStore.getAnalisis;
+  },
+};
 </script>
 
 <template>
@@ -31,7 +41,7 @@ export default {
         <img src="../../public/icons/analisis.svg" />
         <h2 class="titlesStyle --pink">Tipos de análisis</h2>
       </div>
-      <p class="header__description">
+      <p class="header__description" @click="prueba2">
         En este paso, debes definir tu muestra, cuál es el análisis para validar
         hipótesis que mejor te funciona.
         <strong>¡Vamos a ver cuáles hay!</strong>
@@ -42,23 +52,21 @@ export default {
       <h2 class="titlesStyle --pink">Análisis de grupos</h2>
       <div class="cardSection">
         <CardAnalisisSmall
-        :name="this.currentAnalisis.name"
-        :tiposAnalisis="this.currentAnalisis.tiposAnalisis"
-        >
-        </CardAnalisisSmall>
+        :tiposAnalisis="this.currentAnalisis[0]"
+        > </CardAnalisisSmall>
       </div>
     </div>
 
-    <div class="correlacionanalisis">
+    <div class="correlacionAnalisis">
       <h2 class="titlesStyle --pink">Correlación</h2>
+      <p>La correlación es útil para describir relaciones entre datos variables.<br> <strong>Por ejemplo: </strong>las horas que se dedican a estudiar una asignatura y la calificación obtenida en el examen correspondiente</p>
+      <div class="cardSection">
+        <CardAnalisisSmall
+        :tiposAnalisis="this.currentAnalisis[0]"
+        > </CardAnalisisSmall>
+      </div>
     </div>
 
-    <!--<CardPaperSmall
-      class="cardItem"
-      :name="this.currentVariable.name"
-      :papers="this.currentVariable.papers"
-    >
-    </CardPaperSmall>-->
   </section>
 </template>
 
@@ -70,10 +78,10 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding:30px;
+  padding: 30px;
   color: $MainColorBlue;
 
-  &__header{
+  &__header {
     .header__title {
       display: flex;
       flex-direction: row;
@@ -87,12 +95,12 @@ export default {
       }
     }
     .header__description {
-      width: 600px;;
+      width: 600px;
     }
   }
 
   .groupAnalisis {
-    margin-top: 50px;
+    margin: 50px 0px;
 
     .cardSection {
       display: flex;
@@ -100,9 +108,6 @@ export default {
       justify-content: space-around;
       padding: 0px 50px;
     }
-    
-    
   }
-
 }
 </style>

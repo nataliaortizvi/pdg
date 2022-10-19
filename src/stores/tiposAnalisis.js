@@ -1,42 +1,52 @@
 import { defineStore } from "pinia";
 ///// OPTIONS STORE
-export const useAnalisisStore = defineStore("analisiss", {
+export const useAnalisisStore = defineStore("analisis", {
     state: () => ({
-        analisiss: [
+        analisis: [
             {
-                name: 'analisisDeGrupo',
-                tiposAnalisis: [
+                grupoDeAnalisis: [
                     {
-                        img: '../../dist/imgs/paired.png',
+                        img: '../../public/imgs/paired.png',
                         title: 'Paired T-test',
-                        descrip: '2 grupos con <strong>igual cantida </strong>de elementos'
+                        descrip: '2 grupos con igual cantida de elementos'
                     },
                     {
-                        img: '../../dist/imgs/paired.png',
+                        img: '../../public/imgs/unpaired.png',
                         title: 'Unpaired T-test',
-                        descrip: '2 grupos con <strong>diferente cantida </strong>de elementos'
+                        descrip: '2 grupos con diferente cantida de elementos'
                     },
                     {
-                        img: '../../dist/imgs/paired.png',
+                        img: '../../public/imgs/anova.png',
                         title: 'ANOVA + Post Hoc Test',
-                        descrip: '3 grupos <strong>indiferente la cantida </strong>de elementos'
+                        descrip: '3 grupos indiferente la cantida de elementos'
                     },
                 ],
-                
+                correlacion: [
+                    {
+                        img: '../../public/imgs/paired.png',
+                        title: 'Spearman',
+                        descrip: '2 grupos con igual cantida de elementos'
+                    },
+                    {
+                        img: '../../public/imgs/paired.png',
+                        title: 'Pearson',
+                        descrip: '2 grupos con diferente cantida de elementos'
+                    },
+                ],
             },
         ],
     }),
     getters: {
-        getAnalisiss: (state) => [...state.analisiss],
+        getAnalisis: (state) => [...state.analisis],
 
     },
     actions: {
         newAnalisis(analisis) {
-            this.analisiss.push(analisis);
+            this.analisis.push(analisis);
         },
         getAnalisisById(id) {
-            const filteredAnalisiss = this.analisiss.filter((analisis) => id.toLowerCase().replace(/ /g, "") === analisis.name.toLowerCase().toLowerCase().replace(/ /g, ""));
-            return filteredAnalisiss ? { ...filteredAnalisiss[0] } : null
+            const filteredAnalisis = this.analisis.filter((OneAnalisis) => id.toLowerCase().replace(/ /g, "") === OneAnalisis.name.toLowerCase().toLowerCase().replace(/ /g, ""));
+            return filteredAnalisis ? { ...filteredAnalisis[0] } : null
         }
     },
 });
