@@ -3,7 +3,7 @@
 
 <template>
   <section>
-    <h1>Calculadora</h1>
+    <h1>Comunidad</h1>
     <section class="calculator">
 
     </section>

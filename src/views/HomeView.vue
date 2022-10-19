@@ -56,13 +56,14 @@ export default {
 .searcher {
   padding: 100px 30px 50px 30px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 
   .titleVar {
-    width: 400px;
+    width: auto;
+    margin-bottom: 20px;
   }
 
   .rightItems {
@@ -93,7 +94,7 @@ export default {
   .banner__img {
     display: flex;
     position: absolute;
-    top: 232px;
+    top: 253px;
     z-index: -5;
     width: 100%;
     height: 450px;

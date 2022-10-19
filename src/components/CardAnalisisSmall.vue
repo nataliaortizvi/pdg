@@ -33,7 +33,7 @@ export default {
 <template>
   <div
     class="cardContainerAnalisis"
-    v-for="cadaTipoAnalisis in this.tiposAnalisis.grupoDeAnalisis"
+    v-for="cadaTipoAnalisis in this.tiposAnalisis"
     :key="cadaTipoAnalisis.title"
     @click="prueba"
   >

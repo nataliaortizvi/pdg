@@ -59,8 +59,10 @@ export default {
         </div>
         <div class="resume__btns">
             <button class="btn --pink">Ver ejemplo</button>
-            <button class="btn --pink">Ir a tipos de análisis</button>
-            <a href="#">Leer artículo completo</a>
+            <RouterLink to="/analisis">
+                <button class="btn --pink">Ir a tipos de análisis</button>
+            </RouterLink>
+            <a href="https://www.interaction-design.org/literature/article/trust-building-the-bridge-to-our-users" target="_blank">Leer artículo completo</a>
         </div>
         
     </section>

@@ -53,7 +53,7 @@ export default {
     <nav>
       <RouterLink to="/" id="linkss" class="link">Home</RouterLink>
       <RouterLink to="/analisis" id="linkss" class="link">Tipos de análisis</RouterLink>
-      <RouterLink to="/calculadora" id="linkss" class="link">Calculadora</RouterLink>
+      <RouterLink to="/comunidad" id="linkss" class="link">Comunidad</RouterLink>
     </nav>
   </header>
 

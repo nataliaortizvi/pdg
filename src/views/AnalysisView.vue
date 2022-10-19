@@ -52,17 +52,17 @@ export default {
       <h2 class="titlesStyle --pink">Análisis de grupos</h2>
       <div class="cardSection">
         <CardAnalisisSmall
-        :tiposAnalisis="this.currentAnalisis[0]"
+        :tiposAnalisis="this.currentAnalisis[0].grupoDeAnalisis"
         > </CardAnalisisSmall>
       </div>
     </div>
 
-    <div class="correlacionAnalisis">
+    <div class="groupAnalisis">
       <h2 class="titlesStyle --pink">Correlación</h2>
       <p>La correlación es útil para describir relaciones entre datos variables.<br> <strong>Por ejemplo: </strong>las horas que se dedican a estudiar una asignatura y la calificación obtenida en el examen correspondiente</p>
       <div class="cardSection">
         <CardAnalisisSmall
-        :tiposAnalisis="this.currentAnalisis[0]"
+        :tiposAnalisis="this.currentAnalisis[0].coorelacion"
         > </CardAnalisisSmall>
       </div>
     </div>
