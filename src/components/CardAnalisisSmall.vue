@@ -15,16 +15,25 @@ export default {
     CardAnalisisBig,
   },
 
-  methods: {
-    prueba() {
-      console.log(this.tiposAnalisis.grupoDeAnalisis);
-    },
-  },
-
   props: {
     tiposAnalisis: {
       type: Array,
-      default: () => ["img", "title", "descrip", "what"],
+      default: () => ["img", "title", "descrip", "what", "how"],
+    },
+  },
+
+  methods: {
+     //modal analisis full
+     openModalResume(analisisSelect) {
+      this.showModalAnalisis = true;
+
+      this.currentAnalisis = this.tiposAnalisis.filter(
+        (type) => type.title === analisisSelect
+      );
+    },
+
+    closeModalResume() {
+      this.showModalResume = false;
     },
   },
 };
@@ -33,7 +42,7 @@ export default {
 <template>
   <div
     class="cardContainerAnalisis"
-    v-for="cadaTipoAnalisis in this.tiposAnalisis.grupoDeAnalisis"
+    v-for="cadaTipoAnalisis in this.tiposAnalisis"
     :key="cadaTipoAnalisis.title"
     @click="prueba"
   >
