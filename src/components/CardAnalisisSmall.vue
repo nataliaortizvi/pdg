@@ -3,16 +3,16 @@ import Modal from "../components/Modal.vue";
 import CardAnalisisBig from "../components/CardAnalisisBig.vue";
 
 export default {
+  components: {
+    Modal,
+    CardAnalisisBig,
+  },
+
   data() {
     return {
       showModalAnalisis: false,
       currentAnalisis: {},
     };
-  },
-
-  components: {
-    Modal,
-    CardAnalisisBig,
   },
 
   props: {
@@ -30,10 +30,12 @@ export default {
       this.currentAnalisis = this.tiposAnalisis.filter(
         (type) => type.title === analisisSelect
       );
+
+      console.log(analisisSelect)
     },
 
     closeModalAnalisis() {
-      this.showModalResume = false;
+      this.showModalAnalisis = false;
     },
   },
 };
@@ -47,11 +49,11 @@ export default {
     @close="closeModalAnalisis"
   >
     <CardAnalisisBig
-      :title="this.currentResume[0].title"
-      :img="this.currentResume[0].img"
-      :descrip="this.currentResume[0].descrip"
-      :what="this.currentResume[0].what"
-      :how="this.currentResume[0].how"
+      :img="this.currentAnalisis[0].img"
+      :title="this.currentAnalisis[0].title"
+      :descrip="this.currentAnalisis[0].descrip"
+      :what="this.currentAnalisis[0].what"
+      :how="this.currentAnalisis[0].how"
     >
     </CardAnalisisBig>
   </Modal>
@@ -62,7 +64,7 @@ export default {
     :key="cadaTipoAnalisis.title"
     @click="
       () => {
-        openModalResume(paper.title);
+        openModalAnalisis(cadaTipoAnalisis.title);
       }
     "
   >

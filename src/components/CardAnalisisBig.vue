@@ -13,6 +13,7 @@ export default {
 </script>
 
 <template>
+    <h1>{{this.title}}</h1>
   
 </template>
 
