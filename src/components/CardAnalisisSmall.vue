@@ -80,6 +80,11 @@ export default {
 <style lang="scss">
 @import "src/assets/main.scss";
 
+
+.modalAnalisis {
+  top:0px;
+  width: 80%;
+}
 .cardContainerAnalisis {
   display: flex;
   flex-direction: column;
