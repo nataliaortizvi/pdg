@@ -317,6 +317,9 @@ export default {
             <button class="btn btn--small" @click="next" v-if="!isLastStep">
               Siguiente
             </button>
+            <button class="btn btn--small" v-if="!isFirstStep">
+              Comenzar
+            </button>
           </div>
         </div>
       </div>
