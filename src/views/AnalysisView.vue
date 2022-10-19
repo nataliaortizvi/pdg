@@ -105,8 +105,7 @@ export default {
     display: flex;
     flex-direction: column;
 
-    h2 {
-    }
+    
     p {
       width: 800px;
     }
