@@ -20,9 +20,6 @@ export default {
         <div class="container__definition">
             <p>{{this.descrip}}</p>
         </div>
-        <div class="container__what">
-            <p>{{this.what}}</p>
-        </div>
         <div class="container__how">
             <p>{{this.how}}</p>
         </div>
