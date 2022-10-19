@@ -80,9 +80,9 @@ export default {
       </p>
       <div class="modalButtons">
         <RouterLink to="/">
-          <button class="btn --small --pink btnHere">Volver al home</button>
+          <button class="btn --pink btnHere">Volver al home</button>
         </RouterLink>
-        <button class="btn --small --pink">Solicitar</button>
+        <button class="btn --pink">Agregar variable</button>
       </div>
     </div>
   </Modal>
@@ -131,14 +131,13 @@ export default {
   
 <style lang="scss" scoped>
 @import "src/assets/main.scss";
-
-
 .modal {
   .modalInfo {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    padding:30px;
   
     h2 {
       color: $SecondPink;
@@ -163,8 +162,7 @@ export default {
 }
 .results {
   width: 100vw;
-  height: 100vh;
-  padding: 30px 50px;
+  padding: 30px;
 
   div {
     display: flex;

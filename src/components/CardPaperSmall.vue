@@ -112,10 +112,12 @@ export default {
 
   .titleTxt {
     color: $SecondPink;
+    margin-right: 40px;
   }
 
   .authorTxt {
     color: $Hint;
+    margin-bottom: 20px;
   }
   .yearTxt {
     color: $Hint;
@@ -132,5 +134,6 @@ export default {
   top: 0px;
   left: 0px;
   bottom: 0px;
+  overflow: auto;
 }
 </style>

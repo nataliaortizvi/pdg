@@ -32,7 +32,7 @@ export default {
 
 .backdrop {
   display: flex;
-  align-items: center;
+  //align-items: center;
   justify-content: center;
   position: fixed;
   width: 100%;
@@ -45,12 +45,13 @@ export default {
 .modalContainer {
   display: flex;
   width: auto;
-  height: auto;
+  height: fit-content;
   border-radius: 20px;
   background: $White;
   position: relative;
   justify-content: center;
-  padding: 30px;
+  //padding: 30px;
+  top: 50px;
 
   img {
     width: 50px;

@@ -337,11 +337,11 @@ export default {
 
   .progress {
     display: flex;
-    padding: 20px;
+    padding: 30px;
     //background-color: rgb(150, 212, 238);
 
     .stillBar {
-      height: 490px;
+      height: 470px;
       width: 2px;
       margin-top: 5px;
       margin-left: 25px;
@@ -352,7 +352,7 @@ export default {
     .progressCircles {
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 35px;
 
       .circle {
         height: 50px;
@@ -406,13 +406,12 @@ export default {
   .data {
     display: flex;
     flex-direction: column;
-    margin: 0px 20px;
-    padding: 35px 50px;
     background-color: $White;
     border-radius: 20px;
     width: 900px;
-    height: 490px;
     position: relative;
+    padding: 30px;
+    margin-right: 30px;
 
     .cardInfo {
       display: none;
