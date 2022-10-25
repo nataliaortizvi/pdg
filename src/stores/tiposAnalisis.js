@@ -49,19 +49,19 @@ export const useAnalisisStore = defineStore("analisis", {
                         img: '../../public/imgs/anova.png',
                         title: 'ANOVA + Post Hoc Test',
                         descrip: '3 grupos indiferente la cantidad de elementos',
-                        what: 'Se utiliza una prueba t para medir la diferencia entre exactamente dos medias. Su enfoque está en la misma variable de datos numéricos en lugar de recuentos o correlaciones entre múltiples variables. Si está tomando el promedio de una muestra de mediciones, las pruebas t son el método más utilizado para evaluar esos datos. Es particularmente útil para muestras pequeñas de menos de 30 observaciones. Por ejemplo, puede comparar si la presión arterial sistólica difiere entre un grupo de control y uno tratado, entre hombres y mujeres, o entre otros dos grupos. Esta calculadora utiliza una prueba t de dos muestras, que compara dos conjuntos de datos para ver si sus medias son estadísticamente diferentes. Eso es diferente de una prueba t de una muestra, que compara la media de su muestra con algún valor teórico propuesto.',
+                        what: 'La Rho de Spearman es una prueba no paramétrica utilizada para medir la fuerza de asociación entre dos variables, donde el valor r = 1 significa una correlación positiva perfecta y el valor r = -1 significa una correlación negativa perfecta. Entonces, por ejemplo, podría usar esta prueba para averiguar si la altura y el tamaño de los zapatos de las personas están correlacionados (lo estarán: cuanto más altas sean las personas, más grandes serán sus pies).',
                         how: [
                             {
-                                info: '1. Elija su formato de entrada de datos. Esto cambiará el aspecto de la sección 3 de la página. Las dos primeras opciones son para ingresar sus propios puntos de datos, ya sea manualmente o copiando y pegando. Los dos últimos son para ingresar las medias de cada grupo, junto con el número de observaciones (N) y el error estándar de esa media (SEM) o la desviación estándar del error estándar del conjunto de datos (SD). Si ya ha calculado estas estadísticas de resumen, las últimas opciones le ahorrarán tiempo.',
+                                info: '1. Para comenzar, debe agregar sus datos a los cuadros de texto a continuación.',
                             },
                             {
-                                info: '2. Elija una prueba de las tres opciones: prueba t no pareada, prueba t no pareada de Welch o prueba t pareada. Utilice nuestra Guía definitiva para las pruebas t si no está seguro de cuál es la adecuada, ya que incluye una sección sobre "¿Cómo sé qué prueba t debo usar?". Tenga en cuenta que no todas las opciones están disponibles si ingresa solo los medios.',
+                                info: '2. Cuando sus datos estén en su lugar y esté listo para hacer el cálculo, simplemente presione el botón "Calcular"',
                             },
                             {
-                                info: '3. Ingrese los datos para la prueba, según el formato que eligió en el Paso 1.'
+                                info: '3. la calculadora ejecutará varias pruebas en sus datos, para asegurarse de que sea adecuado para la estadística Spearman, y luego mostrará el resultado',
                             },
                             {
-                                info: '4. Haga clic en Calcular ahora y vea los resultados. Todas las opciones realizarán una prueba de dos colas.'
+                                info: '4. También le ofrecerá la opción de ver muchos detalles sobre el cálculo.',
                             },
                         ],
                     },
@@ -70,21 +70,29 @@ export const useAnalisisStore = defineStore("analisis", {
                     {
                         img: '../../public/imgs/paired.png',
                         title: 'Spearman',
-                        descrip: '2 grupos con igual cantidad de elementos',
-                        what: 'Se utiliza una prueba t para medir la diferencia entre exactamente dos medias. Su enfoque está en la misma variable de datos numéricos en lugar de recuentos o correlaciones entre múltiples variables. Si está tomando el promedio de una muestra de mediciones, las pruebas t son el método más utilizado para evaluar esos datos. Es particularmente útil para muestras pequeñas de menos de 30 observaciones. Por ejemplo, puede comparar si la presión arterial sistólica difiere entre un grupo de control y uno tratado, entre hombres y mujeres, o entre otros dos grupos. Esta calculadora utiliza una prueba t de dos muestras, que compara dos conjuntos de datos para ver si sus medias son estadísticamente diferentes. Eso es diferente de una prueba t de una muestra, que compara la media de su muestra con algún valor teórico propuesto.',
+                        descrip: 'La escala de medida debe ser ordinal (o intervalo, razón)',
+                        what: 'Spearman es una prueba no paramétrica utilizada para medir la fuerza de asociación entre dos variables, donde el valor r = 1 significa una correlación positiva perfecta y el valor r = -1 significa una correlación negativa perfecta.', 
                         how: [
                             {
-                                step: 'Elija su formato de entrada de datos. Esto cambiará el aspecto de la sección 3 de la página. Las dos primeras opciones son para ingresar sus propios puntos de datos, ya sea manualmente o copiando y pegando. Los dos últimos son para ingresar las medias de cada grupo, junto con el número de observaciones (N) y el error estándar de esa media (SEM) o la desviación estándar del error estándar del conjunto de datos (SD). Si ya ha calculado estas estadísticas de resumen, las últimas opciones le ahorrarán tiempo.',
+                                info: '1. Para comenzar, debes agregar sus datos a los cuadros de texto a continuación.',
                             },
                             {
-                                step: 'Elija una prueba de las tres opciones: prueba t no pareada, prueba t no pareada de Welch o prueba t pareada. Utilice nuestra Guía definitiva para las pruebas t si no está seguro de cuál es la adecuada, ya que incluye una sección sobre "¿Cómo sé qué prueba t debo usar?". Tenga en cuenta que no todas las opciones están disponibles si ingresa solo los medios.',
+                                info: '2. Cuando tus datos estén en su lugar y estés listo para hacer el cálculo, simplemente presiona el botón "Calcular"',
+                            },
+                            {
+                                info: '3. La calculadora ejecutará varias pruebas en tus datos, para asegurarse de que sea adecuado para la estadística Spearman, y luego mostrará el resultado',
+                            },
+                            {
+                                info: '4. También te ofrecerá la opción de ver muchos detalles sobre el cálculo.',
                             },
                         ],
+
+                        example: 'Por ejemplo, puedes usar esta prueba para averiguar si la altura y el tamaño de los zapatos de las personas están correlacionados (lo estarán; cuanto más altas sean las personas, más grandes serán sus pies). Entonces, agregarías los valores de la altura en el cuadro Valores X y los valores del tamaño del calzado en el cuadro Valores Y (o viceversa).'
                     },
                     {
                         img: '../../public/imgs/Unpaired.png',
                         title: 'Pearson',
-                        descrip: '2 grupos con diferente cantidad de elementos',
+                        descrip: 'La escala de medida debe ser de intervalo o de razón',
                         what: 'Se utiliza una prueba t para medir la diferencia entre exactamente dos medias. Su enfoque está en la misma variable de datos numéricos en lugar de recuentos o correlaciones entre múltiples variables. Si está tomando el promedio de una muestra de mediciones, las pruebas t son el método más utilizado para evaluar esos datos. Es particularmente útil para muestras pequeñas de menos de 30 observaciones. Por ejemplo, puede comparar si la presión arterial sistólica difiere entre un grupo de control y uno tratado, entre hombres y mujeres, o entre otros dos grupos. Esta calculadora utiliza una prueba t de dos muestras, que compara dos conjuntos de datos para ver si sus medias son estadísticamente diferentes. Eso es diferente de una prueba t de una muestra, que compara la media de su muestra con algún valor teórico propuesto.',
                         how: [
                             {
