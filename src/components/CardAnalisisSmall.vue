@@ -98,6 +98,12 @@ export default {
   padding: 20px;
   position: relative;
   margin-top: 20px;
+  transition: 0.2s linear;
+
+
+  &:hover {
+    transform: scale(1.03);
+  }
 
   &__line {
     width: 100%;
