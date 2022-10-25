@@ -13,7 +13,7 @@ export default {
           descripTwo:
             "Esta hipótesis debe tener al menos una variable que es la que necesitas medir.",
           descripThree: 'Ejemplo',
-          descripFour: 'Hipotesis: Mientras más alta este del suelo una manzana, su velocidad de caida es mayor.', 
+          descripFour: 'Hipótesis: Mientras más alta este del suelo una manzana, su velocidad de caida es mayor.', 
           descripFive: 'Variable: Velocidad',
         },
         {
@@ -23,11 +23,11 @@ export default {
           descripOne:
             "Cuando definas la varible y construyas tu hipótesis debes definir tu hipótesis nula y su alternativa. ",
           descripTwo:
-            "La hipotesis alternativa es el enunciado de lo que quieres afirmar o demostrar con la validación.",
+            "La hipótesis alternativa es el enunciado de lo que quieres afirmar o demostrar con la validación.",
           descripThree:
             "La hipótesis nula es lo contrario a la hipótesis alternartiva",
-          descripFour: "Las manzana caen del árbol más rápido si estan más altas.",
-          descripFive: "Las manzanas NO caen del árbol más rápido su estan más altas",
+          descripFour: "Las manzanas caen del árbol más rápido si estan más altas.",
+          descripFive: "Las manzanas NO caen del árbol más rápido si estan más altas",
           descripSix: "Ejemplo",
         },
         {
@@ -35,7 +35,7 @@ export default {
           paso: "Paso 3",
           nombre: "Buscar la variable",
           descripOne:
-            "Cuando tengas esto definido, podrás buscar en la barra de busqueda de Validata la variable que necesitas medir",
+            "Cuando tengas esto definido, podrás buscar en la barra de búsqueda de Validata la variable que necesitas medir",
           descripTwo: "Así conocerás diferentes formas de medir esa variable",
           descripThree: "Ejemplo",
           descripFour: "La velocidad es el cambio de posición dividido el tiempo",
@@ -47,7 +47,7 @@ export default {
           paso: "Paso 4",
           nombre: "Tipo de análisis",
           descripOne:
-            "Validata te mostrará cuál será el mejor tipo de análisis para validar la hipótesis y así puedas desarrollar el expriemento y obtener los datos a analizar.",
+            "Validata te mostrará cuál será el mejor tipo de análisis para validar la hipótesis y así puedas desarrollar el experimento y obtener los datos a analizar.",
           descripTwo: "Ejemplo",
           descripThree:
             "Puedes hacer un Paired T-test con dos grupos de igual cantidad de manzanas, uno que esta más alto que el otro y recolectar los datos con cada uno",
@@ -57,7 +57,7 @@ export default {
           num: 5,
           paso: "Paso 5",
           nombre: "Calculadora",
-          descripOne: "En Validata encontrarás una calculadora especializada que realizará los calculos automaticos.",
+          descripOne: "En Validata encontrarás una calculadora especializada que realizará los calculos automáticos.",
           descripTwo: "Solo tendrás que ingresar los datos recolectados y presionar:"
         },
         {

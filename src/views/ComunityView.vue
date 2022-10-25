@@ -1,12 +1,14 @@
 <script>
+
+export default {
+
+};
 </script>
 
 <template>
   <section>
     <h1>Comunidad</h1>
-    <section class="calculator">
-
-    </section>
+    <section class="calculator" @click="prueba"></section>
   </section>
 </template>
   
