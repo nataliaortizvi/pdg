@@ -13,6 +13,7 @@
     "animate.css": "^4.1.1",
     "bulma": "^0.9.4",
     "firebase": "^9.12.1",
+    "firebase-tools": "^11.15.0",
     "pinia": "^2.0.21",
     "requirejs": "^2.3.6",
     "sass": "^1.54.9",
