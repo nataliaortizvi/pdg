@@ -18,7 +18,7 @@ export default {
   props: {
     tiposAnalisis: {
       type: Array,
-      default: () => ["img", "title", "descrip", "what", "how"],
+      default: () => ["img", "title", "descrip", "what", "how", "example", "link"],
     },
   },
 
@@ -54,6 +54,9 @@ export default {
       :descrip="this.currentAnalisis[0].descrip"
       :what="this.currentAnalisis[0].what"
       :how="this.currentAnalisis[0].how"
+      :example="this.currentAnalisis[0].example"
+      :link="this.currentAnalisis[0].link"
+
     >
     </CardAnalisisBig>
   </Modal>
@@ -84,6 +87,7 @@ export default {
 .modalAnalisis {
   top:0px;
   width: 80%;
+  overflow: auto;
 }
 .cardContainerAnalisis {
   display: flex;
@@ -98,6 +102,12 @@ export default {
   padding: 20px;
   position: relative;
   margin-top: 20px;
+  transition: 0.2s linear;
+
+
+  &:hover {
+    transform: scale(1.03);
+  }
 
   &__line {
     width: 100%;
