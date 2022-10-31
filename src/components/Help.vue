@@ -35,7 +35,7 @@ export default {
           paso: "Protocolo de investigación:",
           nombre: "¿Cómo medir la variable?",
           descripOne:
-            "Cuando tengas las hipótesis definidas, ve a la barra de búsqueda de Validata y escribe la variable que necesitas medir",
+            "Cuando tengas las hipótesis definidas, escribe en la barra de búsqueda de Validata la variable que vas a medir.",
           descripTwo: "Así conocerás diferentes formas de medir esa variable",
           descripThree: "Ejemplo",
           descripFour: "La velocidad es el cambio de posición dividido el tiempo",
@@ -47,10 +47,10 @@ export default {
           paso: "Protocolo de investigación:",
           nombre: "Definir tipo de análisis y muestra",
           descripOne:
-            "Validata te mostrará cuál será el mejor tipo de análisis para validar la hipótesis y así puedas desarrollar el experimento y obtener los datos a analizar.",
+            "En Validata encontrarás diferentes tipos de análisis para validar tu hipótesis. Elige la que mejor le convenga a tu proyecto según la muestra que definas." ,
           descripTwo: "Ejemplo",
           descripThree:
-            "Puedes hacer un Paired T-test con dos grupos de igual cantidad de manzanas, uno que esta más alto que el otro y recolectar los datos con cada uno",
+            "Muestra: 2 grupos con 10 manzanas cada una. (Un grupo con manzanas ubicadas mas altas que el otro grupo). Puedes hacer un Paired T-test con dos grupos de igual cantidad de manzanas, uno que esta más alto que el otro y recolectar los datos con cada uno",
           descripFour: "Paired T-test",
         },
         {
@@ -339,7 +339,6 @@ export default {
   .progress {
     display: flex;
     padding: 30px;
-    //background-color: rgb(150, 212, 238);
 
     .stillBar {
       height: 470px;
@@ -556,7 +555,7 @@ export default {
         flex-direction: column;
         justify-items: center;
         margin-top: 20px;
-        width: 450px;
+        width: 100%;
         text-align: center;
 
         &__text {
@@ -584,7 +583,7 @@ export default {
 
       .textIntro {
         width: auto;
-        margin: 70px 0px 20px 0px;
+        margin: 20px 0px 20px 0px;
       }
       
       .cardInfo__ejemplo {
