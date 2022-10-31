@@ -6,7 +6,7 @@ export const useAnalisisStore = defineStore("analisis", {
             {
                 grupoDeAnalisis: [
                     {
-                        img: '../../public/imgs/paired.png',
+                        img: 'public/imgs/paired.png',
                         title: 'Paired T-test',
                         descrip: '2 grupos con igual cantidad de elementos',
                         what: 'Una prueba T es una prueba estadística que compara los promedios y las desviaciones estándar de dos grupos relacionados para determinar si existe una diferencia significativa entre los dos grupos. Una diferencia significativa ocurre cuando es poco probable que las diferencias entre los grupos se deban a un error de muestreo o al azar.',
@@ -20,9 +20,10 @@ export const useAnalisisStore = defineStore("analisis", {
                         ],
                         example: 'Por ejemplo, puedes comparar si la presión arterial difiere entre un grupo de control y uno tratado, entre hombres y mujeres, o entre otros dos grupos.',
                         link: 'https://www.youtube.com/watch?v=qFbexnmU-G0',
+                        calculatorlink: 'https://www.graphpad.com/quickcalcs/ttest1/?format=C',
                     },
                     {
-                        img: '../../public/imgs/unpaired.png',
+                        img: 'public/imgs/unpaired.png',
                         title: 'Unpaired T-test',
                         descrip: '2 grupos con diferente cantidad de elementos',
                         what: 'Una prueba T es una prueba estadística que compara los promedios y las desviaciones estándar de dos grupos independientes para determinar si existe una diferencia significativa entre los dos grupos. Una diferencia significativa ocurre cuando es poco probable que las diferencias entre los grupos se deban a un error de muestreo o al azar.',
@@ -36,9 +37,10 @@ export const useAnalisisStore = defineStore("analisis", {
                         ],
                         example: 'Por ejemplo, puedes comparar la distancia promedio de viaje al trabajo recorrida por los residentes de la ciudad de Nueva York y San Francisco usando 1,000 participantes seleccionados al azar de cada ciudad',
                         link: 'https://www.youtube.com/watch?v=qFbexnmU-G0',
+                        calculatorlink: 'https://www.graphpad.com/quickcalcs/ttest1/?format=C',
                     },
                     {
-                        img: '../../public/imgs/anova.png',
+                        img: 'public/imgs/anova.png',
                         title: 'ANOVA',
                         descrip: '3 grupos o más indiferente la cantidad de elementos',
                         what: 'Se utiliza una prueba ANOVA para comparar las medias de tres o más muestras independientes simultáneamente.',
@@ -55,11 +57,12 @@ export const useAnalisisStore = defineStore("analisis", {
                         ],
                         example: 'Por ejemplo, puedes comparar la distancia promedio de viaje al trabajo recorrida por los residentes de la ciudad de Nueva York y San Francisco usando 1,000 participantes seleccionados al azar de cada ciudad',
                         link: 'https://www.youtube.com/watch?v=JuBgDXnvd84',
+                        calculatorlink:'https://www.socscistatistics.com/tests/anova/default2.aspx',
                     },
                 ],
                 correlacion: [
                     {
-                        img: '../../public/imgs/paired.png',
+                        img: 'public/imgs/paired.png',
                         title: 'Spearman',
                         descrip: 'La escala de medida debe ser ordinal (o intervalo, razón)',
                         what: 'Spearman es una prueba no paramétrica utilizada para medir la fuerza de asociación entre dos variables, donde el valor r = 1 significa una correlación positiva perfecta y el valor r = -1 significa una correlación negativa perfecta.', 
@@ -80,9 +83,10 @@ export const useAnalisisStore = defineStore("analisis", {
 
                         example: 'Por ejemplo, puedes usar esta prueba para averiguar si la altura y el tamaño de los zapatos de las personas están correlacionados (lo estarán; cuanto más altas sean las personas, más grandes serán sus pies). Entonces, agregarías los valores de la altura en el cuadro Valores X y los valores del tamaño del calzado en el cuadro Valores Y (o viceversa).',
                         link: 'https://www.youtube.com/watch?v=7ep0o5nYVFU',
+                        calculatorlink: 'https://www.socscistatistics.com/tests/spearman/default2.aspx',
                     },
                     {
-                        img: '../../public/imgs/Unpaired.png',
+                        img: 'public/imgs/Unpaired.png',
                         title: 'Pearson',
                         descrip: 'La escala de medida debe ser de intervalo o de razón',
                         what: 'El coeficiente de correlación de Pearson se usa para medir la fuerza de una asociación lineal entre dos variables, donde el valor r = 1 significa una correlación positiva perfecta y el valor r = -1 significa una correlación negativa perfecta. Las variables deben tener una distribución aproximadamente normal. La asociación debe ser lineal y no debe haber valores atípicos en los datos.',
@@ -102,6 +106,7 @@ export const useAnalisisStore = defineStore("analisis", {
                         ],
                         example: 'Por ejemplo, puedes usar esta prueba para averiguar si la altura y el peso de las personas están correlacionados (lo estarán: cuanto más altas sean las personas, más pesados ​​​​es probable que sean).',
                         link: 'https://www.youtube.com/watch?v=1QFf5luX3kA',
+                        calculatorlink:'https://www.socscistatistics.com/tests/pearson/',
                     },
                 ],
             },
