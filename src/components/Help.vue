@@ -6,8 +6,8 @@ export default {
       steps: [
         {
           num: 1,
-          paso: "Paso 1",
-          nombre: "Hipótesis",
+          paso: "Protocolo de investigación:",
+          nombre: "Definir hipótesis y variable",
           descripOne:
             "Antes de iniciar debes saber que todos los proyectos de investigación en áreas creativas también necesitan una hipótesis que debe ser comprobada.",
           descripTwo:
@@ -18,8 +18,8 @@ export default {
         },
         {
           num: 2,
-          paso: "Paso 2",
-          nombre: "Hipótesis nula y alternativa",
+          paso: "Protocolo de investigación:",
+          nombre: "Definir hipótesis nula y alternativa",
           descripOne:
             "Cuando definas la varible y construyas tu hipótesis debes definir tu hipótesis nula y su alternativa. ",
           descripTwo:
@@ -32,10 +32,10 @@ export default {
         },
         {
           num: 3,
-          paso: "Paso 3",
-          nombre: "Buscar la variable",
+          paso: "Protocolo de investigación:",
+          nombre: "¿Cómo medir la variable?",
           descripOne:
-            "Cuando tengas esto definido, podrás buscar en la barra de búsqueda de Validata la variable que necesitas medir",
+            "Cuando tengas las hipótesis definidas, ve a la barra de búsqueda de Validata y escribe la variable que necesitas medir",
           descripTwo: "Así conocerás diferentes formas de medir esa variable",
           descripThree: "Ejemplo",
           descripFour: "La velocidad es el cambio de posición dividido el tiempo",
@@ -44,8 +44,8 @@ export default {
         },
         {
           num: 4,
-          paso: "Paso 4",
-          nombre: "Tipo de análisis",
+          paso: "Protocolo de investigación:",
+          nombre: "Definir tipo de análisis y muestra",
           descripOne:
             "Validata te mostrará cuál será el mejor tipo de análisis para validar la hipótesis y así puedas desarrollar el experimento y obtener los datos a analizar.",
           descripTwo: "Ejemplo",
@@ -55,15 +55,15 @@ export default {
         },
         {
           num: 5,
-          paso: "Paso 5",
-          nombre: "Calculadora",
+          paso: "Fase de analisis:",
+          nombre: "Calculadora y resultados",
           descripOne: "En Validata encontrarás una calculadora especializada que realizará los calculos automáticos.",
           descripTwo: "Solo tendrás que ingresar los datos recolectados y presionar:"
         },
         {
           num: 6,
-          paso: "Paso 6",
-          nombre: "Interpretación y conclusión",
+          paso: "Fase de analisis:",
+          nombre: "Conclusión",
           descripOne: "Validata te ayudará a interpretar los datos y entenderlos para que puedas presentarlos y dar una conclusión en tu investigación",
         },
       ],
@@ -76,9 +76,6 @@ export default {
       },
       get isLastStep() {
         return this.currentstep === this.totalSteps;
-      },
-      arrayStep(x) {
-        return this.x;
       },
     };
   },
@@ -106,6 +103,7 @@ export default {
           :key="step"
           class="circle"
           :class="{ active: step <= currentstep }"
+          @click="()=>{this.currentstep = step}"
         >
           <a>{{ step }}</a>
         </div>
@@ -356,6 +354,7 @@ export default {
       display: flex;
       flex-direction: column;
       gap: 35px;
+      cursor: pointer;
 
       .circle {
         height: 50px;
@@ -420,7 +419,7 @@ export default {
       display: none;
 
       .step {
-        font-size: 23px;
+        font-size: 20px;
         color: $Hint;
         font-weight: 300;
       }
