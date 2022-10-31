@@ -40,7 +40,6 @@ export default {
   background-color: rgba(24, 29, 61, 0.8);
   backdrop-filter: blur(2px);
   z-index: 100;
-
 }
 
 .modalContainer {

@@ -81,7 +81,9 @@ export default {
         <RouterLink to="/">
           <button class="btn --pink btnHere">Volver al home</button>
         </RouterLink>
+        <RouterLink to="/form">
         <button class="btn --pink">Agregar variable</button>
+        </RouterLink>
       </div>
     </div>
   </Modal>

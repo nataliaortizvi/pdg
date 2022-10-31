@@ -1,6 +1,7 @@
 <script>
 export default {
   props: {
+    currentAnalisis: {},
     img: String,
     title: String,
     descrip: String,
@@ -14,36 +15,44 @@ export default {
 
 <template>
   <section class="container">
-    <div class="container__title">
-      <h1 class="titlesStyle --pink">{{ this.title }}</h1>
-    </div>
-    <div>
-      <img :src="{ img }" />
-    </div>
-    <div class="container__definition">
-      <strong
-        ><p>{{ this.descrip }}</p></strong
-      >
-    </div>
-    <strong><p class="subtitle">¿Qué es?</p></strong>
-    <div class="container__what">
-      <p>{{ this.what }}</p>
-    </div>
-    <strong><p class="subtitle">¿Cómo realizarlo?</p></strong>
-    <div class="container__how">
-      <p v-for="one in how" :key="one">
-        {{ one.info }}
+    <div class="cardHeader">
+      <h1 class="titlesStyle --pink">{{ this.currentAnalisis.title }}</h1>
+      <img class="imgCard" :src="this.currentAnalisis.img" />
+      <strong>
+        <p>{{ this.currentAnalisis.descrip }}</p>
+      </strong>
+
+      <div class="cardBody">
+        <strong><p class="subtitle">¿Qué es?</p></strong>
+        <p>{{ this.currentAnalisis.what }}</p>
+        <strong><p class="subtitle">¿Cómo realizarlo?</p></strong>
+        <div>
+          <p v-for="one in this.currentAnalisis.how" :key="one">
+            {{ one.info }}
+          </p>
+        </div>
+        <strong><p class="subtitle">Ejemplo</p></strong>
+        <p>{{ this.currentAnalisis.example }}</p>
+      </div>
+      
+      <p class="infoCard">
+        Si deseas leer más, mira el siguiente video tutorial:
+        <strong>
+          <a :href="this.currentAnalisis.link" class="container__link" target="_blank"
+            >Clic aquí
+          </a>
+        </strong>
       </p>
-    </div>
-    <strong><p class="subtitle">Ejemplo</p></strong>
-    <div class="container__example">
-      <p>{{ this.example }}</p>
+      <button class="btn">
+        <a
+          :href="this.currentAnalisis.calculatorlink"
+          target="_blank"
+          >Ir a calculadora</a
+        >
+      </button>
     </div>
 
-    <p>Si deseas complementar, mira el siguiente video tutorial:</p>
-    <strong><a :href="{ link }" class="container__link">Clic aquí</a></strong>
-
-    <div class="container__calculator">
+    <!--div class="container__calculator">
       <strong><p class="subtitle">Ingresa tus datos</p></strong>
       <div class="inputs">
         <div class="inputs__each">
@@ -56,7 +65,7 @@ export default {
         </div>
       </div>
       <button class="btn btnCalcular">Calcular</button>
-    </div>
+    </div-->
   </section>
 </template>
 
@@ -66,17 +75,33 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   width: 70vw;
-  padding: 30px;
+  padding: 30px 70px;
+  justify-content: center;
 
-  &__example {
-    margin-bottom: 30px;
+  .imgCard {
+    display: flex;
+    height: 40px;
+    object-fit: contain;
+    margin: 10px 0px;
+  }
+
+  .cardHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .infoCard {
+      margin-top: 20px;
+    }
   }
 
   &__link {
-    text-decoration: none;
     color: $MainColorBlue;
+    text-decoration: underline;
   }
 
   &__calculator {
@@ -102,15 +127,22 @@ export default {
     }
 
     .btnCalcular {
-        margin-bottom: 30px;
+      margin-bottom: 30px;
     }
-
   }
 
   .subtitle {
     font-size: $BodyTextSize2;
     color: $ThirdViolet;
-    margin-top: 30px;
+    margin-top: 20px;
+  }
+
+  .btn {
+    margin: 20px 0px 0px 0px;
+
+    a {
+      color: $Background;
+    }
   }
 }
 </style>

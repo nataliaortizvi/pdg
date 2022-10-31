@@ -4,6 +4,7 @@ import AboutUsView from '../views/AboutUsView.vue'
 import ComunityView from '../views/ComunityView.vue'
 import AnalysisView from '../views/AnalysisView.vue'
 import PapersView from '../views/PapersView.vue'
+import FormView from '../views/FormView.vue'
 
 
 const router = createRouter({
@@ -33,6 +34,11 @@ const router = createRouter({
       path: '/papers/:varId',
       name: 'paper',
       component: PapersView
+    },
+    {
+      path: '/form',
+      name: 'form',
+      component: FormView,
     },
   ]
 })
