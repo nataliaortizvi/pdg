@@ -1,12 +1,15 @@
 <script>
 import { mapStores } from "pinia";
-import { useProductsStore } from "../stores/variables";
+import { useVariablesStore } from "../stores/variables";
 
 export default {
   data() {
     return {
       image: [],
       title: "",
+      author: "",
+      year: "",
+      resumen: "",
       definition: "",
       requirement: "",
       formula: "",
@@ -18,22 +21,24 @@ export default {
   },
 
   computed: {
-    ...mapStores(useProductsStore),
+    ...mapStores(useVariablesStore),
   },
 
   methods: {
-    addNewVariable() {
-      this.newPaper = {
-        image: this.image,
-        title: this.title,
-        definition: this.definition,
-        requirement: this.requirement,
-        formula: this.formula,
-        formulameaning: this.formulameanind,
-        context: this.context,
+    addNewPaper() {
+    this.newPaper = {
+    //image: this.image,
+    title: this.title,
+    author: this.author,
+    year: this.year,
+    resumen: this.resumen,
+    definition: this.definition,
+    requirement: this.requirement,
+    formula: this.formula,
+    formulameaning: this.formulameaning,
+    context: this.context,
       };
-      console.log("newPaper", newPaper);
-      this.productsStore.newProduct(this.newPaper);
+      this.variablesStore.newPaper(this.newPaper);
     },
 
     newFile(e) {
@@ -52,8 +57,41 @@ export default {
         <label class="text"> Escribe el título del documento</label>
         <input
           class="input"
-          placeholder="Nombre"
+          placeholder="Título"
           v-model="title"
+          type="text"
+          required
+        />
+      </div>
+
+      <div class="itemForm">
+        <label class="text"> Escribe el (los) autor(es)</label>
+        <input
+          class="input"
+          placeholder="Autor(es)"
+          v-model="author"
+          type="text"
+          required
+        />
+      </div>
+
+      <div class="itemForm">
+        <label class="text"> Año de publicación</label>
+        <input
+          class="input"
+          placeholder="Año"
+          v-model="year"
+          type="text"
+          required
+        />
+      </div>
+
+      <div class="itemForm">
+        <label class="text"> Escribe un resumen del documento</label>
+        <input
+          class="input"
+          placeholder="Resumen"
+          v-model="resumen"
           type="text"
           required
         />
@@ -136,7 +174,7 @@ export default {
         </label>
       </div>
     </div>
-    <bottom class="btn" @click="addNewVariable">Agregar</bottom>
+    <bottom class="btn" @click="addNewPaper">Agregar</bottom>
   </section>
 </template>
 
@@ -158,9 +196,10 @@ export default {
   .paperForm {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+    margin: 30px 0px;
     background-color: $Background2;
-    
+    border-radius: 20px;
+
     padding: 20px;
 
     .itemForm {

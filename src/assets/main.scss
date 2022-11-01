@@ -27,7 +27,6 @@ $BodyTextSize2: 20px;
 }
 
 header {
-
   position: fixed;
   width: 100%;
   height: 60px;
@@ -60,6 +59,19 @@ body {
   font-family: $MainTypo;
   color: $MainColorBlue;
 
+  &.--subtitle {
+    font-size: $SubtitleSize;
+  }
+
+  
+  &.--bodyTextBig {
+    font-size: $BodyTextSize2;
+  }
+  
+  &.--bodyTextSmall {
+    font-size: $BodyTextSize;
+  }
+  
   &.--blue {
     color: $MainColorBlue;
   }

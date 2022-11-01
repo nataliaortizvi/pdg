@@ -105,7 +105,7 @@ export default {
   &__line {
     width: 100%;
     height: 5px;
-    background-color: $Orange;
+    background-color: $Babyblue;
     position: absolute;
     top: 0;
     left: 0;

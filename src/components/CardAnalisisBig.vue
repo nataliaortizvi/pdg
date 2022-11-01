@@ -23,16 +23,20 @@ export default {
       </strong>
 
       <div class="cardBody">
-        <strong><p class="subtitle">¿Qué es?</p></strong>
-        <p>{{ this.currentAnalisis.what }}</p>
-        <strong><p class="subtitle">¿Cómo realizarlo?</p></strong>
-        <div>
+        <div class="infoType">
+          <strong><p class="subtitle">¿Qué es?</p></strong>
+          <p>{{ this.currentAnalisis.what }}</p>
+        </div>
+        <div class="infoType">
+          <strong><p class="subtitle">¿Cómo realizarlo?</p></strong>
           <p v-for="one in this.currentAnalisis.how" :key="one">
             {{ one.info }}
           </p>
         </div>
-        <strong><p class="subtitle">Ejemplo</p></strong>
-        <p>{{ this.currentAnalisis.example }}</p>
+        <div class="infoType">
+          <strong><p class="subtitle">Ejemplo</p></strong>
+          <p>{{ this.currentAnalisis.example }}</p>
+        </div>
       </div>
 
       <p class="infoCard">
@@ -46,12 +50,15 @@ export default {
           </a>
         </strong>
       </p>
-      <div>
+      <div class="buttons">
         <button class="btn">
           <a :href="this.currentAnalisis.calculatorlink" target="_blank"
             >Ir a calculadora</a
           >
         </button>
+        <RouterLink to="/interpretation/">
+          <button class="btn" @click="p">Interpretar datos</button>
+        </RouterLink>
       </div>
     </div>
 
@@ -80,7 +87,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   width: 70vw;
-  padding: 30px 70px;
+  padding: 10px 30px;
   justify-content: center;
 
   .imgCard {
@@ -134,17 +141,34 @@ export default {
     }
   }
 
-  .subtitle {
-    font-size: $BodyTextSize2;
-    color: $ThirdViolet;
+  .cardBody {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background-color: $Background;
+    border-radius: 20px;
+    padding: 30px 40px;
     margin-top: 20px;
+    gap: 20px;
+
+    .subtitle {
+      font-size: $BodyTextSize2;
+      color: $ThirdViolet;
+      margin: 0px 0px 3px 0px;
+    }
   }
 
-  .btn {
-    margin: 20px 0px 0px 0px;
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 
-    a {
-      color: $Background;
+    .btn {
+      margin: 20px 0px 10px 0px;
+
+      a {
+        color: $Background;
+      }
     }
   }
 }
