@@ -34,22 +34,28 @@ export default {
         <strong><p class="subtitle">Ejemplo</p></strong>
         <p>{{ this.currentAnalisis.example }}</p>
       </div>
-      
+
       <p class="infoCard">
         Si deseas leer más, mira el siguiente video tutorial:
         <strong>
-          <a :href="this.currentAnalisis.link" class="container__link" target="_blank"
+          <a
+            :href="this.currentAnalisis.link"
+            class="container__link"
+            target="_blank"
             >Clic aquí
           </a>
         </strong>
       </p>
-      <button class="btn">
-        <a
-          :href="this.currentAnalisis.calculatorlink"
-          target="_blank"
-          >Ir a calculadora</a
-        >
-      </button>
+      <div class="buttons">
+        <button class="btn">
+          <a :href="this.currentAnalisis.calculatorlink" target="_blank"
+            >Ir a calculadora</a
+          >
+        </button>
+        <RouterLink to="/interpretation/">
+          <button class="btn" @click="p">Interpretar datos</button>
+        </RouterLink>
+      </div>
     </div>
 
     <!--div class="container__calculator">
@@ -137,11 +143,16 @@ export default {
     margin-top: 20px;
   }
 
-  .btn {
-    margin: 20px 0px 0px 0px;
-
-    a {
-      color: $Background;
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    .btn {
+      margin: 20px 0px 0px 0px;
+  
+      a {
+        color: $Background;
+      }
     }
   }
 }
