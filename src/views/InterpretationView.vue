@@ -1,38 +1,176 @@
+<script>
+export default {
+  data() {
+    return {
+      tipoAnalisis: "",
+    };
+  },
+};
+</script>
+
 <template>
-  <section>
-    <div class="header__title">
-      <img src="../../public/imgs/results.png" />
-      <h2 class="titlesStyle --pink">Interpretación de resultados</h2>
+  <section class="interpretationSection">
+    <div class="header">
+      <div class="header__title">
+        <img src="../../public/imgs/results.png" />
+        <h2 class="titlesStyle --pink">Interpretación de resultados</h2>
+      </div>
+      <p class="header__description" @click="prueba2">
+        A continuación, podrás ingresar los datos que te arrojó la
+        calculadora<br />
+        estadística y nosotros te ayudaremos a entender mejor los resultados.<br />
+        <strong>Ingresa los siguientes datos para poder ayudarte:</strong>
+      </p>
+    </div>
+
+    <div class="body">
+      <div class="dataInputs">
+        <div class="theInput">
+          <label class="titlesStyle --blue --bodyTextBig"
+            >Tipo de análisis</label
+          >
+          <select v-model="tipoAnalisis">
+            <option value="">Selecciona...</option>
+            <option value="paired">Paired T-test</option>
+            <option value="unpaired">Unpaired T-test</option>
+            <option value="anova">Anova</option>
+            <option value="spearman">Spearman</option>
+            <option value="pearson">Pearson</option>
+          </select>
+        </div>
+
+        <div class="theInput">
+          <label class="titlesStyle --blue --bodyTextBig">
+            Hipótesis Alternativa
+          </label>
+          <input placeholder="Ingresa H1..." type="text" />
+        </div>
+
+        <div class="theInput">
+          <label class="titlesStyle --blue --bodyTextBig">
+            Hipótesis Nula
+          </label>
+          <input placeholder="Ingresa H0..." type="text" />
+        </div>
+
+        <div class="theInput">
+          <label class="titlesStyle --blue --bodyTextBig">
+            Nivel de confianza
+          </label>
+          <input
+            placeholder="0"
+            type="number"
+            class="inputNum"
+          />
+        </div>
+      </div>
+
+      <div class="dataInterpretation">
+        <p>
+          Tu p-value es de 0.003, esto significa que tu hipótesis alternativa ha
+          sido aceptada. Es decir, que tu hipótesis de: las manzanas caen más
+          rápido entre más arriba esten, es verdadera.
+        </p>
+      </div>
     </div>
   </section>
 </template>
 
 
-<script>
-</script>
-
-
 <style lang="scss" scoped>
 @import "src/assets/main.scss";
 
-section {
+.interpretationSection {
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: 100vh;
   width: 100%;
   padding: 30px;
   color: $MainColorBlue;
 
-  .header__title {
+  .header {
+    .header__title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      margin: 50px 0px 10px 0px;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  .body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 8px;
-    margin: 50px 0px 10px 0px;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
 
-    img {
-      width: 30px;
-      height: 30px;
+    .dataInputs {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      width: 40%;
+      background-color: $Background2;
+      border-radius: 20px;
+      padding: 30px;
+      margin: 50px 0px;
+      gap: 30px;
+
+      .theInput {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+
+        select {
+          border: 1px solid $MainColorBlue;
+          border-radius: 10px;
+          color: $MainColorBlue;
+          background: transparent;
+          height: 30px;
+          width: 100%;
+          padding-left: 10px;
+        }
+
+        .--bodyTextBig {
+          margin-bottom: 10px;
+        }
+
+        input {
+          display: block;
+          width: 100%;
+          height: 30px;
+          background: transparent;
+          border: 1px solid $MainColorBlue;
+          color: $MainColorBlue;
+          padding-left: 10px;
+          border-radius: 10px;
+
+        }
+        .inputNum {
+          width: 15%;
+        }
+
+        fieldset {
+          width: 100%;
+          height: 50px;
+        }
+      }
+    }
+
+    .dataInterpretation {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      width: 60%;
     }
   }
 }

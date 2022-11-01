@@ -10,6 +10,7 @@ import InterpretationView from '../views/InterpretationView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  linkActiveClass: 'vue-school-active-link',
   routes: [
     {
       path: '/',

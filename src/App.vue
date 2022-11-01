@@ -51,9 +51,15 @@ export default {
   <header id="navbar" :class="{ onScroll: !view.topOfPage }">
     <h1 class="logo">ValiData</h1>
     <nav>
-      <RouterLink to="/" id="linkss" class="link">Home</RouterLink>
-      <RouterLink to="/analisis" id="linkss" class="link">Tipos de análisis</RouterLink>
-      <RouterLink to="/comunidad" id="linkss" class="link">Comunidad</RouterLink>
+      <RouterLink to="/" id="linkss" class="link" class-active="active"
+        >Home</RouterLink
+      >
+      <RouterLink to="/analisis" id="linkss" class="link" class-active="active"
+        >Tipos de análisis</RouterLink
+      >
+      <RouterLink to="/comunidad" id="linkss" class="link" class-active="active"
+        >Comunidad</RouterLink
+      >
     </nav>
   </header>
 
@@ -70,11 +76,17 @@ export default {
       <h1 class="logo logoFooter">ValiData</h1>
       <div class="footer__links">
         <RouterLink to="/" id="linkss" class="linkWhite">Home</RouterLink>
-        <RouterLink to="/analisis" id="linkss" class="linkWhite">Tipos de análisis</RouterLink>
-        <RouterLink to="/calculadora" id="linkss" class="linkWhite">Calculadora</RouterLink>
+        <RouterLink to="/analisis" id="linkss" class="linkWhite"
+          >Tipos de análisis</RouterLink
+        >
+        <RouterLink to="/calculadora" id="linkss" class="linkWhite"
+          >Calculadora</RouterLink
+        >
       </div>
-      <div class="footer__CR"> 
-        <p class="copyright">Validata Digital Library designed. Copyright © 2022 Validata</p>
+      <div class="footer__CR">
+        <p class="copyright">
+          Validata Digital Library designed. Copyright © 2022 Validata
+        </p>
       </div>
     </div>
   </footer>
@@ -96,9 +108,21 @@ export default {
   color: $SecondPink;
 }
 
-.link {
-  margin-left: 80px;
-  color: $MainColorBlue;
+nav {
+  .link {
+    margin-left: 80px;
+    color: $MainColorBlue;
+    position: relative;
+    padding: 5px;
+    transition: 0.5 ease-in-out;
+  }
+  .link:hover {
+    color: $SecondPink;
+  }
+
+  .vue-school-active-link {
+    color: $SecondPink;
+  }
 }
 
 .helper {
