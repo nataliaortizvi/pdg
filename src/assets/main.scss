@@ -5,6 +5,7 @@ $ThirdViolet: rgb(107, 49, 241);
 $Babyblue: rgb(76, 126, 254);
 $Orange: rgb(255, 143, 34);
 $Background: rgb(245, 244, 249);
+$Background2: rgb(234, 233, 239);
 $White: rgb(255, 255, 255);
 $Hint: rgb(142, 142, 142);
 $Shadow: 0px 5px 10px 1px rgb(216, 216, 216);
@@ -64,6 +65,10 @@ body {
   }
   &.--pink {
     color: $SecondPink;
+  }
+
+  &.--violet {
+    color: $ThirdViolet;
   }
 }
 

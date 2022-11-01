@@ -57,14 +57,14 @@ export default {
           num: 5,
           paso: "Fase de analisis:",
           nombre: "Calculadora y resultados",
-          descripOne: "En Validata encontrarás una calculadora especializada que realizará los calculos automáticos.",
-          descripTwo: "Solo tendrás que ingresar los datos recolectados y presionar:"
+          descripOne: "Validata te llevará a una calculadora que realizará los calculos automaticos, y te dará los resultados",
+          descripTwo: "Con estos resultados podrás volver a Validata e ingresarlos en la sección de interpretación de resultados para entenderlos mejor"
         },
         {
           num: 6,
           paso: "Fase de analisis:",
           nombre: "Conclusión",
-          descripOne: "Validata te ayudará a interpretar los datos y entenderlos para que puedas presentarlos y dar una conclusión en tu investigación",
+          descripOne: "Validata te ayudará a entender los resultados para que puedas presentarlos y dar una conclusión en tu investigación",
         },
       ],
 
@@ -281,7 +281,7 @@ export default {
           <div class="textIntro">
             <p class="textIntro__text">{{ step.descripOne }}</p>
             <p class="textIntro__texts">{{step.descripTwo}}</p>
-            <button class="btn btn--disabled">Calcular</button>
+            <!--<button class="btn btn--disabled">Calcular</button>-->
           </div>
          
           <div class="buttons buttons--buttonFive">
@@ -476,11 +476,13 @@ export default {
         width: 400px;
         text-align: center;
         color: $MainColorBlue;
+        font-size: $BodyTextSize;
       }
 
       .gridText {
         margin-top: 20px;
         color: $MainColorBlue;
+        font-size: $BodyTextSize;
 
         &__top {
           display: flex;
@@ -557,6 +559,7 @@ export default {
         margin-top: 20px;
         width: 100%;
         text-align: center;
+        font-size: $BodyTextSize;
 
         &__text {
           margin-bottom: 20px;
@@ -584,6 +587,7 @@ export default {
       .textIntro {
         width: auto;
         margin: 20px 0px 20px 0px;
+        font-size: $BodyTextSize;
       }
       
       .cardInfo__ejemplo {
@@ -623,8 +627,9 @@ export default {
         flex-direction: column;
         align-items: center;
         margin-top: 70px;
+        font-size: $BodyTextSize;
+
         &__text {
-          width: 400px;
           margin-bottom: 20px;
         }
         &__texts {
@@ -651,8 +656,9 @@ export default {
       }
 
       .textIntro {
-        width: 500px;
+       
         margin-top: 140px;
+        font-size: $BodyTextSize;
       }      
 
     }

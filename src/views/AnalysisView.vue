@@ -48,8 +48,9 @@ export default {
       </p>
     </div>
 
+    <div class="containerAnalisis">
     <div class="groupAnalisis">
-      <h2 class="titlesStyle --pink">Análisis de grupos</h2>
+      <h2 class="titlesStyle --violet">Análisis de grupos</h2>
       <p>Análisis de grupos o agrupamiento es la tarea de agrupar objetos por similitud, en grupos o conjuntos de manera que los miembros del mismo grupo tengan características similares.</p>
       <div class="cardSection">
         <CardAnalisisSmall
@@ -57,9 +58,11 @@ export default {
         > </CardAnalisisSmall>
       </div>
     </div>
+  </div>
 
+  <div class="containerAnalisis">
     <div class="groupAnalisis">
-      <h2 class="titlesStyle --pink">Correlación</h2>
+      <h2 class="titlesStyle --violet">Correlación</h2>
       <p>La correlación es útil para describir relaciones entre datos variables.<br> <strong>Por ejemplo: </strong>las horas que se dedican a estudiar una asignatura y la calificación obtenida en el examen correspondiente</p>
       <div class="cardSection">
         <CardAnalisisSmall
@@ -67,6 +70,7 @@ export default {
         > </CardAnalisisSmall>
       </div>
     </div>
+  </div>
 
   </section>
 </template>
@@ -100,22 +104,27 @@ export default {
     }
   }
 
-  .groupAnalisis {
-    margin: 30px 0px;
-    display: flex;
-    flex-direction: column;
-
-    
-    p {
-      width: 800px;
-    }
-
-    .cardSection {
+  .containerAnalisis {
+    background-color: $Background2;
+    //border: 2px solid $SecondPink;
+    margin-top: 30px;
+    border-radius: 20px;
+    .groupAnalisis {
       display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap:50px;
-      padding: 0px 50px;
+      flex-direction: column;
+      padding: 30px;
+  
+      p {
+        width: 800px;
+      }
+  
+      .cardSection {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+        padding: 0px 50px;
+      }
     }
   }
 }
