@@ -63,6 +63,7 @@ body {
   &.--blue {
     color: $MainColorBlue;
   }
+
   &.--pink {
     color: $SecondPink;
   }
@@ -81,7 +82,7 @@ body {
   color: $White;
   font-size: 17px;
   font-family: $MainTypo;
-  font-weight:700;
+  font-weight: 700;
   cursor: pointer;
 
   &.--small {
@@ -90,13 +91,14 @@ body {
 
   &--disabled {
     background-color: $Hint;
-    width:140px;
+    width: 140px;
     cursor: not-allowed;
   }
 
   &.--blue {
     background-color: $MainColorBlue;
   }
+
   &.--pink {
     background-color: $SecondPink;
   }
@@ -117,10 +119,14 @@ body {
   height: 42px;
   border-radius: 31.5px;
   background-color: transparent;
-  border: 1px solid $MainColorBlue;  
+  border: 1px solid $MainColorBlue;
+  padding-left: 20px;
+  font-family: $MainTypo;
+  font-size: 18px;
+  color: $MainColorBlue;
+  margin-right: 17px;
 
   &--desabled {
     pointer-events: none;
   }
 }
-
