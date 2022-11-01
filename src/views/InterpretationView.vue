@@ -3,7 +3,33 @@ export default {
   data() {
     return {
       tipoAnalisis: "",
+      h1: "",
+      h0: "",
+      nivelConfianza: 0,
+      valorP: 0,
     };
+  },
+
+  methods: {
+    prueba() {
+      if (
+        this.tipoAnalisis != "" ||
+        this.h1 != "" ||
+        this.nivelConfianza != 0 ||
+        this.valorP != 0
+      ) {
+        let resultados = {
+          tipoAnalisis: this.tipoAnalisis,
+          h1: this.h1,
+          h0: this.h0,
+          nivelConfianza: this.nivelConfianza,
+          valorP: this.valorP,
+        };
+        console.log("RESULTADOS: ", resultados);
+      } else {
+        alert("Llene todos los espacios");
+      }
+    },
   },
 };
 </script>
@@ -26,7 +52,7 @@ export default {
     <div class="body">
       <div class="dataInputs">
         <div class="theInput">
-          <label class="titlesStyle --blue --bodyTextBig"
+          <label class="titlesStyle --blue --bodyTextSmall"
             >Tipo de análisis</label
           >
           <select v-model="tipoAnalisis">
@@ -40,29 +66,42 @@ export default {
         </div>
 
         <div class="theInput">
-          <label class="titlesStyle --blue --bodyTextBig">
+          <label class="titlesStyle --blue --bodyTextSmall">
             Hipótesis Alternativa
           </label>
-          <input placeholder="Ingresa H1..." type="text" />
+          <input placeholder="Ingresa tu H1..." type="text" v-model="this.h1" />
         </div>
 
         <div class="theInput">
-          <label class="titlesStyle --blue --bodyTextBig">
+          <label class="titlesStyle --blue --bodyTextSmall">
             Hipótesis Nula
           </label>
-          <input placeholder="Ingresa H0..." type="text" />
+          <input placeholder="Ingresa tu H0..." type="text" v-model="this.h0" />
         </div>
 
         <div class="theInput">
-          <label class="titlesStyle --blue --bodyTextBig">
-            Nivel de confianza
+          <label class="titlesStyle --blue --bodyTextSmall">
+            Nivel de significancia
           </label>
           <input
             placeholder="0"
             type="number"
             class="inputNum"
+            v-model="this.nivelConfianza"
           />
         </div>
+
+        <div class="theInput">
+          <label class="titlesStyle --blue --bodyTextSmall"> Valor P </label>
+          <input
+            placeholder="0"
+            type="number"
+            class="inputNum"
+            v-model="this.valorP"
+          />
+        </div>
+
+        <button class="btn" @click="prueba">Interpretar</button>
       </div>
 
       <div class="dataInterpretation">
@@ -87,6 +126,7 @@ export default {
   width: 100%;
   padding: 30px;
   color: $MainColorBlue;
+  margin: 0px 0px 50px 0px;
 
   .header {
     .header__title {
@@ -110,6 +150,7 @@ export default {
     justify-content: center;
     gap: 50px;
     width: 100%;
+    margin: 50px 0px;
 
     .dataInputs {
       display: flex;
@@ -120,7 +161,6 @@ export default {
       background-color: $Background2;
       border-radius: 20px;
       padding: 30px;
-      margin: 50px 0px;
       gap: 30px;
 
       .theInput {
@@ -139,8 +179,8 @@ export default {
           padding-left: 10px;
         }
 
-        .--bodyTextBig {
-          margin-bottom: 10px;
+        .--bodyTextSmall {
+          margin-bottom: 5px;
         }
 
         input {
@@ -152,7 +192,6 @@ export default {
           color: $MainColorBlue;
           padding-left: 10px;
           border-radius: 10px;
-
         }
         .inputNum {
           width: 15%;
@@ -164,7 +203,6 @@ export default {
         }
       }
     }
-
     .dataInterpretation {
       display: flex;
       flex-direction: column;

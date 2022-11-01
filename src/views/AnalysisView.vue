@@ -15,12 +15,6 @@ export default {
     };
   },
 
-  methods: {
-    prueba2() {
-      console.log(this.currentAnalisis);
-    },
-  },
-
   computed: {
     ...mapStores(useAnalisisStore),
     allAnalisis() {
@@ -41,7 +35,7 @@ export default {
         <img src="../../public/icons/analisis.svg" />
         <h2 class="titlesStyle --pink">Tipos de análisis</h2>
       </div>
-      <p class="header__description" @click="prueba2">
+      <p class="header__description">
         En este paso, con tu muestra ya definida, debes elegir cuál es el tipo  <br>de análisis que mejor te ayudará a validar
         la hipótesis de tu proyecto.  <br>
         <strong>¡Vamos a ver cuáles hay!</strong>

@@ -63,10 +63,15 @@ body {
     font-size: $SubtitleSize;
   }
 
+  
   &.--bodyTextBig {
     font-size: $BodyTextSize2;
   }
-
+  
+  &.--bodyTextSmall {
+    font-size: $BodyTextSize;
+  }
+  
   &.--blue {
     color: $MainColorBlue;
   }
