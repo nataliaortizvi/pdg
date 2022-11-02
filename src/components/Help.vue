@@ -19,13 +19,13 @@ export default {
         {
           num: 2,
           paso: "Protocolo de investigación:",
-          nombre: "Definir hipótesis nula y alternativa",
+          nombre: "Definir hipótesis nula(H0) y alternativa(H1)",
           descripOne:
-            "Cuando definas la varible y construyas tu hipótesis debes definir tu hipótesis nula y su alternativa. ",
+            "Cuando definas la varible y construyas tu hipótesis debes definir tu hipótesis nula(H0) y su alternativa(H1).",
           descripTwo:
-            "La hipótesis alternativa es el enunciado de lo que quieres afirmar o demostrar con la validación.",
+            "La hipótesis alternativa(H1) es el enunciado de lo que quieres afirmar o demostrar con la validación.",
           descripThree:
-            "La hipótesis nula es lo contrario a la hipótesis alternartiva",
+            "La hipótesis nula(H0) es lo contrario a la hipótesis alternartiva(H1)",
           descripFour: "Las manzanas caen del árbol más rápido si estan más altas.",
           descripFive: "Las manzanas NO caen del árbol más rápido si estan más altas",
           descripSix: "Ejemplo",
@@ -58,13 +58,21 @@ export default {
           paso: "Fase de analisis:",
           nombre: "Calculadora y resultados",
           descripOne: "Validata te llevará a una calculadora que realizará los calculos automaticos, y te dará los resultados",
-          descripTwo: "Con estos resultados podrás volver a Validata e ingresarlos en la sección de interpretación de resultados para entenderlos mejor"
+          descripTwo: "Con estos resultados podrás volver a Validata e ingresarlos en la sección de interpretación de resultados para entenderlos mejor",
+          descripThree: "Ejemplo",
+          descripFour: "Manzanas altas: 4,5,4,4,3,4,3,4,4,6",
+          descripFive: "Manzanas bajas: 8,8,9,10,7,11,6,8,9,8",
+          descripSix: "Resultado: El valor P es menor a 0,0001, por criterio convencional esta diferencia es considerada extremadamente significativa estadísticamente."
         },
         {
           num: 6,
           paso: "Fase de analisis:",
           nombre: "Conclusión",
           descripOne: "Validata te ayudará a entender los resultados para que puedas presentarlos y dar una conclusión en tu investigación",
+          descripTwo: "Ejemplo",
+          descripThree: "Según tus resultados:",
+          descripFour: "Tu valor P (0.0001) es menor que tu nivel de significancia (0.05).",
+          descripFive: "Es decir, que tu hipótesis alternativa(H1) de: Las manzanas caen del árbol más rápido si están más altas.. Es aceptada"
         },
       ],
 
@@ -283,6 +291,12 @@ export default {
             <p class="textIntro__texts">{{step.descripTwo}}</p>
             <!--<button class="btn btn--disabled">Calcular</button>-->
           </div>
+          <div class="textExample">
+            <strong><p class="textExample__ejem">{{step.descripThree}}</p></strong>
+            <p>{{step.descripFour}}</p>
+            <p>{{step.descripFive}}</p>
+            <p class="textExample__result">{{step.descripSix}}</p>
+          </div>
          
           <div class="buttons buttons--buttonFive">
             <button class="btn btn--small" @click="back" v-if="!isFirstStep">
@@ -306,6 +320,13 @@ export default {
           </div>
           <div class="textIntro">
             <p class="textIntro__text">{{ step.descripOne }}</p>
+          </div>
+
+          <div class="textExample">
+            <strong><p class="textExample__ejem">{{step.descripTwo}}</p></strong>
+            <p>{{step.descripThree}}</p>
+            <p>{{step.descripFour}}</p>
+            <p>{{step.descripFive}}</p>
           </div>
          
           <div class="buttons buttons--buttonSix">
@@ -636,6 +657,18 @@ export default {
           margin-bottom: 10px;
         }
       }
+      .textExample{
+        border: 1px solid $SecondPink;
+        padding:10px;
+
+        &__ejem{
+          margin-bottom: 10px;
+        }
+        &__result{
+          margin-top: 10px;
+        }
+      
+      }
     }
 
     .stepSixShow {
@@ -657,9 +690,18 @@ export default {
 
       .textIntro {
        
-        margin-top: 140px;
+        margin: 140px 0px 10px 0px;
         font-size: $BodyTextSize;
-      }      
+      }   
+      
+      .textExample {
+        border: 1px solid $SecondPink;
+        padding: 10px;
+
+        &__ejem {
+          margin-bottom: 10px;
+        }
+      }
 
     }
 

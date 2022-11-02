@@ -65,11 +65,17 @@ body {
 
   
   &.--bodyTextBig {
-    font-size: $BodyTextSize2;
+    font-size: $BodyTextSize;
+
+  }
+
+  &.--thin {
+    font-weight: 100;
   }
   
   &.--bodyTextSmall {
     font-size: $BodyTextSize;
+    margin-bottom: 5px;
   }
   
   &.--blue {
@@ -132,8 +138,22 @@ body {
   border-radius: 31.5px;
   background-color: transparent;
   border: 1px solid $MainColorBlue;
+  
 
   &--desabled {
     pointer-events: none;
+  }
+
+  &.--short {
+    width: 100%;
+  }
+
+  &.--number {
+    width: 30%;
+  }
+
+  ::placeholder {
+    color: $Hint;
+    padding-left: 20px;
   }
 }

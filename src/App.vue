@@ -49,7 +49,9 @@ export default {
 <template>
   <!-----------------------GLOBAL HEADER--------------------->
   <header id="navbar" :class="{ onScroll: !view.topOfPage }">
+    <RouterLink to="/">
     <h1 class="logo">ValiData</h1>
+  </RouterLink>
     <nav>
       <RouterLink to="/" id="linkss" class="link" class-active="active"
         >Home</RouterLink
