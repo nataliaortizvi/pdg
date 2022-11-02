@@ -1,5 +1,7 @@
 <script>
 import Help from "../components/Help.vue";
+import { mapStores } from "pinia";
+import { useVariablesStore } from "../stores/variables";
 
 export default {
   components: {
@@ -13,16 +15,22 @@ export default {
   },
 
   methods: {
-    p(){
-      console.log(this.searchInput)
-    }
+    p() {
+      //console.log(this.searchInput);
+    },
+  },
+
+  computed: {
+    ...mapStores(useVariablesStore),
   },
 };
 </script>
 
 <template>
   <section class="searcher">
-    <h2 class="titlesStyle titlesStyle--blue titleVar">¿Qué variable necesitas medir hoy?</h2>
+    <h2 class="titlesStyle titlesStyle--blue titleVar">
+      ¿Qué variable necesitas medir hoy?
+    </h2>
     <div class="rightItems">
       <input
         class="input input--variable"
@@ -114,7 +122,7 @@ export default {
     font-family: $MainTypo;
     font-weight: 300;
     font-size: $TitleSize;
-    color: $MainColorBlue
+    color: $MainColorBlue;
   }
 
   &__titleTwo {

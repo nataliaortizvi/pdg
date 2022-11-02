@@ -138,7 +138,11 @@ body {
   border-radius: 31.5px;
   background-color: transparent;
   border: 1px solid $MainColorBlue;
-  
+  padding-left: 20px;
+  font-family: $MainTypo;
+  font-size: 18px;
+  color: $MainColorBlue;
+  margin-right: 17px;
 
   &--desabled {
     pointer-events: none;

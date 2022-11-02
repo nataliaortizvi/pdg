@@ -3,12 +3,19 @@ import { RouterLink, RouterView } from "vue-router";
 import Modal from "./components/Modal.vue";
 import Help from "./components/Help.vue";
 
+import { mapStores } from "pinia";
+import { useVariablesStore } from "./stores/variables";
+
 export default {
   components: {
     RouterLink,
     RouterView,
     Modal,
     Help,
+  },
+
+  computed: {
+    ...mapStores(useVariablesStore),
   },
 
   el: "#navbar",
@@ -41,6 +48,10 @@ export default {
     closeModal() {
       this.showModal = false;
     },
+  },
+
+  mounted() {
+    this.variablesStore.readVariable();
   },
 };
 </script>
