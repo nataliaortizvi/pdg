@@ -102,14 +102,6 @@ export const useVariablesStore = defineStore("variables", {
                         this.paper = {
                             title: onePaper.title,
                             variable: onePaper.variable,
-                            /*year: onePaper.year,
-                            author: onePaper.author,
-                            about: onePaper.about,
-                            definition: onePaper.definition,
-                            requirements: onePaper.requirements,
-                            formula: onePaper.formula,
-                            definitionFormula: onePaper.definitionFormula,
-                            context: onePaper.context,*/
                         }
                         this.papers.push(this.paper);
                     });

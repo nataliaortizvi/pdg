@@ -266,9 +266,7 @@ export default {
       width: 50%;
       gap: 30px;
 
-      .pvalueInfo {
-
-      }
+  
       .nivelInfo {
         border: 1px solid $SecondPink;
         padding: 20px;

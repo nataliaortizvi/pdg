@@ -45,7 +45,7 @@ export default {
       console.log("returnnnn");
       this.showModalNotFound = true;
     } else {
-      console.log("ppppppp",this.currentVariable.length);
+      console.log("si hay papers",this.currentVariable.length);
       this.resultsNumber = this.currentVariable.length;
     }
   },
@@ -59,7 +59,7 @@ export default {
       console.log("returnnnnn");
       this.showModalNotFound = true;
     } else {
-      console.log("ppppppp",this.currentVariable.length);
+      console.log("si hay papers",this.currentVariable.length);
       this.resultsNumber = this.currentVariable.length;
     }
   },

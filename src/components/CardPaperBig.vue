@@ -3,14 +3,15 @@
 export default {
 
     props: {
-        title: String,
+        currentResume: {},
+        /*title: String,
         author: String,
         year: String,
         definition: String,
         requirements: String,
         formula: String,
         definitionFormula: String,
-        context: String,
+        context: String,*/
   },
 
 };
@@ -19,7 +20,7 @@ export default {
 <template>
     <section class="resume">
         <div class="resume__title">
-            <h1>{{this.title}}</h1>
+            <h1>{{this.currentResume.title}}</h1>
         </div>
         <div class="resume__definition">
             <p><strong>{{this.definition}}</strong></p>
