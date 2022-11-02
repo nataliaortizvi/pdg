@@ -1,5 +1,7 @@
 <script>
 import Help from "../components/Help.vue";
+import { mapStores } from "pinia";
+import { useVariablesStore } from "../stores/variables";
 
 export default {
   components: {
@@ -14,8 +16,12 @@ export default {
 
   methods: {
     p() {
-      console.log(this.searchInput);
+      //console.log(this.searchInput);
     },
+  },
+
+  computed: {
+    ...mapStores(useVariablesStore),
   },
 };
 </script>

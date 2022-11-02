@@ -3,6 +3,7 @@
 import Modal from "../components/Modal.vue";
 import CardPaperBig from "../components/CardPaperBig.vue";
 
+
 export default {
   components: {
     Modal,
@@ -17,21 +18,7 @@ export default {
   },
 
   props: {
-    name: String,
-    papers: {
-      type: Array,
-      default: () => [
-        "title",
-        "author",
-        "about",
-        "year",
-        "definition",
-        "requirements",
-        "formula",
-        "definitionFormula",
-        "context",
-      ],
-    },
+    papers: {},
   },
 
   methods: {
@@ -59,14 +46,8 @@ export default {
     v-if="this.showModalResume"
     @close="closeModalResume"
   >
-    <CardPaperBig
-      :title="this.currentResume[0].title"
-      :definition="this.currentResume[0].definition"
-      :requirements="this.currentResume[0].requirements"
-      :formula="this.currentResume[0].formula"
-      :definitionFormula="this.currentResume[0].definitionFormula"
-      :context="this.currentResume[0].context"
-    >
+    <CardPaperBig 
+      :currentResume="this.currentResume[0]" >
     </CardPaperBig>
   </Modal>
 

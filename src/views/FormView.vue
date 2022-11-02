@@ -15,6 +15,7 @@ export default {
       formula: "",
       formulameaning: "",
       context: "",
+      variable: "confianza",
 
       newPaper: [],
     };
@@ -26,18 +27,20 @@ export default {
 
   methods: {
     addNewPaper() {
-    this.newPaper = {
-    //image: this.image,
-    title: this.title,
-    author: this.author,
-    year: this.year,
-    resumen: this.resumen,
-    definition: this.definition,
-    requirement: this.requirement,
-    formula: this.formula,
-    formulameaning: this.formulameaning,
-    context: this.context,
+      this.newPaper = {
+        //image: this.image,
+        title: this.title,
+        author: this.author,
+        year: this.year,
+        resumen: this.resumen,
+        definition: this.definition,
+        requirement: this.requirement,
+        formula: this.formula,
+        formulameaning: this.formulameaning,
+        context: this.context,
+        variable: this.variable,
       };
+      
       this.variablesStore.newPaper(this.newPaper);
     },
 

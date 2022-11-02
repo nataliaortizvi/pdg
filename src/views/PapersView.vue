@@ -27,13 +27,13 @@ export default {
     closeModalNotFound() {
       this.showModalNotFound = false;
     },
+    prueba() {
+      console.log(this.currentVariable.length);
+    },
   },
 
   computed: {
     ...mapStores(useVariablesStore),
-    allVariables() {
-      return this.variablesStore.getVariables;
-    },
   },
 
   mounted() {
@@ -41,11 +41,12 @@ export default {
       this.$route.params.varId
     );
 
-    if (this.currentVariable.name === undefined) {
-      console.log("returnnnnn");
+    if (this.currentVariable.length === 0) {
+      console.log("returnnnn");
       this.showModalNotFound = true;
     } else {
-      this.resultsNumber = this.currentVariable.papers.length;
+      console.log("ppppppp",this.currentVariable.length);
+      this.resultsNumber = this.currentVariable.length;
     }
   },
 
@@ -54,11 +55,12 @@ export default {
       this.$route.params.varId
     );
 
-    if (this.currentVariable.name === undefined) {
+    if (this.currentVariable.length === 0) {
       console.log("returnnnnn");
       this.showModalNotFound = true;
     } else {
-      this.resultsNumber = this.currentVariable.papers.length;
+      console.log("ppppppp",this.currentVariable.length);
+      this.resultsNumber = this.currentVariable.length;
     }
   },
 };
@@ -72,7 +74,7 @@ export default {
     class="modal"
   >
     <div class="modalInfo">
-      <h2>Ups! La variable que ingresaste no se encuentra.</h2>
+      <h2 @click="prueba">Ups! La variable que ingresaste no se encuentra.</h2>
       <p>
         Puedes volver al Home o hacer una solicitud para que la variable que
         agregaste sea agregada.
@@ -82,7 +84,7 @@ export default {
           <button class="btn --pink btnHere">Volver al home</button>
         </RouterLink>
         <RouterLink to="/form">
-        <button class="btn --pink">Agregar variable</button>
+          <button class="btn --pink">Agregar variable</button>
         </RouterLink>
       </div>
     </div>
@@ -115,7 +117,7 @@ export default {
   <section class="results">
     <div>
       <img src="/imgs/list.png" />
-      <h2 class="titlesStyle --pink">Resultados</h2>
+      <h2 class="titlesStyle --pink" @click="prueba">Resultados</h2>
     </div>
 
     <p class="titlesStyle titleResultsFind">
@@ -124,13 +126,13 @@ export default {
 
     <h2 class="titlesStyle --blue titleFind">
       Encontramos {{ this.resultsNumber }} formas para medir
-      {{ this.currentVariable.name }}
+      {{ this.$route.params.varId }}
     </h2>
 
     <CardPaperSmall
       class="cardItem"
-      :name="this.currentVariable.name"
-      :papers="this.currentVariable.papers"
+      :name="this.$route.params.varId"
+      :papers="this.currentVariable"
     >
     </CardPaperSmall>
   </section>
@@ -229,5 +231,4 @@ export default {
     }
   }
 }
-
 </style>

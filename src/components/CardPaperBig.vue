@@ -4,6 +4,8 @@ export default {
 
     props: {
         title: String,
+        author: String,
+        year: String,
         definition: String,
         requirements: String,
         formula: String,
