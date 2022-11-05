@@ -65,20 +65,20 @@ export default {
   </RouterLink>
     <nav>
       <RouterLink to="/" id="linkss" class="link" class-active="active"
-        >Home</RouterLink
+        >Inicio</RouterLink
       >
       <RouterLink to="/analisis" id="linkss" class="link" class-active="active"
         >Tipos de análisis</RouterLink
       >
-      <RouterLink to="/comunidad" id="linkss" class="link" class-active="active"
-        >Comunidad</RouterLink
+      <RouterLink to="/interpretation" id="linkss" class="link" class-active="active"
+        >Resultados</RouterLink
       >
     </nav>
   </header>
 
   <button class="btn helpBtn" @click="openModal">?</button>
   <Modal :showButton="true" v-if="showModal" @close="closeModal">
-    <Help class="helper"></Help>
+    <Help :modalOff="false" class="helper"></Help>
   </Modal>
 
   <!------------------------BODY------------------------->

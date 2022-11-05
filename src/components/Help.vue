@@ -11,23 +11,26 @@ export default {
           descripOne:
             "Antes de iniciar debes saber que todos los proyectos de investigación en áreas creativas también necesitan una hipótesis que debe ser comprobada.",
           descripTwo:
-            "Esta hipótesis debe tener al menos una variable que es la que necesitas medir.",
-          descripThree: 'Ejemplo',
-          descripFour: 'Hipótesis: Mientras más alta este del suelo una manzana, su velocidad de caida es mayor.', 
-          descripFive: 'Variable: Velocidad',
+            "Esta hipótesis debe tener al menos una variable, que es la que necesitas medir.",
+          descripThree: "Ejemplo",
+          descripFour:
+            "Hipótesis: Mientras más alta este del suelo una manzana, su velocidad de caida es mayor.",
+          descripFive: "Variable: Velocidad.",
         },
         {
           num: 2,
           paso: "Protocolo de investigación:",
-          nombre: "Definir hipótesis nula(H0) y alternativa(H1)",
+          nombre: "Hipótesis nula(H0) y alternativa(H1)",
           descripOne:
-            "Cuando definas la varible y construyas tu hipótesis debes definir tu hipótesis nula(H0) y su alternativa(H1).",
+            "Cuando definas la varible y construyas tu hipótesis, debes definir tu hipótesis nula(H0) y alternativa(H1).",
           descripTwo:
             "La hipótesis alternativa(H1) es el enunciado de lo que quieres afirmar o demostrar con la validación.",
           descripThree:
             "La hipótesis nula(H0) es lo contrario a la hipótesis alternartiva(H1)",
-          descripFour: "Las manzanas caen del árbol más rápido si estan más altas.",
-          descripFive: "Las manzanas NO caen del árbol más rápido si estan más altas",
+          descripFour:
+            "Las manzanas caen del árbol más rápido si estan más altas.",
+          descripFive:
+            "Las manzanas NO caen del árbol más rápido si estan más altas",
           descripSix: "Ejemplo",
         },
         {
@@ -36,43 +39,49 @@ export default {
           nombre: "¿Cómo medir la variable?",
           descripOne:
             "Cuando tengas las hipótesis definidas, escribe en la barra de búsqueda de Validata la variable que vas a medir.",
-          descripTwo: "Así conocerás diferentes formas de medir esa variable",
+          descripTwo: "Así conocerás diferentes formas de medir esa variable.",
           descripThree: "Ejemplo",
-          descripFour: "La velocidad es el cambio de posición dividido el tiempo",
-          descripFive:
-            "Velocidad: cambio de posición / tiempo",
+          descripFour:
+            "La velocidad es el cambio de posición dividido el tiempo",
+          descripFive: "Velocidad: cambio de posición / tiempo",
         },
         {
           num: 4,
           paso: "Protocolo de investigación:",
           nombre: "Definir tipo de análisis y muestra",
           descripOne:
-            "En Validata encontrarás diferentes tipos de análisis para validar tu hipótesis. Elige la que mejor le convenga a tu proyecto según la muestra que definas." ,
+            "En Validata encontrarás diferentes tipos de análisis para validar tu hipótesis. Elige la que mejor le convenga a tu proyecto según la muestra que definas.",
           descripTwo: "Ejemplo",
           descripThree:
-            "Muestra: 2 grupos con 10 manzanas cada una. (Un grupo con manzanas ubicadas mas altas que el otro grupo). Puedes hacer un Paired T-test con dos grupos de igual cantidad de manzanas, uno que esta más alto que el otro y recolectar los datos con cada uno",
+            "Muestra: 2 grupos con 10 manzanas cada una. (Un grupo con manzanas ubicadas más altas que el otro grupo). Puedes hacer un Paired T-test con dos grupos de igual cantidad de manzanas, uno que esta más alto que el otro y recolectar los datos con cada uno.",
           descripFour: "Paired T-test",
         },
         {
           num: 5,
           paso: "Fase de analisis:",
           nombre: "Calculadora y resultados",
-          descripOne: "Validata te llevará a una calculadora que realizará los calculos automaticos, y te dará los resultados",
-          descripTwo: "Con estos resultados podrás volver a Validata e ingresarlos en la sección de interpretación de resultados para entenderlos mejor",
+          descripOne:
+            "Validata te llevará a una calculadora que realizará los calculos automaticos, y te dará los resultados.",
+          descripTwo:
+            "Con estos resultados podrás volver a Validata e ingresarlos en la sección de interpretación de resultados para entenderlos mejor.",
           descripThree: "Ejemplo",
           descripFour: "Manzanas altas: 4,5,4,4,3,4,3,4,4,6",
           descripFive: "Manzanas bajas: 8,8,9,10,7,11,6,8,9,8",
-          descripSix: "Resultado: El valor P es menor a 0,0001, por criterio convencional esta diferencia es considerada extremadamente significativa estadísticamente."
+          descripSix:
+            "Resultado: El valor P es menor a 0,05, por criterio convencional esta diferencia es considerada extremadamente significativa estadísticamente.",
         },
         {
           num: 6,
           paso: "Fase de analisis:",
           nombre: "Conclusión",
-          descripOne: "Validata te ayudará a entender los resultados para que puedas presentarlos y dar una conclusión en tu investigación",
+          descripOne:
+            "Validata te ayudará a entender mejor los resultados para que puedas presentarlos y dar una conclusión en tu investigación.",
           descripTwo: "Ejemplo",
           descripThree: "Según tus resultados:",
-          descripFour: "Tu valor P (0.0001) es menor que tu nivel de significancia (0.05).",
-          descripFive: "Es decir, que tu hipótesis alternativa(H1) de: Las manzanas caen del árbol más rápido si están más altas.. Es aceptada"
+          descripFour:
+            "Tu valor P (0.0001) es menor que tu nivel de significancia (0.05).",
+          descripFive:
+            "Es decir, que tu hipótesis alternativa(H1) de: Las manzanas caen del árbol más rápido si están más altas.. Es aceptada ✅",
         },
       ],
 
@@ -88,12 +97,23 @@ export default {
     };
   },
 
+  props: {
+    modalOff: Boolean,
+  },
+
   methods: {
     next() {
       this.currentstep++;
     },
     back() {
       this.currentstep--;
+    },
+    scrollWin() {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
     },
   },
 };
@@ -111,7 +131,11 @@ export default {
           :key="step"
           class="circle"
           :class="{ active: step <= currentstep }"
-          @click="()=>{this.currentstep = step}"
+          @click="
+            () => {
+              this.currentstep = step;
+            }
+          "
         >
           <a>{{ step }}</a>
         </div>
@@ -144,9 +168,11 @@ export default {
             <p class="descripOne">{{ step.descripOne }}</p>
             <p class="descripTwo">{{ step.descripTwo }}</p>
             <div class="cardInfo__ejemploOne">
-              <strong><p class="descripThree">{{ step.descripThree}}</p></strong>
-              <p>{{ step.descripFour}}</p>
-              <p> {{step.descripFive}} </p>
+              <strong
+                ><p class="descripThree">{{ step.descripThree }}</p></strong
+              >
+              <p>{{ step.descripFour }}</p>
+              <p>{{ step.descripFive }}</p>
             </div>
           </div>
           <div class="buttons buttons--buttonOne">
@@ -276,8 +302,8 @@ export default {
           </div>
         </div>
 
-         <!------------Step 5---------->
-         <div
+        <!------------Step 5---------->
+        <div
           class="cardInfo"
           :class="{ stepFiveShow: step.num === 5 }"
           v-if="currentstep === step.num"
@@ -288,16 +314,18 @@ export default {
           </div>
           <div class="textIntro">
             <p class="textIntro__text">{{ step.descripOne }}</p>
-            <p class="textIntro__texts">{{step.descripTwo}}</p>
+            <p class="textIntro__texts">{{ step.descripTwo }}</p>
             <!--<button class="btn btn--disabled">Calcular</button>-->
           </div>
           <div class="textExample">
-            <strong><p class="textExample__ejem">{{step.descripThree}}</p></strong>
-            <p>{{step.descripFour}}</p>
-            <p>{{step.descripFive}}</p>
-            <p class="textExample__result">{{step.descripSix}}</p>
+            <strong
+              ><p class="textExample__ejem">{{ step.descripThree }}</p></strong
+            >
+            <p>{{ step.descripFour }}</p>
+            <p>{{ step.descripFive }}</p>
+            <p class="textExample__result">{{ step.descripSix }}</p>
           </div>
-         
+
           <div class="buttons buttons--buttonFive">
             <button class="btn btn--small" @click="back" v-if="!isFirstStep">
               Anterior
@@ -323,12 +351,14 @@ export default {
           </div>
 
           <div class="textExample">
-            <strong><p class="textExample__ejem">{{step.descripTwo}}</p></strong>
-            <p>{{step.descripThree}}</p>
-            <p>{{step.descripFour}}</p>
-            <p>{{step.descripFive}}</p>
+            <strong
+              ><p class="textExample__ejem">{{ step.descripTwo }}</p></strong
+            >
+            <p>{{ step.descripThree }}</p>
+            <p>{{ step.descripFour }}</p>
+            <p>{{ step.descripFive }}</p>
           </div>
-         
+
           <div class="buttons buttons--buttonSix">
             <button class="btn btn--small" @click="back" v-if="!isFirstStep">
               Anterior
@@ -336,7 +366,11 @@ export default {
             <button class="btn btn--small" @click="next" v-if="!isLastStep">
               Siguiente
             </button>
-            <button class="btn btn--small" v-if="!isFirstStep">
+            <button
+              class="btn btn--small"
+              v-if="!isFirstStep && modalOff"
+              @click="scrollWin()"
+            >
               Comenzar
             </button>
           </div>
@@ -356,10 +390,12 @@ export default {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-right: 30px;
 
   .progress {
     display: flex;
     padding: 30px;
+    margin-left: 30px;
 
     .stillBar {
       height: 470px;
@@ -430,10 +466,10 @@ export default {
     flex-direction: column;
     background-color: $White;
     border-radius: 20px;
-    width: 900px;
+    width: 800px;
+    height: 550px;
     position: relative;
-    padding: 30px;
-    margin-right: 30px;
+    padding: 50px;
 
     .cardInfo {
       display: none;
@@ -450,7 +486,6 @@ export default {
         font-weight: 700;
       }
 
-      
       .descripOne {
         color: $MainColorBlue;
         font-size: $BodyTextSize;
@@ -460,7 +495,7 @@ export default {
       .descripTwo {
         color: $MainColorBlue;
         font-size: $BodyTextSize;
-        margin-top: 20px;
+        margin-top: 30px;
       }
 
       .cardInfo__ejemploOne {
@@ -468,7 +503,7 @@ export default {
         flex-direction: column;
         align-items: center;
         border: 1px solid $SecondPink;
-        padding: 10px;
+        padding: 10px 20px;
         margin-top: 30px;
       }
     }
@@ -493,27 +528,28 @@ export default {
       .textIntro {
         display: flex;
         justify-items: center;
-        margin-top: 20px;
-        width: 400px;
+        margin-top: 30px;
+        width: 500px;
         text-align: center;
         color: $MainColorBlue;
         font-size: $BodyTextSize;
       }
 
       .gridText {
-        margin-top: 20px;
+        margin-top: 40px;
         color: $MainColorBlue;
         font-size: $BodyTextSize;
 
         &__top {
           display: flex;
           gap: 50px;
+          text-align: center;
         }
 
         &__center {
           display: flex;
           justify-content: center;
-          margin: 10px 0px 20px 0px;
+          margin: 0px 0px 20px 0px;
         }
 
         &__bottom {
@@ -544,6 +580,7 @@ export default {
 
       p {
         color: $MainColorBlue;
+        text-align: start;
       }
 
       .cardInfo__header {
@@ -577,7 +614,7 @@ export default {
         display: flex;
         flex-direction: column;
         justify-items: center;
-        margin-top: 20px;
+        margin-top: 30px;
         width: 100%;
         text-align: center;
         font-size: $BodyTextSize;
@@ -607,23 +644,21 @@ export default {
 
       .textIntro {
         width: auto;
-        margin: 20px 0px 20px 0px;
+        margin: 40px;
         font-size: $BodyTextSize;
       }
-      
+
       .cardInfo__ejemplo {
         display: flex;
         flex-direction: column;
         align-items: center;
         border: 1px solid $SecondPink;
-        padding: 10px;
+        padding: 10px 20px;
 
-          .ejemploText {
-            margin-bottom: 10px;
-          }
+        .ejemploText {
+          margin-bottom: 10px;
+        }
       }
-
-      
     }
 
     .stepFiveShow {
@@ -633,7 +668,7 @@ export default {
 
       p {
         color: $MainColorBlue;
-        text-align: center;
+        text-align: start;
       }
 
       .cardInfo__header {
@@ -647,27 +682,26 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 70px;
+        margin-top: 20px;
         font-size: $BodyTextSize;
 
         &__text {
           margin-bottom: 20px;
         }
         &__texts {
-          margin-bottom: 10px;
+          margin-bottom: 20px;
         }
       }
-      .textExample{
+      .textExample {
         border: 1px solid $SecondPink;
-        padding:10px;
+        padding: 10px 20px;
 
-        &__ejem{
+        &__ejem {
           margin-bottom: 10px;
         }
-        &__result{
+        &__result {
           margin-top: 10px;
         }
-      
       }
     }
 
@@ -678,7 +712,7 @@ export default {
 
       p {
         color: $MainColorBlue;
-        text-align: center;
+        text-align: start;
       }
 
       .cardInfo__header {
@@ -689,11 +723,10 @@ export default {
       }
 
       .textIntro {
-       
-        margin: 140px 0px 10px 0px;
+        margin: 30px 0px;
         font-size: $BodyTextSize;
-      }   
-      
+      }
+
       .textExample {
         border: 1px solid $SecondPink;
         padding: 10px;
@@ -702,7 +735,6 @@ export default {
           margin-bottom: 10px;
         }
       }
-
     }
 
     .buttons {
@@ -710,30 +742,10 @@ export default {
       flex-direction: row;
       justify-content: center;
       gap: 20px;
-
-      &--buttonOne {
-        margin-top: 50px;
-      }
-
-      &--buttonTwo {
-        margin-top: 30px;
-      }
-
-      &--buttonThree {
-        margin-top: 30px;
-      }
-
-      &--buttonFour {
-        margin-top: 52px;
-      }
-
-      &--buttonFive {
-        margin-top: 98px;
-      }
-
-      &--buttonSix {
-        margin-top: 122px;
-      }
+      position: absolute;
+      bottom: 25px;
+      left: 0;
+      right: 0;
     }
   }
 }

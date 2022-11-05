@@ -134,15 +134,14 @@ body {
 
 .input {
   width: 500px;
-  height: 42px;
-  border-radius: 31.5px;
+  height: 30px;
+  border-radius: 30px;
   background-color: transparent;
   border: 1px solid $MainColorBlue;
-  padding-left: 20px;
+  padding-left: 15px;
   font-family: $MainTypo;
-  font-size: 18px;
+  font-size: 15px;
   color: $MainColorBlue;
-  margin-right: 17px;
 
   &--desabled {
     pointer-events: none;
@@ -153,11 +152,10 @@ body {
   }
 
   &.--number {
-    width: 30%;
+    width: 25%;
   }
 
   ::placeholder {
     color: $Hint;
-    padding-left: 20px;
   }
 }

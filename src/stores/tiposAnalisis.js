@@ -6,7 +6,7 @@ export const useAnalisisStore = defineStore("analisis", {
             {
                 grupoDeAnalisis: [
                     {
-                        img: 'public/imgs/paired.png',
+                        img: '/imgs/paired.png',
                         title: 'Paired T-test',
                         descrip: '2 grupos con igual cantidad de elementos',
                         what: 'Una prueba T es una prueba estadística que compara los promedios y las desviaciones estándar de dos grupos relacionados para determinar si existe una diferencia significativa entre los dos grupos. Una diferencia significativa ocurre cuando es poco probable que las diferencias entre los grupos se deban a un error de muestreo o al azar.',
@@ -23,7 +23,7 @@ export const useAnalisisStore = defineStore("analisis", {
                         calculatorlink: 'https://www.graphpad.com/quickcalcs/ttest1/?format=C',
                     },
                     {
-                        img: 'public/imgs/unpaired.png',
+                        img: '/imgs/unpaired.png',
                         title: 'Unpaired T-test',
                         descrip: '2 grupos con diferente cantidad de elementos',
                         what: 'Una prueba T es una prueba estadística que compara los promedios y las desviaciones estándar de dos grupos independientes para determinar si existe una diferencia significativa entre los dos grupos. Una diferencia significativa ocurre cuando es poco probable que las diferencias entre los grupos se deban a un error de muestreo o al azar.',
@@ -40,7 +40,7 @@ export const useAnalisisStore = defineStore("analisis", {
                         calculatorlink: 'https://www.graphpad.com/quickcalcs/ttest1/?format=C',
                     },
                     {
-                        img: 'public/imgs/anova.png',
+                        img: '/imgs/anova.png',
                         title: 'ANOVA',
                         descrip: '3 grupos o más indiferente la cantidad de elementos',
                         what: 'Se utiliza una prueba ANOVA para comparar las medias de tres o más muestras independientes simultáneamente.',
@@ -62,7 +62,7 @@ export const useAnalisisStore = defineStore("analisis", {
                 ],
                 correlacion: [
                     {
-                        img: 'public/imgs/paired.png',
+                        img: '/imgs/paired.png',
                         title: 'Spearman',
                         descrip: 'La escala de medida debe ser ordinal (o intervalo, razón)',
                         what: 'Spearman es una prueba no paramétrica utilizada para medir la fuerza de asociación entre dos variables, donde el valor r = 1 significa una correlación positiva perfecta y el valor r = -1 significa una correlación negativa perfecta.', 
@@ -86,7 +86,7 @@ export const useAnalisisStore = defineStore("analisis", {
                         calculatorlink: 'https://www.socscistatistics.com/tests/spearman/default2.aspx',
                     },
                     {
-                        img: 'public/imgs/Unpaired.png',
+                        img: '/imgs/unpaired.png',
                         title: 'Pearson',
                         descrip: 'La escala de medida debe ser de intervalo o de razón',
                         what: 'El coeficiente de correlación de Pearson se usa para medir la fuerza de una asociación lineal entre dos variables, donde el valor r = 1 significa una correlación positiva perfecta y el valor r = -1 significa una correlación negativa perfecta. Las variables deben tener una distribución aproximadamente normal. La asociación debe ser lineal y no debe haber valores atípicos en los datos.',

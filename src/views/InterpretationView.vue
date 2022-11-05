@@ -131,15 +131,15 @@ export default {
         <b class="titlesStyle --bodyTextSmall --thin nivelInfo">
           <strong><p class="reminder">Recordemos que:</p></strong>
           <strong>Nivel de significancia: </strong>es normalmente del 5% (0.05)
-          dependiendo del nivel de confianza, que normalmente en del 95% (0.95).
+          dependiendo del nivel de confianza, que normalmente es del 95% (0.95).
           <br /><br />
           <strong>Valor P: </strong> sale a partir de la prueba realizada y es
-          el porcentaje de que tu hipótesis nula(H0) ocurra. <br /><br />Si tu valor P es menor
-          al nivel de significancia entonces se rechaza la hipótesis nula((H0)) porque
-          hay muy poca probabilidad de que ocurra.
+          el porcentaje de que tu hipótesis nula(H0) ocurra. <br /><br />Si tu
+          valor P es menor al nivel de significancia, entonces se rechaza la
+          hipótesis nula((H0)) porque hay muy poca probabilidad de que ocurra.
         </b>
 
-        <p class="" v-if="this.analize">Eso quiere decir que si:</p>
+        <p class="reminder" v-if="this.analize">Eso quiere decir que:</p>
 
         <h1
           class="titlesStyle --bodyTextBig --blue pvalueInfo"
@@ -163,7 +163,7 @@ export default {
 
         <p v-if="this.analize">Así que según tus resultados:</p>
 
-        <p class="dataInfo" v-if="this.analize">
+        <p v-if="this.analize">
           Tu valor P
           <strong class="interPvalue">({{ this.showPvalue }})</strong> es
           <strong v-if="!this.isLess">mayor</strong>
@@ -175,7 +175,7 @@ export default {
           <strong v-if="this.isLess"><br />Es aceptada ✅</strong>
           <strong v-if="!this.isLess"><br />Es rechazada 🚫</strong>
           <br /><br />Y tu hipótesis nula(H0) de:
-          <span>{{ this.showH1 }}. </span>
+          <span>{{ this.showH0 }}. </span>
           <strong v-if="!this.isLess"><br />Es aceptada ✅</strong>
           <strong v-if="this.isLess"><br />Es rechazada 🚫</strong>
         </p>
@@ -192,7 +192,7 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 0px 30px;
+  padding: 30px 30px;
   color: $MainColorBlue;
 
   .header {
@@ -213,8 +213,8 @@ export default {
   .body {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: space-between;
     gap: 50px;
     width: 100%;
     margin: 50px 0px;
@@ -224,31 +224,21 @@ export default {
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      width: 40%;
+      width: 30%;
       background-color: $Background2;
       border-radius: 20px;
-      padding: 30px;
-      gap: 30px;
+      padding: 25px;
+      gap: 25px;
 
       .theInput {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
-
+     
         select {
-          padding: 0px 15px;
+          padding: 0px 10px;
         }
-
-
-        fieldset {
-          width: 100%;
-          height: 50px;
-        }
-      }
-
-      ::placeholder {
-        padding-left: 15px;
       }
 
       &__btnclass {
@@ -263,18 +253,13 @@ export default {
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
-      width: 50%;
+      width: auto;
       gap: 30px;
 
-  
       .nivelInfo {
         border: 1px solid $SecondPink;
         padding: 20px;
-        width: 94%;
-      }
-      .dataInfo {
-        
-
+        width: 95%;
         .reminder {
           font-size: $BodyTextSize2;
           color: $SecondPink;

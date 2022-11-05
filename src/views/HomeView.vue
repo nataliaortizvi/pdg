@@ -54,7 +54,7 @@ export default {
   <section class="manual">
     <h3 class="manual__titleOne">¿Aún no sabes cómo usar validata?</h3>
     <h1 class="manual__titleTwo">Aquí te enseñamos</h1>
-    <Help></Help>
+    <Help :modalOff ="true"></Help>
   </section>
 </template>
 
