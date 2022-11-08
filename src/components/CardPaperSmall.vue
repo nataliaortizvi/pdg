@@ -18,7 +18,7 @@ export default {
   },
 
   props: {
-    papers: {},
+    papers: Object,
   },
 
   methods: {

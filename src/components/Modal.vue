@@ -38,7 +38,7 @@ export default {
   width: 100%;
   height: 100%;
   background-color: rgba(24, 29, 61, 0.8);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(4px);
   z-index: 100;
 }
 

@@ -15,27 +15,27 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+    },
+    {
+      path: '/papers/:paperId',
+      name: 'paper',
+      component: PapersView,
     },
     {
       path: '/nosotros',
       name: 'nosotros',
-      component: AboutUsView
+      component: AboutUsView,
     },
     {
       path: '/comunidad',
       name: 'comunidad',
-      component: ComunityView
+      component: ComunityView,
     },
     {
       path: '/analisis',
       name: 'analisis',
-      component: AnalysisView
-    },
-    {
-      path: '/papers/:varId',
-      name: 'paper',
-      component: PapersView
+      component: AnalysisView,
     },
     {
       path: '/form',

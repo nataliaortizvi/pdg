@@ -41,6 +41,7 @@ export default {
       <RouterLink :key="this.searchInput" :to="`/papers/${this.searchInput}`">
         <button class="btn --small --pink" @click="p">Buscar</button>
       </RouterLink>
+      
     </div>
   </section>
 
@@ -54,7 +55,7 @@ export default {
   <section class="manual">
     <h3 class="manual__titleOne">¿Aún no sabes cómo usar validata?</h3>
     <h1 class="manual__titleTwo">Aquí te enseñamos</h1>
-    <Help :modalOff ="true"></Help>
+    <Help :modalOff="true"></Help>
   </section>
 </template>
 

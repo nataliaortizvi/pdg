@@ -121,7 +121,7 @@ export const useVariablesStore = defineStore("variables", {
 
         getVariableById(id) {
             const filteredVariables = this.papers.filter((paper) => id === paper.variable);
-            console.log("filetered: ", filteredVariables)
+            //console.log("filetered: ", filteredVariables)
             return filteredVariables
         }
     },

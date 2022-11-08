@@ -61,8 +61,8 @@ export default {
   <!-----------------------GLOBAL HEADER--------------------->
   <header id="navbar" :class="{ onScroll: !view.topOfPage }">
     <RouterLink to="/">
-    <h1 class="logo">ValiData</h1>
-  </RouterLink>
+      <h1 class="logo">ValiData</h1>
+    </RouterLink>
     <nav>
       <RouterLink to="/" id="linkss" class="link" class-active="active"
         >Inicio</RouterLink
@@ -70,7 +70,11 @@ export default {
       <RouterLink to="/analisis" id="linkss" class="link" class-active="active"
         >Tipos de análisis</RouterLink
       >
-      <RouterLink to="/interpretation" id="linkss" class="link" class-active="active"
+      <RouterLink
+        to="/interpretation"
+        id="linkss"
+        class="link"
+        class-active="active"
         >Resultados</RouterLink
       >
     </nav>
@@ -88,12 +92,21 @@ export default {
     <div class="footer">
       <h1 class="logo logoFooter">ValiData</h1>
       <div class="footer__links">
-        <RouterLink to="/" id="linkss" class="linkWhite">Home</RouterLink>
-        <RouterLink to="/analisis" id="linkss" class="linkWhite"
+
+        <RouterLink to="/" id="linkss" class="linkWhite"
+          >Inicio</RouterLink
+        >
+        <RouterLink
+          to="/analisis"
+          id="linkss"
+          class="linkWhite"
           >Tipos de análisis</RouterLink
         >
-        <RouterLink to="/calculadora" id="linkss" class="linkWhite"
-          >Calculadora</RouterLink
+        <RouterLink
+          to="/interpretation"
+          id="linkss"
+          class="linkWhite"
+          >Resultados</RouterLink
         >
       </div>
       <div class="footer__CR">

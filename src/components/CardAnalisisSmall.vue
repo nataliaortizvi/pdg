@@ -27,8 +27,6 @@ export default {
       this.currentAnalisis = this.tiposAnalisis.filter(
         (type) => type.title === analisisSelect
       );
-
-      console.log(analisisSelect);
     },
 
     closeModalAnalisis() {

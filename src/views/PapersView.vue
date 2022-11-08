@@ -27,39 +27,40 @@ export default {
     closeModalNotFound() {
       this.showModalNotFound = false;
     },
-    prueba() {
-      console.log(this.currentVariable.length);
-    },
   },
 
   computed: {
     ...mapStores(useVariablesStore),
+
+    getPapers() {
+      this.currentVariable = this.variablesStore.getVariableById(
+      this.$route.params.paperId
+    );
+      return this.currentVariable.length;
+    },
+  },
+
+  watch: {
+    getPapers(newChanges) {
+      if (newChanges != 0) {
+        this.resultsNumber = this.currentVariable.length;
+        this.showModalNotFound = false;
+      }
+    },
   },
 
   mounted() {
-    this.currentVariable = this.variablesStore.getVariableById(
-      this.$route.params.varId
-    );
-
-    if (this.currentVariable.length === 0) {
-      console.log("returnnnn");
+    if (this.getPapers == 0){
       this.showModalNotFound = true;
-    } else {
-      console.log("si hay papers",this.currentVariable.length);
+    }else{
       this.resultsNumber = this.currentVariable.length;
     }
   },
 
   updated() {
-    this.currentVariable = this.variablesStore.getVariableById(
-      this.$route.params.varId
-    );
-
-    if (this.currentVariable.length === 0) {
-      console.log("returnnnnn");
+    if (this.getPapers === 0) {
       this.showModalNotFound = true;
     } else {
-      console.log("si hay papers",this.currentVariable.length);
       this.resultsNumber = this.currentVariable.length;
     }
   },
@@ -74,7 +75,7 @@ export default {
     class="modal"
   >
     <div class="modalInfo">
-      <h2 @click="prueba">Ups! La variable que ingresaste no se encuentra.</h2>
+      <h2>Ups! La variable que ingresaste no se encuentra.</h2>
       <p>
         Puedes volver al Home o hacer una solicitud para que la variable que
         agregaste sea agregada.
@@ -117,7 +118,7 @@ export default {
   <section class="results">
     <div>
       <img src="/imgs/list.png" />
-      <h2 class="titlesStyle --pink" @click="prueba">Resultados</h2>
+      <h2 class="titlesStyle --pink">Resultados</h2>
     </div>
 
     <p class="titlesStyle titleResultsFind">
@@ -126,15 +127,10 @@ export default {
 
     <h2 class="titlesStyle --blue titleFind">
       Encontramos {{ this.resultsNumber }} formas para medir
-      {{ this.$route.params.varId }}
+      {{ this.$route.params.paperId }}
     </h2>
 
-    <CardPaperSmall
-      class="cardItem"
-      :name="this.$route.params.varId"
-      :papers="this.currentVariable"
-    >
-    </CardPaperSmall>
+    <CardPaperSmall :papers="this.currentVariable"> </CardPaperSmall>
   </section>
 </template>
   

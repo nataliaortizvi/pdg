@@ -61,21 +61,6 @@ export default {
         </RouterLink>
       </div>
     </div>
-
-    <!--div class="container__calculator">
-      <strong><p class="subtitle">Ingresa tus datos</p></strong>
-      <div class="inputs">
-        <div class="inputs__each">
-          <strong><label>Agrega los datos de x:</label></strong>
-          <input type="number" for="valorX" class="valores valorX" />
-        </div>
-        <div class="inputs__each">
-          <strong><label>Agrega los datos de y:</label></strong>
-          <input type="number" class="valores valorY" />
-        </div>
-      </div>
-      <button class="btn btnCalcular">Calcular</button>
-    </div-->
   </section>
 </template>
 
