@@ -77,9 +77,9 @@ export const useVariablesStore = defineStore("variables", {
 
     },
     actions: {
-        newPaper(newPaper) {            
+        newPaper(newPaper) {
             let filteredVariables = this.papers.filter((paper) => newPaper.variable === paper.variable);
-           
+
             filteredVariables.push(newPaper);
 
             let newArray = Object.assign({}, filteredVariables);
@@ -91,7 +91,7 @@ export const useVariablesStore = defineStore("variables", {
         },
 
         readVariable() {
-            
+
             onSnapshot(collection(db, "variables"), (docs) => {
                 this.papers = [];
 
@@ -101,6 +101,14 @@ export const useVariablesStore = defineStore("variables", {
                     Object.values(docOne.data().papers).forEach((onePaper) => {
                         this.paper = {
                             title: onePaper.title,
+                            author: onePaper.author,
+                            year: onePaper.year,
+                            resumen: onePaper.resumen,
+                            definition: onePaper.definition,
+                            requirement: onePaper.requirement,
+                            formula: onePaper.formula,
+                            formulameaning: onePaper.formulameaning,
+                            context: onePaper.context,
                             variable: onePaper.variable,
                         }
                         this.papers.push(this.paper);

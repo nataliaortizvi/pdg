@@ -23,11 +23,11 @@ export default {
             <h1>{{this.currentResume.title}}</h1>
         </div>
         <div class="resume__definition">
-            <p><strong>{{this.definition}}</strong></p>
+            <p><strong>{{this.currentResume.definition}}</strong></p>
         </div>
         <div class="resume__requirements">
             <div class="requirementsText">
-                <p class="requirementsText__definition">{{this.requirements}}</p>
+                <p class="requirementsText__definition">{{this.currentResume.requirement}}</p>
                 <div class="requirementsText__hereIsTheFormula">
                     <strong>
                         <ul>
@@ -40,11 +40,11 @@ export default {
             <img class="imgDefinition" src="../../public/imgs/trust.png">
         </div>  
         <div class="resume__formula">
-            <strong><p>{{this.formula}}</p></strong>
+            <strong><p>{{this.currentResume.formula}}</p></strong>
         </div>
         <div class="resume__definitionFormula">
             <strong><p>Donde:</p></strong>
-            <p>{{this.definitionFormula}}</p>
+            <p>{{this.currentResume.definitionFormula}}</p>
         </div>
         <div class="resume__introTextContect">
             <strong>
@@ -55,7 +55,7 @@ export default {
             <p></p>
         </div>
         <div class="resume__context">
-            <p>{{this.context}}</p>
+            <p>{{this.currentResume.context}}</p>
         </div>
         <div class="resume_nextStep">
             <strong><p>Entendiendo la formula y dimensiones de la confianza. Podemos ir al siguiente paso:</p></strong>

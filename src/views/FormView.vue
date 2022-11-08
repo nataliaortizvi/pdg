@@ -15,7 +15,7 @@ export default {
       formula: "",
       formulameaning: "",
       context: "",
-      variable: "confianza",
+      variable: "",
 
       newPaper: [],
     };
@@ -56,6 +56,16 @@ export default {
   <section class="containerForm">
     <h1 class="titlesStyle --pink">Agrega la nueva variable</h1>
     <div class="paperForm">
+      <div class="itemForm">
+        <label class="text"> ¿Cuál variable vas a agregar? </label>
+        <input
+          class="input"
+          placeholder="Variable"
+          v-model="variable"
+          type="text"
+          required
+        />
+      </div>
       <div class="itemForm">
         <label class="text"> Escribe el título del documento</label>
         <input

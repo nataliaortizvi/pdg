@@ -63,7 +63,7 @@ export default {
   >
     <h2 class="titleTxt">{{ paper.title }}</h2>
     <p class="authorTxt">{{ paper.author }}</p>
-    <p class="aboutTxt">{{ paper.about }}</p>
+    <p class="aboutTxt">{{ paper.resumen }}</p>
     <p class="yearTxt">{{ paper.year }}</p>
   </section>
 </template>

@@ -134,7 +134,7 @@ body {
 
 .input {
   width: 500px;
-  height: 30px;
+  height: 43px;
   border-radius: 30px;
   background-color: transparent;
   border: 1px solid $MainColorBlue;
@@ -149,10 +149,12 @@ body {
 
   &.--short {
     width: 100%;
+    height: 35px;
   }
 
   &.--number {
     width: 25%;
+    height: 35px;
   }
 
   ::placeholder {

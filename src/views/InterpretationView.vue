@@ -82,7 +82,7 @@ export default {
             Hipótesis Alternativa(H1)
           </label>
           <input
-            class="input --short"
+            class="input --short --shortHeight"
             placeholder="Ingresa tu H1..."
             type="text"
             v-model="this.h1"
