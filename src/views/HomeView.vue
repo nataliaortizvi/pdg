@@ -15,7 +15,7 @@ export default {
   },
 
   methods: {
-    p() {
+    isVariable() {
       //console.log(this.searchInput);
     },
   },
@@ -39,7 +39,7 @@ export default {
         v-model="this.searchInput"
       />
       <RouterLink :key="this.searchInput" :to="`/papers/${this.searchInput}`">
-        <button class="btn --small --pink" @click="p">Buscar</button>
+        <button class="btn --small --pink" @click="isVariable">Buscar</button>
       </RouterLink>
       
     </div>

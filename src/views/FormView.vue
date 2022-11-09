@@ -26,9 +26,15 @@ export default {
   },
 
   methods: {
+    onFileChange(e) {
+      var files = e.target.files;
+      this.image = files[0];
+      this.variablesStore.uploadImage(this.image);
+    },
+
     addNewPaper() {
       this.newPaper = {
-        //image: this.image,
+        image: this.image.name,
         title: this.title,
         author: this.author,
         year: this.year,
@@ -42,12 +48,8 @@ export default {
       };
       
       this.variablesStore.newPaper(this.newPaper);
-    },
+      console.log("MANDAAAA", this.image.name);
 
-    newFile(e) {
-      var files = e.target.files;
-      this.image = files[0];
-      console.log("image", files[0]);
     },
   },
 };
@@ -180,7 +182,7 @@ export default {
             id="myFile"
             type="file"
             accept=".jpg, .jpeg, .png"
-            @change="newFile"
+            @change="onFileChange"
             required
           />
           <img class="imgInput" src="../../public/icons/image.svg" />

@@ -31,7 +31,7 @@ export default {
           </strong>
         </div>
       </div>
-      <img class="imgDefinition" src="../../public/imgs/trust.png" />
+      <img class="imgDefinition" :src="this.currentResume.image.url" />
     </div>
     <div class="resume__formula">
       <strong
