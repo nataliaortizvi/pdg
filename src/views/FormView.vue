@@ -62,7 +62,7 @@ export default {
           variable: this.variable,
         };
         
-        //this.variablesStore.newPaper(this.newPaper);
+        this.variablesStore.newPaper(this.newPaper);
         this.showVariableAdded = true;
       }
 
