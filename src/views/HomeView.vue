@@ -16,13 +16,29 @@ export default {
 
   methods: {
     isVariable() {
-      //console.log(this.searchInput);
+      if (this.searchInput != "") {
+        this.$router.push(`/papers/${this.searchInput}`)
+      } else {
+        alert("Escribe una variable")
+      }
+    },
+    search () {
+      console.log(this.searchInput);
+      this.$router.push(`/papers/${this.searchInput}`)
+      
     },
   },
 
   computed: {
     ...mapStores(useVariablesStore),
+
+    searchbtn () {
+      this.searchInput != null
+      }
   },
+
+  mounted () {
+  }
 };
 </script>
 
@@ -37,8 +53,9 @@ export default {
         id="search"
         placeholder="Escribe tu variable"
         v-model="this.searchInput"
+        v-on:keyup.enter="search"
       />
-      <RouterLink :key="this.searchInput" :to="`/papers/${this.searchInput}`">
+      <RouterLink :key="this.searchInput" to="">
         <button class="btn --small --pink" @click="isVariable">Buscar</button>
       </RouterLink>
       

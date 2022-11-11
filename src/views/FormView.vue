@@ -1,8 +1,14 @@
 <script>
 import { mapStores } from "pinia";
 import { useVariablesStore } from "../stores/variables";
+import Modal from "../components/Modal.vue";
 
 export default {
+
+  components: {
+    Modal,
+  },
+
   data() {
     return {
       image: [],
@@ -16,8 +22,12 @@ export default {
       formulameaning: "",
       context: "",
       variable: "",
+      example:"",
 
       newPaper: [],
+
+      showVariableAdded: false,
+      mustFill: false
     };
   },
 
@@ -33,28 +43,61 @@ export default {
     },
 
     addNewPaper() {
-      this.newPaper = {
-        image: this.image.name,
-        title: this.title,
-        author: this.author,
-        year: this.year,
-        resumen: this.resumen,
-        definition: this.definition,
-        requirement: this.requirement,
-        formula: this.formula,
-        formulameaning: this.formulameaning,
-        context: this.context,
-        variable: this.variable,
-      };
-      
-      this.variablesStore.newPaper(this.newPaper);
-      console.log("MANDAAAA", this.image.name);
+      if (this.title == "" || this.author=="" || this.year=="" || this.resumen=="" || this.definition=="" || this.requirement=="" || this.formula=="" || this.formulameaning=="" || this.context=="" || this.variable=="" || this.image == "") {
+        //alert("Debes llenar todos los campos")
+        this.mustFill = true;
+      } else {
+        this.mustFill = false;
+        this.newPaper = {
+          image: this.image.name,
+          title: this.title,
+          author: this.author,
+          year: this.year,
+          resumen: this.resumen,
+          definition: this.definition,
+          requirement: this.requirement,
+          formula: this.formula,
+          formulameaning: this.formulameaning,
+          context: this.context,
+          variable: this.variable,
+        };
+        
+        //this.variablesStore.newPaper(this.newPaper);
+        this.showVariableAdded = true;
+      }
 
     },
+
+    closeModalAdded () {
+      this.showVariableAdded = false,
+
+      this.title= "",
+      this.author= "",
+      this.year= "",
+      this.resumen= "",
+      this.definition= "",
+      this.requirement= "",
+      this.formula= "",
+      this.formulameaning= "",
+      this.context= "",
+      this.variable= "",
+      this.example=""
+    }
   },
 };
 </script>
 <template>
+<Modal
+    :showButton="true"
+    v-if="showVariableAdded"
+    @close="closeModalAdded"
+    class="modal"
+  >
+    <div class="modalInfo">
+      <h2 class="modalAdded">La variable se agregó correctamente</h2>
+    </div>
+  </Modal>
+
   <section class="containerForm">
     <h1 class="titlesStyle --pink">Agrega la nueva variable</h1>
     <div class="paperForm">
@@ -152,7 +195,7 @@ export default {
           Explica la formula. ¿Qué significa cada parte de ella?</label
         >
         <input
-          class="input input--paper"
+          class="input"
           placeholder="¿Qué significa la formula?"
           type="text"
           v-model="formulameaning"
@@ -188,6 +231,9 @@ export default {
           <img class="imgInput" src="../../public/icons/image.svg" />
         </label>
       </div>
+      <div class="alertContainer">
+        <p v-if="mustFill" class="alert">*Debes llenar todos los campos</p>
+      </div>
     </div>
     <bottom class="btn" @click="addNewPaper">Agregar</bottom>
   </section>
@@ -195,6 +241,10 @@ export default {
 
 <style lang="scss">
 @import "src/assets/main.scss";
+
+.modalAdded {
+  padding: 30px;
+}
 
 .containerForm {
   display: flex;
@@ -217,6 +267,13 @@ export default {
 
     padding: 20px;
 
+    .alertContainer {
+      text-align: center;
+      .alert {
+        color: $SecondPink;
+      }
+    }
+
     .itemForm {
       display: flex;
       flex-direction: column;
@@ -229,6 +286,8 @@ export default {
         color: $MainColorBlue;
         margin-right: 17px;
       }
+
+      
     }
     input[type="file"] {
       display: none;

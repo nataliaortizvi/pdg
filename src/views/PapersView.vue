@@ -27,6 +27,9 @@ export default {
     closeModalNotFound() {
       this.showModalNotFound = false;
     },
+    search () {
+      this.$router.push(`/papers/${this.searchInput}`)
+    },
   },
 
   computed: {
@@ -99,6 +102,7 @@ export default {
         id="search"
         placeholder="Escribe tu variable"
         v-model="this.searchInput"
+        v-on:keyup.enter="search"
       />
       <RouterLink :key="this.searchInput" :to="`/papers/${this.searchInput}`">
         <button
