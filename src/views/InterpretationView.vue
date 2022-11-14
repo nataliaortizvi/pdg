@@ -8,7 +8,10 @@ export default {
       nivelSignificancia: "",
       valorP: "",
       isLess: Boolean,
+
+      remember: true,
       analize: false,
+      conclusion: false,
 
       showH1: "",
       showH0: "",
@@ -36,11 +39,29 @@ export default {
         } else {
           this.isLess = true;
         }
+        this.remember = false;
         this.analize = true;
       } else {
         alert("Llene todos los espacios");
+        this.remember = true;
         this.analize = false;
       }
+    },
+
+    concludeResults() {
+      this.remember = false;
+      this.analize = false;
+      this.conclusion = true;
+    },
+
+    backToAnalize() {
+      this.remember = false;
+      this.analize = true;
+      this.conclusion = false;
+    },
+
+    backToRemember() {
+      location.reload();
     },
   },
 };
@@ -62,7 +83,7 @@ export default {
     </div>
 
     <div class="body">
-      <div class="dataInputs">
+      <div class="dataInputs" v-if="!this.conclusion">
         <div class="theInput">
           <label class="titlesStyle --blue --bodyTextSmall"
             >Tipo de análisis</label
@@ -122,13 +143,14 @@ export default {
             v-model="this.valorP"
           />
         </div>
-        <div class="dataInputs__btnclass">
-          <button class="btn" @click="analizeResults">Interpretar</button>
-        </div>
+        <button class="btn" @click="analizeResults">Interpretar</button>
       </div>
 
       <div class="dataInterpretation">
-        <b class="titlesStyle --bodyTextSmall --thin nivelInfo">
+        <b
+          class="titlesStyle --bodyTextSmall --thin nivelInfo"
+          v-if="this.remember"
+        >
           <strong><p class="reminder">Recordemos que:</p></strong>
           <strong>Nivel de significancia: </strong>es normalmente del 5% (0.05)
           dependiendo del nivel de confianza, que normalmente es del 95% (0.95).
@@ -139,46 +161,81 @@ export default {
           hipótesis nula((H0)) porque hay muy poca probabilidad de que ocurra.
         </b>
 
-        <p class="reminder" v-if="this.analize">Eso quiere decir que:</p>
+        <div v-if="this.analize">
+          <div class="pvalueData">
+            <p class="reminder">Eso quiere decir que:</p>
 
-        <h1
-          class="titlesStyle --bodyTextBig --blue pvalueInfo"
-          v-if="this.analize"
+            <h1 class="titlesStyle --bodyTextBig --blue">
+              valor P &lt; 0.01 =
+              <span class="titlesStyle --bodyTextSmall --blue --thin">
+                H1✅ y H0🚫 (resultado muy significativo)</span
+              >
+              <br />
+              valor P &lt; 0.05 =<span
+                class="titlesStyle --bodyTextSmall --blue --thin"
+              >
+                H1✅ y H0🚫 (resultado significativo)</span
+              >
+              <br />
+              valor P > 0.05 =<span
+                class="titlesStyle --bodyTextSmall --blue --thin"
+              >
+                H1🚫 y H0✅ (resultado no significativo)</span
+              >
+            </h1>
+
+            <button class="btn" @click="concludeResults" v-if="this.analize">
+              Concluir
+            </button>
+          </div>
+
+          <br />
+
+          <div class="pvalueData">
+            <p>Así que según tus resultados:</p>
+            <br />
+            <p>
+              Tu valor P
+              <strong class="interPvalue">({{ this.showPvalue }})</strong> es
+              <strong v-if="!this.isLess">mayor</strong>
+              <strong v-if="this.isLess">menor</strong>
+              que tu nivel de significancia
+              <strong class="interPvalue"
+                >({{ this.showSignificancia }}).</strong
+              >
+              <br /><br />Es decir, que tu hipótesis alternativa(H1) de:
+              <span>{{ this.showH1 }}. </span>
+              <strong v-if="this.isLess"><br />Es aceptada ✅</strong>
+              <strong v-if="!this.isLess"><br />Es rechazada 🚫</strong>
+              <br /><br />Y tu hipótesis nula(H0) de:
+              <span>{{ this.showH0 }}. </span>
+              <strong v-if="!this.isLess"><br />Es aceptada ✅</strong>
+              <strong v-if="this.isLess"><br />Es rechazada 🚫</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="this.conclusion" class="conclusion">
+        <b>Tu conclusion seria:</b>
+        <span v-if="this.isLess"> {{ this.showH1 }} </span>
+        <span v-if="!this.isLess"> {{ this.showH0 }} </span>
+
+        <button
+          class="btn backBtn"
+          @click="backToAnalize"
+          v-if="this.conclusion"
         >
-          valor P &lt; 0.01 =
-          <span class="titlesStyle --bodyTextSmall --blue --thin">
-            H1✅ y H0🚫 (resultado muy significativo)</span
-          ><br />
-          valor P &lt; 0.05 =<span
-            class="titlesStyle --bodyTextSmall --blue --thin"
-          >
-            H1✅ y H0🚫 (resultado significativo)</span
-          ><br />
-          valor P > 0.05 =<span
-            class="titlesStyle --bodyTextSmall --blue --thin"
-          >
-            H1🚫 y H0✅ (resultado no significativo)</span
-          ><br />
-        </h1>
+          Atras
+        </button>
 
-        <p v-if="this.analize">Así que según tus resultados:</p>
-
-        <p v-if="this.analize">
-          Tu valor P
-          <strong class="interPvalue">({{ this.showPvalue }})</strong> es
-          <strong v-if="!this.isLess">mayor</strong>
-          <strong v-if="this.isLess">menor</strong>
-          que tu nivel de significancia
-          <strong class="interPvalue">({{ this.showSignificancia }}).</strong>
-          <br /><br />Es decir, que tu hipótesis alternativa(H1) de:
-          <span>{{ this.showH1 }}. </span>
-          <strong v-if="this.isLess"><br />Es aceptada ✅</strong>
-          <strong v-if="!this.isLess"><br />Es rechazada 🚫</strong>
-          <br /><br />Y tu hipótesis nula(H0) de:
-          <span>{{ this.showH0 }}. </span>
-          <strong v-if="!this.isLess"><br />Es aceptada ✅</strong>
-          <strong v-if="this.isLess"><br />Es rechazada 🚫</strong>
-        </p>
+        <button
+          class="btn newBtn"
+          @click="backToRemember"
+          v-if="this.conclusion"
+        >
+          Volver a interpretar
+        </button>
       </div>
     </div>
   </section>
@@ -213,48 +270,70 @@ export default {
   .body {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: flex-start;
     gap: 50px;
     width: 100%;
-    margin: 50px 0px;
+    height: 70vh;
+    margin: 30px 20px;
 
     .dataInputs {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: flex-start;
       width: 30%;
+      height: 100%;
       background-color: $Background2;
       border-radius: 20px;
       padding: 25px;
-      gap: 25px;
+      gap: 30px;
+      position: relative;
 
       .theInput {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
-     
+
         select {
           padding: 0px 10px;
         }
       }
 
-      &__btnclass {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
+      .btn {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
       }
     }
     .dataInterpretation {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      width: auto;
+      justify-content: center;
+      align-items: center;
+      width: 60%;
+      height: 100%;
       gap: 30px;
+      position: relative;
+      .btn {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+
+      .pvalueData {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
+        border: 1px solid $SecondPink;
+        padding: 20px;
+      }
 
       .nivelInfo {
         border: 1px solid $SecondPink;
@@ -266,6 +345,21 @@ export default {
           margin-bottom: 20px;
         }
       }
+    }
+
+    .conclusion {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      position: absolute;
+
+      height: auto;
+      width: 40%;
+      padding: 30px;
+      margin: 0px 30%;
+      border: 1px solid $SecondPink;
     }
   }
 }
