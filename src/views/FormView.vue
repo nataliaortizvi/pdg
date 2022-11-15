@@ -22,7 +22,12 @@ export default {
       formulameaning: "",
       context: "",
       variable: "",
-      example:"",
+  
+      exampleContext:"",
+      eachFormulaVariable:"",
+      descriptionExperiment:"",
+      developExperiment:"",
+      conclusionExperiment:"",
 
       newPaper: [],
 
@@ -43,7 +48,7 @@ export default {
     },
 
     addNewPaper() {
-      if (this.title == "" || this.author=="" || this.year=="" || this.resumen=="" || this.definition=="" || this.requirement=="" || this.formula=="" || this.formulameaning=="" || this.context=="" || this.variable=="" || this.image == "") {
+      if (this.title == "" || this.author=="" || this.year=="" || this.resumen=="" || this.definition=="" || this.requirement=="" || this.formula=="" || this.formulameaning=="" || this.context=="" || this.variable=="" || this.image == "" || this.exampleContext == "" || this.eachFormulaVariable == "" || this.descriptionExperiment == "" || this.developExperiment == "" || this.conclusionExperiment == "") {
         //alert("Debes llenar todos los campos")
         this.mustFill = true;
       } else {
@@ -60,6 +65,11 @@ export default {
           formulameaning: this.formulameaning,
           context: this.context,
           variable: this.variable,
+          exampleContext: this.exampleContext,
+          eachFormulaVariable: this.eachFormulaVariable,
+          descriptionExperiment: this.descriptionExperiment,
+          developExperiment: this.developExperiment,
+          conclusionExperiment: this.conclusionExperiment,
         };
         
         this.variablesStore.newPaper(this.newPaper);
@@ -81,7 +91,13 @@ export default {
       this.formulameaning= "",
       this.context= "",
       this.variable= "",
-      this.example=""
+      this.example="",
+      this.exampleContext="",
+      this.eachFormulaVariable="",
+      this.descriptionExperiment="",
+      this.developExperiment="",
+      this.conclusionExperiment=""
+
     }
   },
 };
@@ -213,6 +229,71 @@ export default {
           placeholder="Actores y contexto"
           type="text"
           v-model="context"
+          required
+        />
+      </div>
+
+      <div class="itemForm">
+        <label class="text">
+          Describe el ejemplo. ¿Cuál es el caso del ejemplo?</label
+        >
+        <input
+          class="input"
+          placeholder="Caso del ejemplo"
+          type="text"
+          v-model="exampleContext"
+          required
+        />
+      </div>
+
+      <div class="itemForm">
+        <label class="text">
+          Explica según el ejemplo que significa cada parte de la formula</label
+        >
+        <input
+          class="input"
+          placeholder="Caso del ejemplo"
+          type="text"
+          v-model="eachFormulaVariable"
+          required
+        />
+      </div>
+
+      <div class="itemForm">
+        <label class="text">
+          ¿Cómo es el experimento que se realizaría para obtener los datos y utilizar la formula? </label
+        >
+        <input
+          class="input"
+          placeholder="Caso del ejemplo"
+          type="text"
+          v-model="descriptionExperiment"
+          required
+        />
+      </div>
+
+      <div class="itemForm">
+        <label class="text">
+          ¿Cuales preguntas realizaste o que realizaste para obtener los datos?</label
+        >
+        <input
+          class="input"
+          placeholder="Caso del ejemplo"
+          type="text"
+          v-model="developExperiment"
+          required
+        />
+      </div>
+
+      <div class="itemForm">
+        <label class="text">
+          Cuando obtienes todos los datos necesarios, ¿qué se haría luego? Concluye</label
+        >
+        <input
+          class="input"
+          placeholder="Caso del ejemplo"
+          type="text"
+          v-model="conclusionExperiment"
           required
         />
       </div>

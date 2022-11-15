@@ -44,6 +44,7 @@ export default {
 
 .modalContainer {
   display: flex;
+  flex-direction: column;
   width: auto;
   height: fit-content;
   border-radius: 20px;

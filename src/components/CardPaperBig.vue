@@ -4,11 +4,27 @@ export default {
   props: {
     currentResume: {},
   },
+
+  data() {
+    return {
+      goToExample: false,
+    }
+  },
+
+  methods: {
+    showExample() {
+      this.goToExample = true
+    },
+
+    hideExample() {
+      this.goToExample = false
+    }
+  }
 };
 </script>
 
 <template>
-  <section class="resume">
+  <section class="resume" v-if="!goToExample">
     <div class="resume__title">
       <h1>{{ this.currentResume.title }}</h1>
     </div>
@@ -40,7 +56,7 @@ export default {
     </div>
     <div class="resume__definitionFormula">
       <strong><p>Donde:</p></strong>
-      <p>{{ this.currentResume.definitionFormula }}</p>
+      <p>{{ this.currentResume.formulameaning }}</p>
     </div>
     <div class="resume__introTextContect">
       <strong>
@@ -61,18 +77,61 @@ export default {
         </p></strong
       >
     </div>
-    <div class="resume__btns">
-      <button class="btn --pink">Ver ejemplo</button>
-      <RouterLink to="/analisis">
-        <button class="btn --pink">Ir a tipos de análisis</button>
-      </RouterLink>
-      <a
-        href="https://www.interaction-design.org/literature/article/trust-building-the-bridge-to-our-users"
-        target="_blank"
-        >Leer artículo completo</a
-      >
+  </section>
+
+  <section class="resume" v-else>
+    <div class="resume__title">
+      <h1>Ejemplo</h1>
+    </div>
+    <div class="resume__definition">
+      <p>{{this.currentResume.exampleContext}}</p>
+    </div>
+    <div class="resume__subtitle">
+      <strong>
+        <ul>
+          <li>Recordemos la formula:</li>
+        </ul>
+      </strong>
+    </div>
+    <div class="resume__formula">
+      <strong>
+        <p>{{ this.currentResume.formula }}</p>
+      </strong>
+    </div>
+    <div class="resume__definitionFormula">
+      <strong><p>Donde:</p></strong>
+      <p>{{this.currentResume.eachFormulaVariable}}</p>
+    </div>
+    <div class="resume__subtitle">
+      <strong>
+        <ul>
+          <li>Experimento:</li>
+        </ul>
+      </strong>
+    </div>
+    <div class="resume__definitionFormula">
+      <p class="descriptionExperiment">{{this.currentResume.descriptionExperiment}}</p>
+      <p>{{this.currentResume.developExperiment}}</p>
+    </div>
+    <div class="resume__definitionFormula">
+      <strong><p>Siguiente paso:</p></strong>
+      <p>{{this.currentResume.conclusionExperiment}}</p>
     </div>
   </section>
+
+
+  <div class="resume__btns">
+    <button class="btn --pink" @click="showExample" v-if="!goToExample">Ver ejemplo</button>
+    <button class="btn --pink" @click="hideExample" v-else>Volver</button>
+    <RouterLink to="/analisis">
+      <button class="btn --pink">Ir a tipos de análisis</button>
+    </RouterLink>
+    <a
+      href="https://www.interaction-design.org/literature/article/trust-building-the-bridge-to-our-users"
+      target="_blank"
+      >Leer artículo completo</a
+    >
+  </div>
 </template>
 
 <style lang="scss">
@@ -99,7 +158,7 @@ export default {
 
   &__definition {
     text-align: center;
-    width: 600px;
+    width: 700px;
     margin-bottom: 30px;
   }
 
@@ -142,6 +201,10 @@ export default {
   &__definitionFormula {
     padding: 0px 30px 30px 30px;
     text-align: start;
+
+    .descriptionExperiment {
+      margin: 20px 0px;
+    }
   }
 
   &__introTextContect {
@@ -164,7 +227,14 @@ export default {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    margin-top: 20px;
+  }
+
+  &__subtitle {
+    font-size: $BodyTextSize2;
+    color: $MainColorBlue;
+    width: 100%;
+    padding-left:30px;
+
   }
 }
 </style>

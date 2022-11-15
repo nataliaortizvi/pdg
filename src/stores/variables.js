@@ -66,6 +66,11 @@ export const useVariablesStore = defineStore("variables", {
                             context: filteredVariables[paperIndex].context,
                             variable: filteredVariables[paperIndex].variable,
                             image: this.imageInfo,
+                            exampleContext: filteredVariables[paperIndex].exampleContext,
+                            eachFormulaVariable: filteredVariables[paperIndex].eachFormulaVariable,
+                            descriptionExperiment: filteredVariables[paperIndex].descriptionExperiment,
+                            developExperiment: filteredVariables[paperIndex].developExperiment,
+                            conclusionExperiment: filteredVariables[paperIndex].conclusionExperiment,
                         }
 
                         filteredVariables.splice(paperIndex, 1, newPaperWithImg);
@@ -104,6 +109,12 @@ export const useVariablesStore = defineStore("variables", {
                             context: onePaper.context,
                             variable: onePaper.variable,
                             image: onePaper.image,
+                            exampleContext: onePaper.exampleContext,
+                            eachFormulaVariable: onePaper.eachFormulaVariable,
+                            descriptionExperiment: onePaper.descriptionExperiment,
+                            developExperiment: onePaper.developExperiment,
+                            conclusionExperiment: onePaper.conclusionExperiment,
+
                         }
                         this.papers.push(this.paper);
                     });
