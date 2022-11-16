@@ -143,11 +143,12 @@ export default {
             v-model="this.valorP"
           />
         </div>
-        <button class="btn" @click="analizeResults">Interpretar</button>
+        <button class="btn interpretationBtn" @click="analizeResults">Interpretar</button>
+      
       </div>
 
       <div class="dataInterpretation">
-        <b
+        <div
           class="titlesStyle --bodyTextSmall --thin nivelInfo"
           v-if="this.remember"
         >
@@ -158,12 +159,12 @@ export default {
           <strong>Valor P: </strong> sale a partir de la prueba realizada y es
           el porcentaje de que tu hipótesis nula(H0) ocurra. <br /><br />Si tu
           valor P es menor al nivel de significancia, entonces se rechaza la
-          hipótesis nula((H0)) porque hay muy poca probabilidad de que ocurra.
-        </b>
+          hipótesis nula(H0) porque hay muy poca probabilidad de que ocurra.
+      </div>
 
-        <div v-if="this.analize">
+        <div class="dataInterpretation" v-if="this.analize">
           <div class="pvalueData">
-            <p class="reminder">Eso quiere decir que:</p>
+            <strong><p class="reminder">Eso quiere decir que:</p></strong>
 
             <h1 class="titlesStyle --bodyTextBig --blue">
               valor P &lt; 0.01 =
@@ -184,16 +185,13 @@ export default {
               >
             </h1>
 
-            <button class="btn" @click="concludeResults" v-if="this.analize">
-              Concluir
-            </button>
+            
           </div>
 
           <br />
 
           <div class="pvalueData">
-            <p>Así que según tus resultados:</p>
-            <br />
+            <strong><p class="reminder">Así que según tus resultados:</p></strong>
             <p>
               Tu valor P
               <strong class="interPvalue">({{ this.showPvalue }})</strong> es
@@ -213,30 +211,34 @@ export default {
               <strong v-if="this.isLess"><br />Es rechazada 🚫</strong>
             </p>
           </div>
+          <button class="btn" @click="concludeResults" v-if="this.analize">
+                Concluir
+              </button>
         </div>
       </div>
 
-      <div v-if="this.conclusion" class="conclusion">
-        <b>Tu conclusion seria:</b>
-        <span v-if="this.isLess"> {{ this.showH1 }} </span>
-        <span v-if="!this.isLess"> {{ this.showH0 }} </span>
+    </div>
+    <div v-if="this.conclusion" class="conclusion">
+      <strong><p>Tu conclusion seria:</p></strong>
+      <p>Luego de realizar el experiemnto, obtener los datos y utilizar el tipo de análisis correcto, podemos concluir que la validación de hipotesis muestra que </p>
+      <span v-if="this.isLess"> {{ this.showH1 }} </span>
+      <span v-if="!this.isLess"> {{ this.showH0 }} </span>
 
-        <button
-          class="btn backBtn"
-          @click="backToAnalize"
-          v-if="this.conclusion"
-        >
-          Atras
-        </button>
+      <button
+        class="btn backBtn"
+        @click="backToAnalize"
+        v-if="this.conclusion"
+      >
+        Atras
+      </button>
 
-        <button
-          class="btn newBtn"
-          @click="backToRemember"
-          v-if="this.conclusion"
-        >
-          Volver a interpretar
-        </button>
-      </div>
+      <button
+        class="btn newBtn"
+        @click="backToRemember"
+        v-if="this.conclusion"
+      >
+        Volver a interpretar
+      </button>
     </div>
   </section>
 </template>
@@ -273,8 +275,6 @@ export default {
     align-items: center;
     justify-content: flex-start;
     gap: 50px;
-    width: 100%;
-    height: 70vh;
     margin: 30px 20px;
 
     .dataInputs {
@@ -283,7 +283,7 @@ export default {
       justify-content: flex-start;
       align-items: flex-start;
       width: 30%;
-      height: 100%;
+      height:100%;
       background-color: $Background2;
       border-radius: 20px;
       padding: 25px;
@@ -300,66 +300,42 @@ export default {
           padding: 0px 10px;
         }
       }
-
-      .btn {
-        position: absolute;
-        bottom: 20px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-      }
+      
     }
     .dataInterpretation {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 60%;
-      height: 100%;
-      gap: 30px;
       position: relative;
+      width: 100%;
+
       .btn {
-        position: absolute;
-        bottom: 20px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
+        
       }
 
       .pvalueData {
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 30px;
+        flex-direction: column;
         border: 1px solid $SecondPink;
         padding: 20px;
+        width: 80%;
+        margin-bottom: 20px;
       }
 
       .nivelInfo {
         border: 1px solid $SecondPink;
         padding: 20px;
-        width: 95%;
-        .reminder {
-          font-size: $BodyTextSize2;
-          color: $SecondPink;
-          margin-bottom: 20px;
-        }
+        width: 100%;
+      }
+      .reminder {
+        margin-bottom: 10px;
       }
     }
 
     .conclusion {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-
-      position: absolute;
-
-      height: auto;
-      width: 40%;
-      padding: 30px;
-      margin: 0px 30%;
-      border: 1px solid $SecondPink;
     }
   }
 }

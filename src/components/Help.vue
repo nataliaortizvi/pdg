@@ -137,7 +137,7 @@ export default {
             }
           "
         >
-          <a>{{ step }}</a>
+          <a class="circle__number">{{ step }}</a>
         </div>
       </div>
 
@@ -430,6 +430,7 @@ export default {
         a {
           font-size: $TitleSize;
           font-family: $MainTypo;
+          color: $Hint;
         }
       }
 
@@ -437,6 +438,10 @@ export default {
         background-color: $ThirdViolet;
         border-color: $ThirdViolet;
         color: $White;
+
+        a{
+          color: $White;
+        }
       }
     }
 
