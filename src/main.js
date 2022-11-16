@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import VueClipboard from 'vue3-clipboard'
 
 import App from './App.vue'
 import router from './router'
@@ -11,4 +12,7 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 
+app.use(VueClipboard)
+
 app.mount('#app')
+
