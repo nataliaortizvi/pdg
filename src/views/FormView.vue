@@ -156,6 +156,10 @@ export default {
     </div>
   </section>
 
+  <!--section>
+    <input></input>
+  </section-->
+
   <section class="containerForm" v-if="this.ask">
     <h1 class="titlesStyle --pink">Agrega la nueva variable</h1>
     <div class="paperForm">
