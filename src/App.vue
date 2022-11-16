@@ -77,6 +77,9 @@ export default {
         class-active="active"
         >Resultados</RouterLink
       >
+      <RouterLink to="/nosotros" id="linkss" class="link" class-active="active"
+        >Nosotros</RouterLink
+      >
     </nav>
   </header>
 
@@ -107,6 +110,12 @@ export default {
           id="linkss"
           class="linkWhite"
           >Resultados</RouterLink
+        >
+        <RouterLink
+          to="/nosotros"
+          id="linkss"
+          class="linkWhite"
+          >Nosotros</RouterLink
         >
       </div>
       <div class="footer__CR">

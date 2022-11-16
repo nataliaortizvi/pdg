@@ -51,6 +51,14 @@ header {
   .link {
     color: $White;
   }
+
+  .link:hover {
+    color: $SecondPink;
+  }
+
+  .vue-school-active-link {
+    color: $SecondPink;
+  }
 }
 
 body {
