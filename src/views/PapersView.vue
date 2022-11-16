@@ -19,6 +19,7 @@ export default {
       currentVariable: {},
       resultsNumber: "...",
       searchInput: "",
+      stopOverFlow: false,
     };
   },
 
@@ -27,8 +28,8 @@ export default {
     closeModalNotFound() {
       this.showModalNotFound = false;
     },
-    search () {
-      this.$router.push(`/papers/${this.searchInput}`)
+    search() {
+      this.$router.push(`/papers/${this.searchInput}`);
     },
   },
 
@@ -37,8 +38,8 @@ export default {
 
     getPapers() {
       this.currentVariable = this.variablesStore.getVariableById(
-      this.$route.params.paperId
-    );
+        this.$route.params.paperId
+      );
       return this.currentVariable.length;
     },
   },
@@ -53,9 +54,9 @@ export default {
   },
 
   mounted() {
-    if (this.getPapers == 0){
+    if (this.getPapers == 0) {
       this.showModalNotFound = true;
-    }else{
+    } else {
       this.resultsNumber = this.currentVariable.length;
     }
   },
@@ -94,48 +95,53 @@ export default {
     </div>
   </Modal>
 
-  <section class="searcher">
-    <h2 class="titlesStyle titleVar">Buscar otra variable</h2>
-    <div class="rightItems">
-      <input
-        class="input input--variable"
-        id="search"
-        placeholder="Escribe tu variable"
-        v-model="this.searchInput"
-        v-on:keyup.enter="search"
-      />
-      <RouterLink :key="this.searchInput" :to="`/papers/${this.searchInput}`">
-        <button
-          class="btn --small --pink"
-          @click="
-            () => {
-              this.searchInput = '';
-            }
-          "
-        >
-          Buscar
-        </button>
-      </RouterLink>
-    </div>
-  </section>
+  <div>
+    <section class="searcher">
+      <h2 class="titlesStyle titleVar">Buscar otra variable</h2>
+      <div class="rightItems">
+        <input
+          class="input input--variable"
+          id="search"
+          placeholder="Escribe tu variable"
+          v-model="this.searchInput"
+          v-on:keyup.enter="search"
+        />
+        <RouterLink :key="this.searchInput" :to="`/papers/${this.searchInput}`">
+          <button
+            class="btn --small --pink"
+            @click="
+              () => {
+                this.searchInput = '';
+              }
+            "
+          >
+            Buscar
+          </button>
+        </RouterLink>
+      </div>
+    </section>
 
-  <section class="results">
-    <div>
-      <img src="/imgs/list.png" />
-      <h2 class="titlesStyle --pink">Resultados</h2>
-    </div>
+    <section class="results">
+      <div>
+        <img src="/imgs/list.png" />
+        <h2 class="titlesStyle --pink">Resultados</h2>
+      </div>
 
-    <p class="titlesStyle titleResultsFind">
-      {{ this.resultsNumber }} Resultados encontrados
-    </p>
+      <p class="titlesStyle titleResultsFind">
+        {{ this.resultsNumber }} Resultados encontrados
+      </p>
 
-    <h2 class="titlesStyle --blue titleFind">
-      Encontramos {{ this.resultsNumber }} formas para medir
-      {{ this.$route.params.paperId }}
-    </h2>
+      <h2 class="titlesStyle --blue titleFind">
+        Encontramos {{ this.resultsNumber }} formas para medir
+        {{ this.$route.params.paperId }}
+      </h2>
 
-    <CardPaperSmall :papers="this.currentVariable"> </CardPaperSmall>
-  </section>
+      <CardPaperSmall
+        :papers="this.currentVariable"
+      >
+      </CardPaperSmall>
+    </section>
+  </div>
 </template>
   
   
