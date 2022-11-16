@@ -65,6 +65,12 @@ export default {
     backToRemember() {
       location.reload();
     },
+
+    pruebas() {
+      var p = document.getElementById("pruebaUno").value;
+
+      console.log("hhhhhh",document.getElementById("pruebaUno").textContent);
+    },
   },
 };
 </script>
@@ -223,9 +229,9 @@ export default {
     </div>
 
     <div v-if="this.conclusion" class="conclusion">
-      <img class="conclusion__paste" src="../../public/icons/copy.svg">
+      <img @click="pruebas" class="conclusion__paste" src="../../public/icons/copy.svg">
       <strong><p class="conclusion__title">Para concluir:</p></strong>
-      <p>
+      <p id="pruebaUno">
         Luego de realizar el experimento, recolectar los datos y utilizar el tipo
         de análisis correcto para validar, podemos observar que al obtener un Valor P del 
         <strong><span>{{ this.showPvalue }}</span></strong>,
