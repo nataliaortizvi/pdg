@@ -162,6 +162,9 @@ export default {
 
   <section class="containerForm" v-if="this.ask">
     <h1 class="titlesStyle --pink">Agrega la nueva variable</h1>
+    <p>
+    Para agregar una variable y su forma de medición es necesario haber investigado sobre esta, para esto puedes basarte en un documento de investigación y según este llenar los campos a continuación.
+    </p>
     <div class="paperForm">
       <div class="itemForm">
         <label class="text"> ¿Cuál variable vas a agregar? </label>
@@ -174,10 +177,10 @@ export default {
         />
       </div>
       <div class="itemForm">
-        <label class="text"> Escribe el título del documento</label>
+        <label class="text"> ¿Cuál es el título del documento donde explican la variable</label>
         <input
           class="input"
-          placeholder="Título"
+          placeholder="Escribe el título del documento donde explican la variable"
           v-model="title"
           type="text"
           required
@@ -185,10 +188,10 @@ export default {
       </div>
 
       <div class="itemForm">
-        <label class="text"> Escribe el (los) autor(es)</label>
+        <label class="text"> ¿Quién(es) es(son) el(los) autor(es) del documento?</label>
         <input
           class="input"
-          placeholder="Autor(es)"
+          placeholder="Escribe el (los) autor(es) del documento"
           v-model="author"
           type="text"
           required
@@ -196,10 +199,10 @@ export default {
       </div>
 
       <div class="itemForm">
-        <label class="text"> Año de publicación</label>
+        <label class="text">¿En que año se publicó el documento?</label>
         <input
           class="input"
-          placeholder="Año"
+          placeholder="Año de publicación del documento"
           v-model="year"
           type="text"
           required
@@ -207,7 +210,7 @@ export default {
       </div>
 
       <div class="itemForm">
-        <label class="text"> Escribe un resumen del documento</label>
+        <label class="text">Escribe un resumen del documento</label>
         <input
           class="input"
           placeholder="Resumen"
@@ -218,7 +221,7 @@ export default {
       </div>
 
       <div class="itemForm">
-        <label class="text">Escribe la definición de la variable:</label>
+        <label class="text">Escribe una definición de la variable</label>
         <input
           class="input"
           placeholder="Definición"
