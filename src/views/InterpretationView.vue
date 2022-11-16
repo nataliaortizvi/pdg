@@ -17,9 +17,8 @@ export default {
       showH0: "",
       showSignificancia: "",
       showPvalue: "",
-
-      message: "Luego de realizar el experimento, obtener los datos y utilizar el tipo de análisis correcto, podemos observar que al tener un nivel de significancia del"+this.nivelSignificancia,
-    };
+      message:"",
+      };
   },
 
   methods: {
@@ -67,9 +66,16 @@ export default {
     },
 
     pruebas() {
-      var p = document.getElementById("pruebaUno").value;
+      this.message = document.getElementById("pruebaUno").textContent;
+      console.log("hhhhhh",this.message);
+      try {
+        navigator.clipboard.writeText(this.message);
+        alert("¡Copiado!")
+      } catch (e) {
+        alert("Error al copia. Intentalo de nuevo");
+      }
 
-      console.log("hhhhhh",document.getElementById("pruebaUno").textContent);
+
     },
   },
 };
@@ -231,6 +237,7 @@ export default {
     <div v-if="this.conclusion" class="conclusion">
       <img @click="pruebas" class="conclusion__paste" src="../../public/icons/copy.svg">
       <strong><p class="conclusion__title">Para concluir:</p></strong>
+      
       <p id="pruebaUno">
         Luego de realizar el experimento, recolectar los datos y utilizar el tipo
         de análisis correcto para validar, podemos observar que al obtener un Valor P del 
