@@ -32,6 +32,7 @@ export default {
 
       showVariableAdded: false,
       mustFill: false,
+      imgUpdated: false,
 
       ask: false,
     };
@@ -46,6 +47,8 @@ export default {
       var files = e.target.files;
       this.image = files[0];
       this.variablesStore.uploadImage(this.image);
+      this.imgUpdated= true;
+      
     },
 
     addNewPaper() {
@@ -113,6 +116,7 @@ export default {
         (this.descriptionExperiment = ""),
         (this.developExperiment = ""),
         (this.conclusionExperiment = "");
+        this.imgUpdated = false;
     },
 
     nextStep() {
@@ -362,6 +366,9 @@ export default {
             required
           />
           <img class="imgInput" src="../../public/icons/image.svg" />
+          <div class="alertContainer">
+            <p v-if="imgUpdated" class="alert">*La imagen se agregó correctamente</p>
+          </div>
         </label>
       </div>
       <div class="alertContainer">

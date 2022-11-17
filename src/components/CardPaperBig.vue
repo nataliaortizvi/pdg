@@ -126,7 +126,7 @@ export default {
     <RouterLink to="/analisis">
       <button class="btn --pink">Ir a tipos de análisis</button>
     </RouterLink>
-    <a
+    <a class="linkPaper"
       href="https://www.interaction-design.org/literature/article/trust-building-the-bridge-to-our-users"
       target="_blank"
       >Leer artículo completo</a
@@ -228,6 +228,10 @@ export default {
     align-items: center;
     gap: 20px;
     padding-bottom: 30px;
+
+    .linkPaper {
+      text-decoration: underline;
+    }
   }
 
   &__subtitle {

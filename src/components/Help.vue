@@ -55,10 +55,12 @@ export default {
           descripThree:
             "Muestra: 2 grupos con 10 manzanas cada una. (Un grupo con manzanas ubicadas más altas que el otro grupo). Puedes hacer un Paired T-test con dos grupos de igual cantidad de manzanas, uno que esta más alto que el otro y recolectar los datos con cada uno.",
           descripFour: "Paired T-test",
+          descripFive: "Unpaired T-test",
+          descripSix: "Muestra: 2 grupos, uno con 7 manzanas ubicadas más altas del suelo y otro con 10 manzanas más bajas. Puedes hacer un Unpaird T-test ya que tu muestra tiene dos grupos de cantidad de elementos diferentes"
         },
         {
           num: 5,
-          paso: "Fase de analisis:",
+          paso: "Fase de análisis:",
           nombre: "Calculadora y resultados",
           descripOne:
             "Validata te llevará a una calculadora que realizará los calculos automaticos, y te dará los resultados.",
@@ -212,9 +214,9 @@ export default {
             </div>
 
             <div class="gridText__bottom">
-              <p class="Left">{{ step.descripFour }}</p>
+              <p class="Left italic">{{ step.descripFour }}</p>
               <div class="line"></div>
-              <p class="Right">{{ step.descripFive }}</p>
+              <p class="Right italic">{{ step.descripFive }}</p>
             </div>
           </div>
           <div class="buttons buttons--buttonTwo">
@@ -290,8 +292,11 @@ export default {
             <p>
               <strong>{{ step.descripFour }}</strong>
             </p>
-            <p>{{ step.descripThree }}</p>
+            <p>{{ step.descripThree }}</p> <br/>
+            <strong><p>{{step.descripFive}}</p></strong>
+            <p>{{step.descripSix}}</p>
           </div>
+
           <div class="buttons buttons--buttonFour">
             <button class="btn btn--small" @click="back" v-if="!isFirstStep">
               Anterior
@@ -649,7 +654,7 @@ export default {
 
       .textIntro {
         width: auto;
-        margin: 40px;
+        margin: 20px;
         font-size: $BodyTextSize;
       }
 
