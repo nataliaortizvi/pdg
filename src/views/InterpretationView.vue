@@ -243,7 +243,7 @@ export default {
         de análisis correcto para validar, podemos observar que al obtener un Valor P del 
         <strong><span>{{ this.showPvalue }}</span></strong>,
         el cual es <strong v-if="!this.isLess">mayor</strong
-        ><strong v-if="this.isLess">menor</strong> que valor de significancia 
+        ><strong v-if="this.isLess">menor</strong> que el valor de significancia 
         (<strong><span>{{ this.showSignificancia }}</span></strong>), 
         podemos concluir que
         <span v-if="this.isLess"> tu hipótesis alternativa "<strong>{{ this.showH1 }}"</strong> es<strong> aceptada</strong> porque hay poca probabilidad de que ocurra la hipótesis nula </span>

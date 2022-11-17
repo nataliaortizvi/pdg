@@ -40,10 +40,10 @@ export default {
           descripOne:
             "Cuando tengas las hipótesis definidas, escribe en la barra de búsqueda de Validata la variable que vas a medir.",
           descripTwo: "Así conocerás diferentes formas de medir esa variable.",
-          descripThree: "Ejemplo",
+          /*descripThree: "Ejemplo",
           descripFour:
             "La velocidad es el cambio de posición dividido el tiempo",
-          descripFive: "Velocidad: cambio de posición / tiempo",
+          descripFive: "Velocidad: cambio de posición / tiempo",*/
         },
         {
           num: 4,
@@ -245,7 +245,8 @@ export default {
           </div>
 
           <div class="cardInfo__ejemplo">
-            <p>
+            <img class="ejemploGif" src="../../public/imgs/gifBusqueda.gif"/>
+            <!--<p>
               <strong>{{ step.descripThree }}</strong>
             </p>
             <div class="ejemploInput">
@@ -259,7 +260,7 @@ export default {
             <p>{{ step.descripFour }}</p>
             <p>
               <strong>{{ step.descripFive }}</strong>
-            </p>
+            </p>-->
           </div>
 
           <div class="buttons buttons--buttonThree">
@@ -605,19 +606,18 @@ export default {
           display: flex;
           flex-direction: column;
           align-items: center;
-          border: 1px solid $SecondPink;
-          padding: 10px;
-          .ejemploInput {
-            input {
-              margin: 10px;
-              width: 350px;
-            }
-
-            ::placeholder {
-              padding-left: 10px;
-            }
+          /*background-image: url(../../public/imgs/gifBusqueda.gif);
+          background-size: cover;
+          background-position: center center;
+          width: 100%;
+          height: 200px;*/
+          border: 2px solid $SecondPink;
+          .ejemploGif {
+            width: 100%;
           }
         }
+
+
       }
 
       .textIntro {
@@ -630,7 +630,7 @@ export default {
         font-size: $BodyTextSize;
 
         &__text {
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
       }
     }
