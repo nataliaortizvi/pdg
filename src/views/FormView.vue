@@ -32,8 +32,6 @@ export default {
 
       showVariableAdded: false,
       mustFill: false,
-
-      ask: false,
     };
   },
 
@@ -114,10 +112,6 @@ export default {
         (this.developExperiment = ""),
         (this.conclusionExperiment = "");
     },
-
-    nextStep() {
-      this.ask = true;
-    },
   },
 };
 </script>
@@ -133,34 +127,8 @@ export default {
     </div>
   </Modal>
 
-  <section class="containerQuestion" v-if="!this.ask">
-    <div class="containerBack">
-      <h1>Elige que quieres hacer:</h1>
 
-      <div>
-        <div>
-          <input type="radio" id="suggest" value="sugerir" />
-          <label for="suggest">
-            Sugerirnos una nueva variable que deberiamos agregar.</label
-          >
-        </div>
-        <div>
-          <input type="radio" id="addNew" value="sugerir" />
-          <label for="addNew">
-            Agregar una nueva variable con toda la información de su método de
-            medición.</label
-          >
-        </div>
-      </div>
-      <button class="btn" @click="nextStep">Siguiente</button>
-    </div>
-  </section>
-
-  <!--section>
-    <input></input>
-  </section-->
-
-  <section class="containerForm" v-if="this.ask">
+  <section class="containerForm">
     <h1 class="titlesStyle --pink">Agrega la nueva variable</h1>
     <p>
     Para agregar una variable y su forma de medición es necesario haber investigado sobre esta, para esto puedes basarte en un documento de investigación y según este llenar los campos a continuación.
@@ -377,28 +345,6 @@ export default {
 
 .modalAdded {
   padding: 30px;
-}
-
-.containerQuestion {
-  padding-top: 100px;
-  width: 100%;
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .containerBack {
-    background-color: $Background2;
-    border-radius: 20px;
-    width: 50%;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    gap: 20px;
-  }
 }
 
 .containerForm {
