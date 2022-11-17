@@ -14,7 +14,7 @@ export default {
             "Esta hipótesis debe tener al menos una variable, que es la que necesitas medir.",
           descripThree: "Ejemplo",
           descripFour:
-            "Hipótesis: Mientras más alta este del suelo una manzana, su velocidad de caida es mayor.",
+            "Hipótesis: Mientras más alta este del suelo una manzana, su velocidad de caída es mayor.",
           descripFive: "Variable: Velocidad.",
         },
         {
@@ -40,10 +40,10 @@ export default {
           descripOne:
             "Cuando tengas las hipótesis definidas, escribe en la barra de búsqueda de Validata la variable que vas a medir.",
           descripTwo: "Así conocerás diferentes formas de medir esa variable.",
-          descripThree: "Ejemplo",
+          /*descripThree: "Ejemplo",
           descripFour:
             "La velocidad es el cambio de posición dividido el tiempo",
-          descripFive: "Velocidad: cambio de posición / tiempo",
+          descripFive: "Velocidad: cambio de posición / tiempo",*/
         },
         {
           num: 4,
@@ -54,19 +54,21 @@ export default {
           descripTwo: "Ejemplo",
           descripThree:
             "Muestra: 2 grupos con 10 manzanas cada una. (Un grupo con manzanas ubicadas más altas que el otro grupo). Puedes hacer un Paired T-test con dos grupos de igual cantidad de manzanas, uno que esta más alto que el otro y recolectar los datos con cada uno.",
-          descripFour: "Paired T-test",
+          descripFour: "Opcion 1: Paired T-test",
+          descripFive: "Opcion 2: Unpaired T-test",
+          descripSix: "Muestra: 2 grupos, uno con 7 manzanas ubicadas más altas y otro con 10 manzanas más bajas. Puedes hacer un Unpaird T-test ya que tu muestra tiene dos grupos con cantidad diferente de elementos"
         },
         {
           num: 5,
-          paso: "Fase de analisis:",
+          paso: "Fase de análisis:",
           nombre: "Calculadora y resultados",
           descripOne:
             "Validata te llevará a una calculadora que realizará los calculos automaticos, y te dará los resultados.",
           descripTwo:
             "Con estos resultados podrás volver a Validata e ingresarlos en la sección de interpretación de resultados para entenderlos mejor.",
           descripThree: "Ejemplo",
-          descripFour: "Manzanas altas: 4,5,4,4,3,4,3,4,4,6",
-          descripFive: "Manzanas bajas: 8,8,9,10,7,11,6,8,9,8",
+          descripFour: "Datos obtenidos de manzanas altas: 4,5,4,4,3,4,3,4,4,6",
+          descripFive: "Datos obtenidos de manzanas bajas: 8,8,9,10,7,11,6,8,9,8",
           descripSix:
             "Resultado: El valor P es menor a 0,05, por criterio convencional esta diferencia es considerada extremadamente significativa estadísticamente.",
         },
@@ -81,7 +83,7 @@ export default {
           descripFour:
             "Tu valor P (0.0001) es menor que tu nivel de significancia (0.05).",
           descripFive:
-            "Es decir, que tu hipótesis alternativa(H1) de: Las manzanas caen del árbol más rápido si están más altas.. Es aceptada ✅",
+            "Es decir, que tu hipótesis alternativa(H1) de: ''Las manzanas caen del árbol más rápido si están más altas'', es aceptada ✅",
         },
       ],
 
@@ -212,9 +214,9 @@ export default {
             </div>
 
             <div class="gridText__bottom">
-              <p class="Left">{{ step.descripFour }}</p>
+              <p class="Left italic">{{ step.descripFour }}</p>
               <div class="line"></div>
-              <p class="Right">{{ step.descripFive }}</p>
+              <p class="Right italic">{{ step.descripFive }}</p>
             </div>
           </div>
           <div class="buttons buttons--buttonTwo">
@@ -243,7 +245,8 @@ export default {
           </div>
 
           <div class="cardInfo__ejemplo">
-            <p>
+            <img class="ejemploGif" src="../../public/imgs/gifBusqueda.gif"/>
+            <!--<p>
               <strong>{{ step.descripThree }}</strong>
             </p>
             <div class="ejemploInput">
@@ -257,7 +260,7 @@ export default {
             <p>{{ step.descripFour }}</p>
             <p>
               <strong>{{ step.descripFive }}</strong>
-            </p>
+            </p>-->
           </div>
 
           <div class="buttons buttons--buttonThree">
@@ -290,8 +293,11 @@ export default {
             <p>
               <strong>{{ step.descripFour }}</strong>
             </p>
-            <p>{{ step.descripThree }}</p>
+            <p>{{ step.descripThree }}</p> <br/>
+            <strong><p>{{step.descripFive}}</p></strong>
+            <p>{{step.descripSix}}</p>
           </div>
+
           <div class="buttons buttons--buttonFour">
             <button class="btn btn--small" @click="back" v-if="!isFirstStep">
               Anterior
@@ -600,19 +606,18 @@ export default {
           display: flex;
           flex-direction: column;
           align-items: center;
-          border: 1px solid $SecondPink;
-          padding: 10px;
-          .ejemploInput {
-            input {
-              margin: 10px;
-              width: 350px;
-            }
-
-            ::placeholder {
-              padding-left: 10px;
-            }
+          /*background-image: url(../../public/imgs/gifBusqueda.gif);
+          background-size: cover;
+          background-position: center center;
+          width: 100%;
+          height: 200px;*/
+          border: 2px solid $SecondPink;
+          .ejemploGif {
+            width: 100%;
           }
         }
+
+
       }
 
       .textIntro {
@@ -625,7 +630,7 @@ export default {
         font-size: $BodyTextSize;
 
         &__text {
-          margin-bottom: 20px;
+          margin-bottom: 10px;
         }
       }
     }
@@ -649,7 +654,7 @@ export default {
 
       .textIntro {
         width: auto;
-        margin: 40px;
+        margin: 20px;
         font-size: $BodyTextSize;
       }
 

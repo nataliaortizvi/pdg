@@ -63,7 +63,7 @@ export default {
   </section>
 
   <section class="banner">
-    <img class="banner__img" src="/imgs/banner.png" />
+    <!--<img class="banner__img" src="/imgs/banner.png" />-->
     <h2 class="titlesStyle banner__text">
       Validata te apoya en los procesos de validación de tus hipótesis
     </h2>
@@ -111,27 +111,43 @@ export default {
 }
 
 .banner {
+  background-image: url(../../public/imgs/banner.png);
+  background-size: cover;
+  background-position: center center;
   width: 100%;
   display: flex;
   align-items: center;
   height: 450px;
   background-color: rgba(24, 29, 61, 0.5);
+  position: relative;
 
-  .banner__img {
+  
+  /*.banner__img {
     display: flex;
     position: absolute;
     top: 253px;
     z-index: -5;
     width: 100%;
     height: 450px;
-  }
+  }*/
 
   .banner__text {
     margin-left: 30px;
     color: $White;
     width: 40%;
     font-size: $BannerTextSize;
+    z-index: 1;
   }
+}
+
+.banner:after {
+  content: '';
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(24, 29, 61, 0.4);
 }
 
 .manual {

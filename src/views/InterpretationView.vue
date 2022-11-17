@@ -17,9 +17,8 @@ export default {
       showH0: "",
       showSignificancia: "",
       showPvalue: "",
-
-      message: "Luego de realizar el experimento, obtener los datos y utilizar el tipo de análisis correcto, podemos observar que al tener un nivel de significancia del"+this.nivelSignificancia,
-    };
+      message:"",
+      };
   },
 
   methods: {
@@ -64,6 +63,19 @@ export default {
 
     backToRemember() {
       location.reload();
+    },
+
+    pruebas() {
+      this.message = document.getElementById("pruebaUno").textContent;
+      console.log("hhhhhh",this.message);
+      try {
+        navigator.clipboard.writeText(this.message);
+        alert("¡Copiado!")
+      } catch (e) {
+        alert("Error al copia. Intentalo de nuevo");
+      }
+
+
     },
   },
 };
@@ -223,14 +235,15 @@ export default {
     </div>
 
     <div v-if="this.conclusion" class="conclusion">
-      <img class="conclusion__paste" src="../../public/icons/copy.svg">
+      <img @click="pruebas" class="conclusion__paste" src="../../public/icons/copy.svg">
       <strong><p class="conclusion__title">Para concluir:</p></strong>
-      <p>
+      
+      <p id="pruebaUno">
         Luego de realizar el experimento, recolectar los datos y utilizar el tipo
         de análisis correcto para validar, podemos observar que al obtener un Valor P del 
         <strong><span>{{ this.showPvalue }}</span></strong>,
         el cual es <strong v-if="!this.isLess">mayor</strong
-        ><strong v-if="this.isLess">menor</strong> que valor de significancia 
+        ><strong v-if="this.isLess">menor</strong> que el valor de significancia 
         (<strong><span>{{ this.showSignificancia }}</span></strong>), 
         podemos concluir que
         <span v-if="this.isLess"> tu hipótesis alternativa "<strong>{{ this.showH1 }}"</strong> es<strong> aceptada</strong> porque hay poca probabilidad de que ocurra la hipótesis nula </span>

@@ -28,6 +28,7 @@ $BodyTextSize2: 20px;
 
 a {
   color: $MainColorBlue;
+  cursor: pointer;
 }
 
 header {
@@ -103,6 +104,10 @@ body {
   }
 }
 
+.italic {
+  font-style: italic;
+}
+
 .btn {
   background-color: $SecondPink;
   width: 250px;
@@ -114,7 +119,8 @@ body {
   font-family: $MainTypo;
   font-weight: 700;
   cursor: pointer;
-
+  text-align: center;
+  padding: 8px;
   &.--small {
     width: 140px;
   }
