@@ -262,30 +262,39 @@ export default {
           v-if="this.remember"
         >
           <strong><p class="reminder">Recordemos que:</p></strong>
-          <strong>Nivel de significancia: </strong>es normalmente del 5% (0.05)
-          dependiendo del nivel de confianza, que normalmente es del 95% (0.95),
-          por lo que podrías utilizar un nivel del 0.05.
-
-          <br />
-          <br />
+          <p v-if="this.analisisSelected == 0">
+            Cuando definas la varible y construyas tu hipótesis, debes definir
+            tu hipótesis nula(H0) y alternativa(H1).<br /><br />
+            <strong>La hipótesis alternativa: </strong>es el enunciado de lo que
+            quieres afirmar o demostrar con la validación.<br />
+            <strong>La hipótesis nula: </strong>es lo contrario a la hipótesis
+            alternartiva.
+          </p>
 
           <p v-if="this.analisisSelected == 1">
-            <strong>Valor P: </strong> se obtine a partir de la prueba realizada
-            y es el porcentaje de que tu hipótesis nula(H0) ocurra.
+            <strong>Nivel de significancia: </strong>es normalmente del 5%
+            (0.05) dependiendo del nivel de confianza, que normalmente es del
+            95% (0.95), por lo que podrías utilizar un nivel del 0.05.
+            <br /><br>
+          </p>
+
+          <p v-if="this.analisisSelected == 1">
+            <strong>Valor P: </strong> se obtiene a partir de la prueba
+            realizada y es el porcentaje de que tu hipótesis nula(H0) ocurra.
             <br /><br />Si tu valor P es menor al nivel de significancia,
             entonces se rechaza la hipótesis nula(H0) porque hay muy poca
             probabilidad de que ocurra.
           </p>
-          
+
           <p v-if="this.analisisSelected == 2">
-            <strong>Valor R: </strong> se obtine a partir de la prueba realizada
-            y es el coeficiente de correlación entre las variables, con posibles
-            valores entre -1 y 1. <br /><br />Si tu valor R es positivo, quiere
-            decir que hay una correlación donde los valores de ambas variables
-            tienden a incrementarse juntos. Pero si es negativo, quiere decir
-            que hay una correlación donde los valores de una variable tienden a
-            incrementarse mientras que los valores de la otra variable
-            descienden.
+            <strong>Valor R: </strong> se obtiene a partir de la prueba
+            realizada y es el coeficiente de correlación entre las variables,
+            con posibles valores entre -1 y 1. <br /><br />Si tu valor R es
+            positivo, quiere decir que hay una correlación donde los valores de
+            ambas variables tienden a incrementarse juntos. Pero si es negativo,
+            quiere decir que hay una correlación donde los valores de una
+            variable tienden a incrementarse mientras que los valores de la otra
+            variable descienden.
           </p>
         </div>
 
