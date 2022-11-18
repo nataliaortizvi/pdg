@@ -17,10 +17,12 @@ export default {
         
         
 <template>
-  <div class="backdrop" @click.self="cerrarModal">
+  <div class="backdrop" @click.self="closeModal">
     <section class="modalContainer">
-      <img src="/imgs/exitBtn.png" @click="closeModal" v-if="showButton"/>
-      <slot></slot>
+      <div class="modalInfo">
+        <slot></slot>
+      </div>
+      <img src="/imgs/exitBtn.png" @click="closeModal" v-if="showButton" />
     </section>
   </div>
 </template>
@@ -32,35 +34,48 @@ export default {
 
 .backdrop {
   display: flex;
-  //align-items: center;
+  align-items: center;
   justify-content: center;
   position: fixed;
   width: 100%;
   height: 100%;
   background-color: rgba(24, 29, 61, 0.8);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
   z-index: 100;
+  overflow-y: unset;
 }
 
 .modalContainer {
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  height: fit-content;
   border-radius: 20px;
   background: $White;
+  width: fit-content;
+  height: fit-content;
+  flex-direction: column;
+  justify-content: flex-start;
   position: relative;
-  justify-content: center;
-  //padding: 30px;
-  top: 50px;
+
+  .modalInfo {
+    max-height: 80vh;
+    max-width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: scroll;
+    margin: 10px;
+  }
 
   img {
+    position: absolute;
     width: 50px;
     height: 50px;
-    position: absolute;
     top: -15px;
     right: -15px;
     cursor: pointer;
+    transition: 0.2s linear;
+
+    &:hover {
+      transform: scale(1.08);
+    }
   }
 }
 </style>

@@ -21,7 +21,6 @@ $BodyTextSize: 17px;
 $BodyTextSize2: 20px;
 
 
-//-------------------------------GLOBAL HEADER------------------------------
 * {
   font-family: $MainTypo;
 }
@@ -31,6 +30,7 @@ a {
   cursor: pointer;
 }
 
+//-------------------------------HEADER------------------------------
 header {
   position: fixed;
   width: 100%;
@@ -62,6 +62,21 @@ header {
   }
 }
 
+@media screen and (max-width: 600px) {
+  .onScroll {
+
+    ._layer {
+      background: $White;
+      margin-bottom: 4px;
+      border-radius: 2px;
+      width: 28px;
+      height: 3px;
+      transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+    }
+  }
+}
+
+//-------------------------------BODY------------------------------
 body {
   background-color: $Background;
 }
@@ -76,7 +91,7 @@ body {
     font-size: $SubtitleSize;
   }
 
-  
+
   &.--bodyTextBig {
     font-size: $BodyTextSize;
 
@@ -85,12 +100,12 @@ body {
   &.--thin {
     font-weight: 100;
   }
-  
+
   &.--bodyTextSmall {
     font-size: $BodyTextSize;
     margin-bottom: 5px;
   }
-  
+
   &.--blue {
     color: $MainColorBlue;
   }
@@ -121,6 +136,12 @@ body {
   cursor: pointer;
   text-align: center;
   padding: 8px;
+  transition: 0.2s linear;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
   &.--small {
     width: 140px;
   }
@@ -148,6 +169,11 @@ body {
   z-index: 30;
   bottom: 20px;
   right: 20px;
+  transition: 0.2s linear;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 .input {
@@ -179,3 +205,7 @@ body {
     color: $Hint;
   }
 }
+
+
+
+@media screen and (max-width: 600px) {}
