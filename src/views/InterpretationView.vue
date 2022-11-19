@@ -5,43 +5,124 @@ export default {
       tipoAnalisis: "",
       h1: "",
       h0: "",
-      nivelSignificancia: "",
-      valorP: "",
-      isLess: Boolean,
+      nivelSignificancia: null,
+      valorP: null,
+      valorR: null,
+      isAcepted: Boolean,
 
       remember: true,
       analize: false,
       conclusion: false,
+      analisisSelected: 0,
 
       showH1: "",
       showH0: "",
       showSignificancia: "",
       showPvalue: "",
-      message:"",
-      };
+
+      showRvalue: "",
+      nivelCorrelacion: 0,
+      correlacionPositiva: "",
+
+      message: "",
+    };
   },
 
   methods: {
-    analizeResults() {
-      if (
-        this.tipoAnalisis != "" &&
-        this.h1 != "" &&
-        this.h0 != "" &&
-        this.nivelSignificancia != "" &&
-        this.valorP != ""
-      ) {
-        this.showH1 = this.h1;
-        this.showH0 = this.h0;
-        this.showSignificancia = this.nivelSignificancia;
-        this.showPvalue = this.valorP;
+    selectType(value) {
+      if (value == "paired" || value == "unpaired" || value == "anova") {
+        this.analisisSelected = 1;
+      } else if (value == "spearman" || value == "pearson") {
+        this.analisisSelected = 2;
+      }
+    },
 
-        if (this.valorP > this.nivelSignificancia) {
-          this.isLess = false;
-        } else {
-          this.isLess = true;
+    analizeResults() {
+      if (this.tipoAnalisis != "" && this.h1 != "" && this.h0 != "") {
+        if (this.analisisSelected == 1) {
+          if (
+            this.tipoAnalisis != "" &&
+            this.h1 != "" &&
+            this.h0 != "" &&
+            this.nivelSignificancia != null &&
+            this.valorP != null
+          ) {
+            this.showH1 = this.h1;
+            this.showH0 = this.h0;
+            this.showSignificancia = this.nivelSignificancia;
+            this.showPvalue = this.valorP;
+
+            if (this.valorP > this.nivelSignificancia) {
+              this.isAcepted = false;
+            } else {
+              this.isAcepted = true;
+            }
+
+            this.remember = false;
+            this.analize = true;
+          } else {
+            alert("Llene todos los espacios");
+            this.remember = true;
+            this.analize = false;
+          }
+        } else if (this.analisisSelected == 2) {
+          if (
+            this.tipoAnalisis != "" &&
+            this.h1 != "" &&
+            this.h0 != "" &&
+            this.valorR != null
+          ) {
+            console.log(this.valorR);
+            this.showH1 = this.h1;
+            this.showH0 = this.h0;
+            this.showRvalue = this.valorR;
+
+            if (this.valorR > 0.1 || this.valorR < -0.1) {
+              this.isAcepted = true;
+            } else if (this.valorR > -0.1 || this.valorR < 0.1) {
+              this.isAcepted = false;
+            }
+
+            if (
+              (0.1 < this.valorR && this.valorR < 0.3) ||
+              (-0.1 > this.valorR && this.valorR > -0.3)
+            ) {
+              this.nivelCorrelacion = 1;
+              console.log("1");
+            }
+            if (
+              (0.3 <= this.valorR && this.valorR < 0.5) ||
+              (-0.3 >= this.valorR && this.valorR > -0.5)
+            ) {
+              this.nivelCorrelacion = 2;
+              console.log("2");
+            }
+            if (
+              (0.5 <= this.valorR && this.valorR < 0.7) ||
+              (-0.5 >= this.valorR && this.valorR > -0.7)
+            ) {
+              this.nivelCorrelacion = 3;
+              console.log("3");
+            }
+            if (0.7 <= this.valorR || -0.7 >= this.valorR) {
+              this.nivelCorrelacion = 4;
+              console.log("4");
+            }
+
+            if (this.valorR > 0) {
+              this.correlacionPositiva = true;
+            } else {
+              this.correlacionPositiva = false;
+            }
+
+            this.remember = false;
+            this.analize = true;
+          } else {
+            alert("Llene todos los espacios");
+            this.remember = true;
+            this.analize = false;
+          }
         }
-        this.remember = false;
-        this.analize = true;
       } else {
         alert("Llene todos los espacios");
         this.remember = true;
@@ -67,15 +148,13 @@ export default {
 
     pruebas() {
       this.message = document.getElementById("pruebaUno").textContent;
-      console.log("hhhhhh",this.message);
+      console.log("hhhhhh", this.message);
       try {
         navigator.clipboard.writeText(this.message);
-        alert("¡Copiado!")
+        alert("¡Copiado!");
       } catch (e) {
         alert("Error al copia. Intentalo de nuevo");
       }
-
-
     },
   },
 };
@@ -102,7 +181,11 @@ export default {
           <label class="titlesStyle --blue --bodyTextSmall"
             >Tipo de análisis</label
           >
-          <select class="input --short" v-model="tipoAnalisis">
+          <select
+            class="input --short"
+            @change="() => selectType(tipoAnalisis)"
+            v-model="tipoAnalisis"
+          >
             <option value="">Selecciona...</option>
             <option value="paired">Paired T-test</option>
             <option value="unpaired">Unpaired T-test</option>
@@ -136,7 +219,7 @@ export default {
           />
         </div>
 
-        <div class="theInput">
+        <div class="theInput" v-if="this.analisisSelected == 1">
           <label class="titlesStyle --blue --bodyTextSmall">
             Nivel de significancia (decimales)
           </label>
@@ -148,7 +231,7 @@ export default {
           />
         </div>
 
-        <div class="theInput">
+        <div class="theInput" v-if="this.analisisSelected == 1">
           <label class="titlesStyle --blue --bodyTextSmall"> Valor P </label>
           <input
             placeholder="0"
@@ -157,6 +240,17 @@ export default {
             v-model="this.valorP"
           />
         </div>
+
+        <div class="theInput" v-if="this.analisisSelected == 2">
+          <label class="titlesStyle --blue --bodyTextSmall"> Valor R </label>
+          <input
+            placeholder="0"
+            type="number"
+            class="input --number"
+            v-model="this.valorR"
+          />
+        </div>
+
         <button class="btn interpretationBtn" @click="analizeResults">
           Interpretar
         </button>
@@ -171,30 +265,47 @@ export default {
           <strong>Nivel de significancia: </strong>es normalmente del 5% (0.05)
           dependiendo del nivel de confianza, que normalmente es del 95% (0.95),
           por lo que podrías utilizar un nivel del 0.05.
-          <br /><br />
-          <strong>Valor P: </strong> se obtine a partir de la prueba realizada y es
-          el porcentaje de que tu hipótesis nula(H0) ocurra. <br /><br />Si tu
-          valor P es menor al nivel de significancia, entonces se rechaza la
-          hipótesis nula(H0) porque hay muy poca probabilidad de que ocurra.
+
+          <br />
+          <br />
+
+          <p v-if="this.analisisSelected == 1">
+            <strong>Valor P: </strong> se obtine a partir de la prueba realizada
+            y es el porcentaje de que tu hipótesis nula(H0) ocurra.
+            <br /><br />Si tu valor P es menor al nivel de significancia,
+            entonces se rechaza la hipótesis nula(H0) porque hay muy poca
+            probabilidad de que ocurra.
+          </p>
+          
+          <p v-if="this.analisisSelected == 2">
+            <strong>Valor R: </strong> se obtine a partir de la prueba realizada
+            y es el coeficiente de correlación entre las variables, con posibles
+            valores entre -1 y 1. <br /><br />Si tu valor R es positivo, quiere
+            decir que hay una correlación donde los valores de ambas variables
+            tienden a incrementarse juntos. Pero si es negativo, quiere decir
+            que hay una correlación donde los valores de una variable tienden a
+            incrementarse mientras que los valores de la otra variable
+            descienden.
+          </p>
         </div>
 
         <div class="dataInterpretation" v-if="this.analize">
-          <div class="pvalueData">
+          <div class="pvalueData" v-if="this.analisisSelected == 1">
             <strong><p class="reminder">Eso quiere decir que:</p></strong>
 
             <h1 class="titlesStyle --bodyTextBig --blue">
-              valor P &lt; 0.01 =
+              valor P &lt; 0.01 ->
               <span class="titlesStyle --bodyTextSmall --blue --thin">
                 H1✅ y H0🚫 (resultado muy significativo)</span
               >
               <br />
-              valor P &lt; 0.05 =<span
+              valor P &lt; 0.05 -><span
                 class="titlesStyle --bodyTextSmall --blue --thin"
               >
                 H1✅ y H0🚫 (resultado significativo)</span
               >
               <br />
-              valor P > 0.05 =<span
+              valor P > 0.05 -><span
                 class="titlesStyle --bodyTextSmall --blue --thin"
               >
                 H1🚫 y H0✅ (resultado no significativo)</span
@@ -202,31 +313,105 @@ export default {
             </h1>
           </div>
 
+          <div class="pvalueData" v-if="this.analisisSelected == 2">
+            <strong><p class="reminder">Eso quiere decir que:</p></strong>
+
+            <h1 class="titlesStyle --bodyTextBig --blue">
+              valor R = (0 - 0.1) ->
+              <span class="titlesStyle --bodyTextSmall --blue --thin">
+                H1🚫 y H0✅ (No hay correlación)</span
+              >
+              <br />
+              valor R = (0.1 - 0.3) ->
+              <span class="titlesStyle --bodyTextSmall --blue --thin">
+                H1✅ y H0🚫 (Poca correlación)</span
+              >
+              <br />
+              valor R = (0.3 - 0.5) ->
+              <span class="titlesStyle --bodyTextSmall --blue --thin">
+                H1✅ y H0🚫 (Correlación media)</span
+              >
+              <br />
+              valor R = (0.5 - 0.7) ->
+              <span class="titlesStyle --bodyTextSmall --blue --thin">
+                H1✅ y H0🚫 (Alta correlación)</span
+              >
+              <br />
+              valor R = (0.7 - 1) ->
+              <span class="titlesStyle --bodyTextSmall --blue --thin">
+                H1✅ y H0🚫 (Correlación muy alta)</span
+              >
+              <br />
+            </h1>
+            <br />
+            Estos valores funcionan si el valor R es un número positivo o
+            también uno negativo.
+          </div>
+
           <br />
 
-          <div class="pvalueData">
+          <div class="pvalueData" v-if="this.analisisSelected == 1">
             <strong
               ><p class="reminder">Así que según tus resultados:</p></strong
             >
             <p>
               Tu valor P
               <strong class="interPvalue">({{ this.showPvalue }})</strong> es
-              <strong v-if="!this.isLess">mayor</strong>
-              <strong v-if="this.isLess">menor</strong>
+              <strong v-if="!this.isAcepted">mayor</strong>
+              <strong v-if="this.isAcepted">menor</strong>
               que tu nivel de significancia
               <strong class="interPvalue"
                 >({{ this.showSignificancia }}).</strong
               >
-              <br /><br />Es decir, que tu hipótesis alternativa(H1) de:
+              <br /><br />Es decir que, tu hipótesis alternativa(H1) de:
               <span>{{ this.showH1 }}. </span>
-              <strong v-if="this.isLess"><br />Es aceptada ✅</strong>
-              <strong v-if="!this.isLess"><br />Es rechazada 🚫</strong>
+              <strong v-if="this.isAcepted"><br />Es aceptada ✅</strong>
+              <strong v-if="!this.isAcepted"><br />Es rechazada 🚫</strong>
               <br /><br />Y tu hipótesis nula(H0) de:
               <span>{{ this.showH0 }}. </span>
-              <strong v-if="!this.isLess"><br />Es aceptada ✅</strong>
-              <strong v-if="this.isLess"><br />Es rechazada 🚫</strong>
+              <strong v-if="!this.isAcepted"><br />Es aceptada ✅</strong>
+              <strong v-if="this.isAcepted"><br />Es rechazada 🚫</strong>
             </p>
           </div>
+
+          <div class="pvalueData" v-if="this.analisisSelected == 2">
+            <strong
+              ><p class="reminder">Así que según tus resultados:</p></strong
+            >
+            <p>
+              Tu valor R es <strong>{{ this.showRvalue }}</strong
+              ><br /><br />
+              Es decir que,
+              <strong>
+                <span v-if="this.isAcepted">si</span>
+                <span v-if="!this.isAcepted">no</span>
+                existe una correlación
+              </strong>
+
+              <span v-if="this.isAcepted">
+                <span v-if="this.correlacionPositiva">positiva </span>
+                <span v-if="!this.correlacionPositiva">negativa </span>
+              </span>
+
+              <span v-if="this.isAcepted">
+                <span v-if="this.nivelCorrelacion == 1">muy poca</span>
+                <span v-if="this.nivelCorrelacion == 2">media</span>
+                <span v-if="this.nivelCorrelacion == 3">alta</span>
+                <span v-if="this.nivelCorrelacion == 4">muy alta</span>
+              </span>
+              entre las variables.
+
+              <br /><br />Osea que, tu hipótesis alternativa(H1) de:
+              <span>{{ this.showH1 }}. </span>
+              <strong v-if="this.isAcepted"><br />Es aceptada ✅</strong>
+              <strong v-if="!this.isAcepted"><br />Es rechazada 🚫</strong>
+              <br /><br />Y tu hipótesis nula(H0) de:
+              <span>{{ this.showH0 }}. </span>
+              <strong v-if="!this.isAcepted"><br />Es aceptada ✅</strong>
+              <strong v-if="this.isAcepted"><br />Es rechazada 🚫</strong>
+            </p>
+          </div>
+
           <button class="btn" @click="concludeResults" v-if="this.analize">
             Concluir
           </button>
@@ -235,31 +420,88 @@ export default {
     </div>
 
     <div v-if="this.conclusion" class="conclusion">
-      <img @click="pruebas" class="conclusion__paste" src="../../public/icons/copy.svg">
+      <img
+        @click="pruebas"
+        class="conclusion__paste"
+        src="../../public/icons/copy.svg"
+      />
       <strong><p class="conclusion__title">Para concluir:</p></strong>
-      
-      <p id="pruebaUno">
-        Luego de realizar el experimento, recolectar los datos y utilizar el tipo
-        de análisis correcto para validar, podemos observar que al obtener un Valor P del 
-        <strong><span>{{ this.showPvalue }}</span></strong>,
-        el cual es <strong v-if="!this.isLess">mayor</strong
-        ><strong v-if="this.isLess">menor</strong> que el valor de significancia 
-        (<strong><span>{{ this.showSignificancia }}</span></strong>), 
-        podemos concluir que
-        <span v-if="this.isLess"> tu hipótesis alternativa "<strong>{{ this.showH1 }}"</strong> es<strong> aceptada</strong> porque hay poca probabilidad de que ocurra la hipótesis nula </span>
-        <span v-if="!this.isLess"> tu hipótesis nula "<strong>{{ this.showH0 }}"</strong> es<strong> aceptada </strong> porque hay una probabilidad mayor de que ocurra</span>
+
+      <p id="pruebaUno" v-if="this.analisisSelected == 1">
+        Luego de realizar el experimento, recolectar los datos y utilizar el
+        tipo de análisis correcto para validar, podemos observar que al obtener
+        un Valor P del
+        <strong>{{ this.showPvalue }}</strong
+        >, el cual es <strong v-if="!this.isAcepted">mayor</strong
+        ><strong v-if="this.isAcepted">menor</strong> que el valor de
+        significancia (<strong>{{ this.showSignificancia }}</strong
+        >), podemos concluir que
+        <span v-if="this.isAcepted">
+          tu hipótesis alternativa "<strong>{{ this.showH1 }}"</strong>
+          es<strong> aceptada</strong> porque hay poca probabilidad de que
+          ocurra la hipótesis nula
+        </span>
+        <span v-if="!this.isAcepted">
+          tu hipótesis nula "<strong>{{ this.showH0 }}"</strong> es<strong>
+            aceptada
+          </strong>
+          porque hay una probabilidad mayor de que ocurra</span
+        >
       </p>
-      <!--<p>{{this.message}}</p>-->
+
+      <p id="pruebaUno" v-if="this.analisisSelected == 2">
+        Luego de realizar el experimento, recolectar los datos y utilizar el
+        tipo de análisis correcto para validar, podemos observar que al obtener
+        un Valor R de
+        <strong>{{ this.showRvalue }}</strong
+        >, se puede afirmar que
+
+        <strong>
+          <span v-if="this.isAcepted">si</span>
+          <span v-if="!this.isAcepted">no</span>
+          existe una correlación
+
+          <span v-if="this.isAcepted">
+            <span v-if="this.correlacionPositiva">positiva </span>
+            <span v-if="!this.correlacionPositiva">negativa </span>
+          </span>
+
+          <span v-if="this.isAcepted">
+            <span v-if="this.nivelCorrelacion == 1">muy poca</span>
+            <span v-if="this.nivelCorrelacion == 2">media</span>
+            <span v-if="this.nivelCorrelacion == 3">alta</span>
+            <span v-if="this.nivelCorrelacion == 4">muy alta</span>
+          </span>
+        </strong>
+        entre las variables. Asi que, podemos concluir que
+        <span v-if="this.isAcepted">
+          tu hipótesis alternativa "<strong>{{ this.showH1 }}"</strong>
+          es<strong> aceptada.</strong>
+        </span>
+        <span v-if="!this.isAcepted">
+          tu hipótesis nula "<strong>{{ this.showH0 }}"</strong> es<strong>
+            aceptada.
+          </strong></span
+        >
+      </p>
 
       <div class="conclusion__btn">
-      <button class="btn backBtn" @click="backToAnalize" v-if="this.conclusion">
-        Atras
-      </button>
+        <button
+          class="btn backBtn"
+          @click="backToAnalize"
+          v-if="this.conclusion"
+        >
+          Atras
+        </button>
 
-      <button class="btn newBtn" @click="backToRemember" v-if="this.conclusion">
-        Volver a interpretar
-      </button>
-    </div>
+        <button
+          class="btn newBtn"
+          @click="backToRemember"
+          v-if="this.conclusion"
+        >
+          Volver a interpretar
+        </button>
+      </div>
     </div>
   </section>
 </template>
@@ -330,9 +572,6 @@ export default {
       position: relative;
       width: 100%;
 
-      .btn {
-      }
-
       .pvalueData {
         display: flex;
         flex-direction: column;
@@ -344,6 +583,9 @@ export default {
 
       .nivelInfo {
         border: 1px solid $SecondPink;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         padding: 20px;
         width: 100%;
       }
@@ -377,7 +619,7 @@ export default {
     &__paste {
       width: 30px;
       position: absolute;
-      top:20px;
+      top: 20px;
       right: 20px;
       cursor: pointer;
     }

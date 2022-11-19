@@ -57,15 +57,38 @@ export const useAnalisisStore = defineStore("analisis", {
                         ],
                         example: 'Por ejemplo, puedes comparar la distancia promedio de viaje al trabajo recorrida por los residentes de la ciudad de Nueva York y San Francisco usando 1,000 participantes seleccionados al azar de cada ciudad',
                         link: 'https://www.youtube.com/watch?v=JuBgDXnvd84',
-                        calculatorlink:'https://www.socscistatistics.com/tests/anova/default2.aspx',
+                        calculatorlink: 'https://www.socscistatistics.com/tests/anova/default2.aspx',
                     },
                 ],
                 correlacion: [
                     {
                         img: '/imgs/paired.png',
+                        title: 'Pearson',
+                        descrip: 'Correlación entre variables métricas',
+                        what: 'El coeficiente de correlación(r) de Pearson se usa para medir la fuerza de asociación entre dos variables cuantitativas, donde el valor (r) = 1 significa una correlación positiva perfecta, el valor (r) = -1 significa una correlación negativa perfecta y el valor (r) = 0 significa que no hay correlación existente entre las variables. Las variables deben de ser ambas métricas, en caso de no serlo, se debe hacer una prueba Spearman.',
+                        how: [
+                            {
+                                info: '1. Para comenzar, debes agregar sus datos a los cuadros de texto a continuación.',
+                            },
+                            {
+                                info: '2. Cuando tus datos estén en su lugar y estés listo para hacer el cálculo, simplemente presiona el botón "Calcular"',
+                            },
+                            {
+                                info: '3. La calculadora ejecutará varias pruebas en tus datos, para asegurarse de que sea adecuado para la estadística Spearman, y luego mostrará el resultado',
+                            },
+                            {
+                                info: '4. También te ofrecerá la opción de ver muchos detalles sobre el cálculo.',
+                            },
+                        ],
+                        example: 'Por ejemplo, puedes usar esta prueba para averiguar si la altura de las personas (variable métrica), tiene alguna correlación con su peso (variable métrica). ',
+                        link: 'https://www.youtube.com/watch?v=1QFf5luX3kA',
+                        calculatorlink: 'https://www.socscistatistics.com/tests/pearson/',
+                    },
+                    {
+                        img: '/imgs/paired.png',
                         title: 'Spearman',
-                        descrip: 'La escala de medida debe ser ordinal (o intervalo, razón)',
-                        what: 'Spearman es una prueba no paramétrica utilizada para medir la fuerza de asociación entre dos variables, donde el valor r = 1 significa una correlación positiva perfecta y el valor r = -1 significa una correlación negativa perfecta.', 
+                        descrip: 'Correlación entre variables métricas y no métricas',
+                        what: 'El coeficiente de correlación de rangos(r) Spearman es una prueba utilizada para medir la fuerza de asociación entre dos variables, donde el valor (r) = 1 significa una correlación positiva perfecta, el valor (r) = -1 significa una correlación negativa perfecta y el valor (r) = 0 significa que no hay correlación existente entre las variables. En esta prueba las variables pueden ser métricas y tambíen no métricas.',
                         how: [
                             {
                                 info: '1. Para comenzar, debes agregar sus datos a los cuadros de texto a continuación.',
@@ -81,32 +104,9 @@ export const useAnalisisStore = defineStore("analisis", {
                             },
                         ],
 
-                        example: 'Por ejemplo, puedes usar esta prueba para averiguar si la altura y el tamaño de los zapatos de las personas están correlacionados (lo estarán; cuanto más altas sean las personas, más grandes serán sus pies). Entonces, agregarías los valores de la altura en el cuadro Valores X y los valores del tamaño del calzado en el cuadro Valores Y (o viceversa).',
+                        example: 'Por ejemplo, puedes usar esta prueba para averiguar si la altura de las personas (variable no métrica), tiene alguna correlación con su talla de zapatos (variable métrica).',
                         link: 'https://www.youtube.com/watch?v=7ep0o5nYVFU',
                         calculatorlink: 'https://www.socscistatistics.com/tests/spearman/default2.aspx',
-                    },
-                    {
-                        img: '/imgs/unpaired.png',
-                        title: 'Pearson',
-                        descrip: 'La escala de medida debe ser de intervalo o de razón',
-                        what: 'El coeficiente de correlación de Pearson se usa para medir la fuerza de una asociación lineal entre dos variables, donde el valor r = 1 significa una correlación positiva perfecta y el valor r = -1 significa una correlación negativa perfecta. Las variables deben tener una distribución aproximadamente normal. La asociación debe ser lineal y no debe haber valores atípicos en los datos.',
-                        how: [
-                            {
-                                info: '1. Para comenzar, debes agregar sus datos a los cuadros de texto a continuación.',
-                            },
-                            {
-                                info: '2. Cuando tus datos estén en su lugar y estés listo para hacer el cálculo, simplemente presiona el botón "Calcular"',
-                            },
-                            {
-                                info: '3. La calculadora ejecutará varias pruebas en tus datos, para asegurarse de que sea adecuado para la estadística Spearman, y luego mostrará el resultado',
-                            },
-                            {
-                                info: '4. También te ofrecerá la opción de ver muchos detalles sobre el cálculo.',
-                            },
-                        ],
-                        example: 'Por ejemplo, puedes usar esta prueba para averiguar si la altura y el peso de las personas están correlacionados (lo estarán: cuanto más altas sean las personas, más pesados ​​​​es probable que sean).',
-                        link: 'https://www.youtube.com/watch?v=1QFf5luX3kA',
-                        calculatorlink:'https://www.socscistatistics.com/tests/pearson/',
                     },
                 ],
             },
