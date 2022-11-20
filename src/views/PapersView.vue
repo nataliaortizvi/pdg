@@ -97,7 +97,7 @@ export default {
 
   <div>
     <section class="searcher">
-      <h2 class="titlesStyle titleVar">Buscar otra variable</h2>
+      <h2 class="titlesStyle titleVar">¿Quieres buscar otra variable?</h2>
       <div class="rightItems">
         <input
           class="input input--variable"
