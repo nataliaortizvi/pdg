@@ -116,4 +116,11 @@ export default {
   bottom: 0px;
   //overflow: scroll;
 }
+
+@media screen and (max-width: 600px) {
+  .cardContainer {
+    margin: 30px 0px;
+    height: max-content;
+  }
+}
 </style>

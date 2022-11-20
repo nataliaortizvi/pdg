@@ -251,9 +251,11 @@ export default {
           />
         </div>
 
+        <div class="divBtn">
         <button class="btn interpretationBtn" @click="analizeResults">
           Interpretar
         </button>
+      </div>
       </div>
 
       <div class="dataInterpretation">
@@ -527,7 +529,7 @@ export default {
   color: $MainColorBlue;
 
   .header {
-    .header__title {
+    &__title {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -571,6 +573,13 @@ export default {
         select {
           padding: 0px 10px;
         }
+      }
+
+      .divBtn {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
       }
     }
     .dataInterpretation {
@@ -631,6 +640,34 @@ export default {
       top: 20px;
       right: 20px;
       cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .interpretationSection{
+    padding: 30px 20px;
+
+    .header {
+      &__title {
+        align-items:flex-start;
+        img {
+        margin-top: 7px;
+      }
+      }
+    }
+
+    .body {
+      flex-direction: column;
+      margin: 30px 0px;
+      .dataInputs {
+        width: 100%;
+        padding: 15px;
+      }
+    }
+    
+    .conclusion {
+      margin: 0px 0px;
     }
   }
 }

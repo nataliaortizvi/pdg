@@ -188,7 +188,7 @@ export default {
             </button>
             <div class="btnInicial" @click="next" v-if="!isLastStep">.</div>
             <button class="btn --responsive" @click="next" v-if="!isLastStep">
-              >
+              <img src="../../public/icons/goForward.svg"/>
             </button>
           </div>
         </div>
@@ -237,10 +237,10 @@ export default {
               Siguiente
             </button>
             <button class="btn --responsive" @click="back" v-if="!isLastStep">
-              &lt;
+              <img src="../../public/icons/goBack.svg"/>
             </button>
             <button class="btn --responsive" @click="next" v-if="!isLastStep">
-              >
+              <img src="../../public/icons/goForward.svg"/>
             </button>
           </div>
         </div>
@@ -276,10 +276,10 @@ export default {
               Siguiente
             </button>
             <button class="btn --responsive" @click="back" v-if="!isLastStep">
-              &lt;
+              <img src="../../public/icons/goBack.svg"/>
             </button>
             <button class="btn --responsive" @click="next" v-if="!isLastStep">
-              >
+              <img src="../../public/icons/goForward.svg"/>
             </button>
           </div>
         </div>
@@ -324,10 +324,10 @@ export default {
               Siguiente
             </button>
             <button class="btn --responsive" @click="back" v-if="!isLastStep">
-              &lt;
+              <img src="../../public/icons/goBack.svg"/>
             </button>
             <button class="btn --responsive" @click="next" v-if="!isLastStep">
-              >
+              <img src="../../public/icons/goForward.svg"/>
             </button>
           </div>
         </div>
@@ -368,10 +368,10 @@ export default {
               Siguiente
             </button>
             <button class="btn --responsive" @click="back" v-if="!isLastStep">
-              &lt;
+              <img src="../../public/icons/goBack.svg"/>
             </button>
             <button class="btn --responsive" @click="next" v-if="!isLastStep">
-              >
+              <img src="../../public/icons/goForward.svg"/>
             </button>
           </div>
         </div>
@@ -410,11 +410,11 @@ export default {
             <button class="btn --noResponsive" @click="next" v-if="!isLastStep">
               Siguiente
             </button>
-            <button class="btn --responsive" @click="next" v-if="!isFirstStep">
-              &lt;
+            <button class="btn --responsive" @click="back" v-if="!isFirstStep">
+              <img src="../../public/icons/goBack.svg"/>
             </button>
             <button
-              class="btn --small"
+              class="btn"
               v-if="!isFirstStep && modalOff"
               @click="scrollWin()"
             >
@@ -908,6 +908,10 @@ export default {
       }
 
       .buttons {
+
+        .btn {
+          width: 140px;
+        }
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -918,6 +922,8 @@ export default {
         .btnInicial {
           color: transparent;
         }
+
+
       }
     }
   }

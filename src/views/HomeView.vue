@@ -155,7 +155,7 @@ export default {
 
 @media screen and (max-width: 600px) {
   .searcher {
-    padding-bottom: 40px;
+    padding: 100px 20px 40px 20px;
 
     .titleVar {
       text-align: center;
@@ -173,6 +173,7 @@ export default {
       .input--variable {
         margin-bottom: 0px;
         width: 100%;
+        margin-right: 0px;
       }
     }
   }
@@ -180,7 +181,7 @@ export default {
   .banner {
     background-position: 55% 75%;
     height: 300px;
-    justify-content: center;
+    padding-left: 20px;
 
     .banner__text {
       margin: 0px;
@@ -190,6 +191,7 @@ export default {
   }
 
   .manual {
+    margin: 30px 20px;
     &__titleOne {
       font-size: $SubtitleSize;
     }

@@ -142,7 +142,7 @@ export default {
   flex-direction: column;
   align-items: center;
   width: 70vw;
-  padding: 30px;
+  padding: 30px 30px;
 
   h1 {
     font-size: $TitleSize;
@@ -240,6 +240,32 @@ export default {
     width: 100%;
     padding-left:30px;
 
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .resume {
+    width: 100%;
+    padding: 30px 10px;
+
+    &__definition {
+    width: 100%;
+  }
+
+    &__requirements {
+    flex-direction:column-reverse;
+    align-items: center;
+
+    .imgDefinition {
+      margin-left: 0px;
+    }
+
+    .requirementsText {
+      &__definition {
+        margin: 30px 0px 30px 0px;
+      }
+    }
+    }
   }
 }
 </style>

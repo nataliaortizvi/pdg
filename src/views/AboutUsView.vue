@@ -62,6 +62,7 @@
             alt=""
           />
           <strong><p>Javier Aguirre</p></strong>
+          <p>Lead</p>
         </div>
         <div class="containerimg__eachImg">
           <img
@@ -70,6 +71,7 @@
             alt=""
           />
           <strong><p>Natalia Ortiz</p></strong>
+          <p>Diseñadora de Medios Interactivos</p>
         </div>
         <div class="containerimg__eachImg">
           <img
@@ -78,6 +80,7 @@
             alt=""
           />
           <strong><p>Matheus Vidarte</p></strong>
+          <p>Diseñador de Medios Interactivos</p>
         </div>
       </div>
     </div>
@@ -173,5 +176,33 @@ section {
       }
     }
   }
+}
+
+@media screen and (max-width: 600px) {
+  section {
+    padding: 20px;
+
+    .containerAbout {
+      &__bodytext {
+      margin: 0px;
+    }
+
+    &__list {
+      padding-left: 20px;
+
+    }
+    }
+    .team {
+      .containerimg {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 50px 20px 40px 20px;
+        width: 100%;
+      }
+    }
+  }
+
+  
 }
 </style>

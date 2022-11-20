@@ -187,7 +187,7 @@ export default {
         <label class="text">Escribe un resumen del documento</label>
         <input
           class="input"
-          placeholder="Ej: Este artícolo explica que la velocidad es la rapidez..."
+          placeholder="Ej: Este artículo explica que la velocidad es la rapidez..."
           v-model="resumen"
           type="text"
           required
@@ -352,6 +352,8 @@ export default {
 
 .modalAdded {
   padding: 30px;
+  text-align: center;
+  color: $MainColorBlue;
 }
 
 .containerForm {
@@ -426,6 +428,28 @@ export default {
       text-align: center;
       font-size: $BodyTextSize2;
     }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .containerForm {
+    padding: 80px 20px;
+
+    &__explain {
+    margin-top: 20px;
+    width: 100%;
+    text-align: start;
+  }
+
+  .paperForm {
+    width: 100%;
+    .itemForm {
+
+      .input {
+        width: 100%;
+      }
+    }
+  }
   }
 }
 </style>

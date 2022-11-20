@@ -85,4 +85,14 @@ export default {
     right: 10px;
   }*/
 }
+
+@media screen and (max-width: 600px) {
+  .modalContainer {
+    width: 90%;
+
+    .modalInfo {
+      max-width: 100%;
+    }
+  }
+}
 </style>

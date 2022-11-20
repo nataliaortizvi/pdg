@@ -246,5 +246,41 @@ export default {
     gap: 15px;
   }
 
+  .searcher {
+    padding: 100px 20px 40px 20px;
+    flex-direction: column;
+
+    .titleVar {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .rightItems {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+
+      .btn {
+        display: none;
+      }
+
+      .input--variable {
+        margin-bottom: 0px;
+        width: 100%;
+        margin-right: 0px;
+      }
+    }
+  }
+
+  .results {
+    padding: 20px;
+    width: 100%;
+
+    .titleFind {
+      padding: 10px 0px;
+      width: 100%;
+  }
+  }
+
 }
 </style>

@@ -160,16 +160,22 @@ export default {
 
 @media screen and (max-width: 600px) {
   .container {
-    padding: 10px;
+    padding: 10px 10px;
+    width: 100%;
 
     .buttons {
       flex-direction: column;
-      gap: 10px;
+      gap: 20px;
       margin-top: 20px;
 
       .btn {
         margin: 0px;
       }
+    }
+
+    .cardBody {
+      width: 100%;
+      padding: 15px 15px;
     }
   }
 }
