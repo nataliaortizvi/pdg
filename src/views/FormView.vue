@@ -136,15 +136,15 @@ export default {
 
   <section class="containerForm">
     <h1 class="titlesStyle --pink">Agrega la nueva variable</h1>
-    <p>
-    Para agregar una variable y su forma de medición es necesario haber investigado sobre esta, para esto puedes basarte en un documento de investigación y según este llenar los campos a continuación.
+    <p class="containerForm__explain">
+    Para agregar una variable y su forma de medición es necesario que hayas investigado sobre esta. Para esto puedes basarte en un documento o artículo de investigación y según este llenar los campos a continuación.
     </p>
     <div class="paperForm">
       <div class="itemForm">
-        <label class="text"> ¿Cuál variable vas a agregar? </label>
+        <label class="text">¿Cuál variable vas a agregar? </label>
         <input
           class="input"
-          placeholder="Variable"
+          placeholder="Ej: Velocidad"
           v-model="variable"
           type="text"
           required
@@ -154,7 +154,7 @@ export default {
         <label class="text"> ¿Cuál es el título del documento donde explican la variable</label>
         <input
           class="input"
-          placeholder="Escribe el título del documento donde explican la variable"
+          placeholder="Ej: Cómo calcular la velocidad"
           v-model="title"
           type="text"
           required
@@ -162,10 +162,10 @@ export default {
       </div>
 
       <div class="itemForm">
-        <label class="text"> ¿Quién(es) es(son) el(los) autor(es) del documento?</label>
+        <label class="text"> ¿Quién es el o los autores del documento?</label>
         <input
           class="input"
-          placeholder="Escribe el (los) autor(es) del documento"
+          placeholder="Ej: PhD Nicolas V"
           v-model="author"
           type="text"
           required
@@ -176,7 +176,7 @@ export default {
         <label class="text">¿En que año se publicó el documento?</label>
         <input
           class="input"
-          placeholder="Año de publicación del documento"
+          placeholder="Ej: 2018"
           v-model="year"
           type="text"
           required
@@ -187,7 +187,7 @@ export default {
         <label class="text">Escribe un resumen del documento</label>
         <input
           class="input"
-          placeholder="Resumen"
+          placeholder="Ej: Este artícolo explica que la velocidad es la rapidez..."
           v-model="resumen"
           type="text"
           required
@@ -195,10 +195,10 @@ export default {
       </div>
 
       <div class="itemForm">
-        <label class="text">Escribe una definición de la variable</label>
+        <label class="text">¿Cómo defines la variable? Explica</label>
         <input
           class="input"
-          placeholder="Definición"
+          placeholder="Ej: La velocidad es la rapidez en la que viaja un objeto en una dirección en específico..."
           type="text"
           v-model="definition"
           required
@@ -206,12 +206,10 @@ export default {
       </div>
 
       <div class="itemForm">
-        <label class="text"
-          >Escribe los requerimientos para esta variable:</label
-        >
+        <label class="text">¿Cómo se genera la variable?</label>
         <input
           class="input"
-          placeholder="Requerimiento"
+          placeholder="Debe ocurrir un cambio de posición de un objeto en determinado tiempo"
           type="text"
           v-model="requirement"
           required
@@ -219,10 +217,10 @@ export default {
       </div>
 
       <div class="itemForm">
-        <label class="text">Escribe la formula para calcular la variable</label>
+        <label class="text">¿Cual es la formula para calcular esta variable?</label>
         <input
           class="input"
-          placeholder="Formula"
+          placeholder="Ej: Velocidad=cambio de posición / timepo"
           type="text"
           v-model="formula"
           required
@@ -235,7 +233,7 @@ export default {
         >
         <input
           class="input"
-          placeholder="¿Qué significa la formula?"
+          placeholder="Ej: cambio de posición: posición final menos posición inicial"
           type="text"
           v-model="formulameaning"
           required
@@ -249,20 +247,21 @@ export default {
         >
         <input
           class="input"
-          placeholder="Actores y contexto"
+          placeholder="Ej: El principal actor es el objeto y su contexto es donde..."
           type="text"
           v-model="context"
           required
         />
       </div>
 
+      <strong><p class="divExample">Ahora agrega un ejemplo para explicar cómo utilizar la formula y calcular la variable</p></strong>
+
       <div class="itemForm">
         <label class="text">
-          Describe el ejemplo. ¿Cuál es el caso del ejemplo?</label
-        >
+          Escribe el enunciado del ejemplo?</label>
         <input
           class="input"
-          placeholder="Caso del ejemplo"
+          placeholder="Ej: Se necesita saber si las manzanas más altas caen más rápido"
           type="text"
           v-model="exampleContext"
           required
@@ -271,11 +270,11 @@ export default {
 
       <div class="itemForm">
         <label class="text">
-          Explica según el ejemplo que significa cada parte de la formula</label
+          Explica cada parte de la fomula según tu ejemplo</label
         >
         <input
           class="input"
-          placeholder="Caso del ejemplo"
+          placeholder="Ej: cambio de poscición: posición final 0mt - posicion inicial 5mt"
           type="text"
           v-model="eachFormulaVariable"
           required
@@ -284,12 +283,11 @@ export default {
 
       <div class="itemForm">
         <label class="text">
-          ¿Cómo es el experimento que se realizaría para obtener los datos y
-          utilizar la formula?
+          Explica el experimento que se realiza para calcular los datos
         </label>
         <input
           class="input"
-          placeholder="Caso del ejemplo"
+          placeholder="Ej: Ubica 10 manzanas a 5mt del suelo y otras 10 a 15 mt y las lanza..."
           type="text"
           v-model="descriptionExperiment"
           required
@@ -298,12 +296,12 @@ export default {
 
       <div class="itemForm">
         <label class="text">
-          ¿Cuales preguntas realizaste o que realizaste para obtener los
+          ¿Cuales preguntas realizaste para obtener los
           datos?</label
         >
         <input
           class="input"
-          placeholder="Caso del ejemplo"
+          placeholder="Ej: ¿Cuánto tiempo tardo cada manzana en caer al suelo?"
           type="text"
           v-model="developExperiment"
           required
@@ -313,11 +311,11 @@ export default {
       <div class="itemForm">
         <label class="text">
           Cuando obtienes todos los datos necesarios, ¿qué se haría luego?
-          Concluye</label
+         </label
         >
         <input
           class="input"
-          placeholder="Caso del ejemplo"
+          placeholder="Se realizó un Paired T-test con los datos obtenidos para validar si..."
           type="text"
           v-model="conclusionExperiment"
           required
@@ -362,6 +360,12 @@ export default {
   align-items: center;
   padding: 80px 30px;
 
+  &__explain {
+    margin-top: 20px;
+    width: 80%;
+    text-align: center;
+  }
+
   .btn {
     display: flex;
     align-items: center;
@@ -374,8 +378,8 @@ export default {
     margin: 30px 0px;
     background-color: $Background2;
     border-radius: 20px;
-
     padding: 20px;
+    width: min-content;
 
     .alertContainer {
       text-align: center;
@@ -388,6 +392,7 @@ export default {
       display: flex;
       flex-direction: column;
       margin-bottom: 30px;
+
 
       .input--paper {
         padding-left: 20px;
@@ -404,7 +409,6 @@ export default {
     .imglabel {
       border: 1px solid $MainColorBlue;
       border-radius: 20px;
-      margin-right: 20px;
       display: flex;
       padding: 20px;
       flex-direction: column;
@@ -414,6 +418,13 @@ export default {
       .imgInput {
         width: 40px;
       }
+    }
+
+    .divExample {
+      margin-bottom: 30px;
+      width: 100%;
+      text-align: center;
+      font-size: $BodyTextSize2;
     }
   }
 }

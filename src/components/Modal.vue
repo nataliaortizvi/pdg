@@ -23,6 +23,7 @@ export default {
         <slot></slot>
       </div>
       <img src="/imgs/exitBtn.png" @click="closeModal" v-if="showButton" />
+      <!--<img class="scrolldown" src="../../public/icons/scrolldown.svg" alt="">-->
     </section>
   </div>
 </template>
@@ -55,7 +56,7 @@ export default {
   position: relative;
 
   .modalInfo {
-    max-height: 80vh;
+    max-height: 90vh;
     max-width: 70vw;
     display: flex;
     flex-direction: column;
@@ -77,5 +78,11 @@ export default {
       transform: scale(1.08);
     }
   }
+
+  /*.scrolldown {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }*/
 }
 </style>

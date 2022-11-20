@@ -67,7 +67,8 @@ export default {
   <!-----------------------GLOBAL HEADER--------------------->
   <header id="navbar" :class="{ onScroll: !view.topOfPage }">
     <RouterLink to="/">
-      <h1 class="logo">ValiData</h1>
+      <img class="logo" src="../public/icons/logoHorizontalAzul.svg"/>
+      <img class="logoW" src="../public/icons/logoHorizontalBlanco.svg"/>
     </RouterLink>
     
     <nav class="navFull">
@@ -159,7 +160,7 @@ export default {
   <RouterView />
   <footer>
     <div class="footer">
-      <h1 class="logo logoFooter">ValiData</h1>
+      <img class="footer__logo" src="../public/icons/logoVerticalBlanco.svg"/>
       <div class="footer__links">
         <RouterLink to="/" id="linkss" class="linkWhite">Inicio</RouterLink>
         <RouterLink to="/analisis" id="linkss" class="linkWhite"
@@ -193,7 +194,13 @@ export default {
   text-decoration: none;
 }
 .logo {
-  color: $SecondPink;
+  width: 150px;
+  padding-top:5px;
+  display: block;
+}
+
+.logoW {
+  display:none;
 }
 .navFull {
   .link {
@@ -229,8 +236,9 @@ export default {
   flex-direction: column;
   align-items: center;
 
-  .logoFooter {
-    margin-top: 30px;
+  &__logo {
+    width:150px;
+    margin-top:30px;
   }
   &__links {
     display: flex;

@@ -53,6 +53,16 @@ header {
     color: $White;
   }
 
+  .logo {
+    display: none;
+  }
+
+  .logoW {
+    display: block;
+    width: 150px;
+    padding-top:5px;
+  }
+
   .link:hover {
     color: $SecondPink;
   }
