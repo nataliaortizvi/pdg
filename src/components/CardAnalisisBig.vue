@@ -157,4 +157,20 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 10px;
+
+    .buttons {
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+
+      .btn {
+        margin: 0px;
+      }
+    }
+  }
+}
 </style>

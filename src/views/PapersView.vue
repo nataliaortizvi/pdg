@@ -237,4 +237,14 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 600px) {
+
+  .modalButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+}
 </style>

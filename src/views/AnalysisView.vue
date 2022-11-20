@@ -36,8 +36,9 @@ export default {
         <h2 class="titlesStyle --pink">Tipos de análisis</h2>
       </div>
       <p class="header__description">
-        En este paso, con tu muestra ya definida, debes elegir cuál es el tipo  <br>de análisis que mejor te ayudará a validar
-        la hipótesis de tu proyecto.  <br>
+        En este paso, con tu muestra ya definida, debes elegir cuál es el tipo
+        <br />de análisis que mejor te ayudará a validar la hipótesis de tu
+        proyecto. <br />
         <strong>¡Vamos a ver cuáles hay!</strong>
       </p>
     </div>
@@ -135,6 +136,36 @@ export default {
         justify-content: center;
         gap: 50px;
         padding: 0px 50px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .allAnalisis {
+    width: 100%;
+    padding: 30px 20px;
+
+    &__header {
+      .header__description {
+        width: 80%;
+      }
+    }
+
+    .containerAnalisis {
+      margin: 30px 0px 10px 0px;
+
+      .groupAnalisis {
+        padding: 30px 0px;
+
+        p {
+          width: 75vw;
+        }
+
+        .cardSection {
+          flex-direction: column;
+          gap: 10px;
+        }
       }
     }
   }

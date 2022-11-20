@@ -17,28 +17,26 @@ export default {
   methods: {
     isVariable() {
       if (this.searchInput != "") {
-        this.$router.push(`/papers/${this.searchInput}`)
+        this.$router.push(`/papers/${this.searchInput}`);
       } else {
-        alert("Escribe una variable")
+        alert("Escribe una variable");
       }
     },
-    search () {
+    search() {
       console.log(this.searchInput);
-      this.$router.push(`/papers/${this.searchInput}`)
-      
+      this.$router.push(`/papers/${this.searchInput}`);
     },
   },
 
   computed: {
     ...mapStores(useVariablesStore),
 
-    searchbtn () {
-      this.searchInput != null
-      }
+    searchbtn() {
+      this.searchInput != null;
+    },
   },
 
-  mounted () {
-  }
+  mounted() {},
 };
 </script>
 
@@ -58,12 +56,10 @@ export default {
       <RouterLink :key="this.searchInput" to="">
         <button class="btn --small --pink" @click="isVariable">Buscar</button>
       </RouterLink>
-      
     </div>
   </section>
 
   <section class="banner">
-    <!--<img class="banner__img" src="/imgs/banner.png" />-->
     <h2 class="titlesStyle banner__text">
       Validata te apoya en los procesos de validación de tus hipótesis
     </h2>
@@ -121,16 +117,6 @@ export default {
   background-color: rgba(24, 29, 61, 0.5);
   position: relative;
 
-  
-  /*.banner__img {
-    display: flex;
-    position: absolute;
-    top: 253px;
-    z-index: -5;
-    width: 100%;
-    height: 450px;
-  }*/
-
   .banner__text {
     margin-left: 30px;
     color: $White;
@@ -141,10 +127,10 @@ export default {
 }
 
 .banner:after {
-  content: '';
+  content: "";
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: rgba(24, 29, 61, 0.4);
@@ -164,6 +150,54 @@ export default {
     font-weight: 700;
     font-size: $TitleSize;
     color: $SecondPink;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .searcher {
+    padding-bottom: 40px;
+
+    .titleVar {
+      text-align: center;
+    }
+
+    .rightItems {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+
+      .btn {
+        display: none;
+      }
+
+      .input--variable {
+        margin-bottom: 0px;
+        width: 100%;
+      }
+    }
+  }
+
+  .banner {
+    background-position: 55% 75%;
+    height: 300px;
+    justify-content: center;
+
+    .banner__text {
+      margin: 0px;
+      width: 80%;
+      font-size: $TitleSize;
+    }
+  }
+
+  .manual {
+    &__titleOne {
+      font-size: $SubtitleSize;
+    }
+
+    &__titleTwo {
+      font-size: $SubtitleSize;
+      margin-bottom: 20px;
+    }
   }
 }
 </style>

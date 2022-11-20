@@ -91,10 +91,8 @@ body {
     font-size: $SubtitleSize;
   }
 
-
   &.--bodyTextBig {
     font-size: $BodyTextSize;
-
   }
 
   &.--thin {
@@ -142,6 +140,10 @@ body {
     transform: scale(1.03);
   }
 
+  &.--responsive {
+    display: none;
+  }
+
   &.--small {
     width: 140px;
   }
@@ -158,6 +160,20 @@ body {
 
   &.--pink {
     background-color: $SecondPink;
+  }
+
+  @media screen and (max-width: 600px) {
+    &.--responsive {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      width: 42px;
+      font-weight: 500;
+    }
+    &.--noResponsive {
+      display: none;
+    }
   }
 }
 
@@ -205,7 +221,3 @@ body {
     color: $Hint;
   }
 }
-
-
-
-@media screen and (max-width: 600px) {}

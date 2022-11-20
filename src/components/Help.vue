@@ -56,7 +56,8 @@ export default {
             "Muestra: 2 grupos con 10 manzanas cada una. (Un grupo con manzanas ubicadas más altas que el otro grupo). Puedes hacer un Paired T-test con dos grupos de igual cantidad de manzanas, uno que esta más alto que el otro y recolectar los datos con cada uno.",
           descripFour: "Opcion 1: Paired T-test",
           descripFive: "Opcion 2: Unpaired T-test",
-          descripSix: "Muestra: 2 grupos, uno con 7 manzanas ubicadas más altas y otro con 10 manzanas más bajas. Puedes hacer un Unpaird T-test ya que tu muestra tiene dos grupos con cantidad diferente de elementos"
+          descripSix:
+            "Muestra: 2 grupos, uno con 7 manzanas ubicadas más altas y otro con 10 manzanas más bajas. Puedes hacer un Unpaird T-test ya que tu muestra tiene dos grupos con cantidad diferente de elementos",
         },
         {
           num: 5,
@@ -68,7 +69,8 @@ export default {
             "Con estos resultados podrás volver a Validata e ingresarlos en la sección de interpretación de resultados para entenderlos mejor.",
           descripThree: "Ejemplo",
           descripFour: "Datos obtenidos de manzanas altas: 4,5,4,4,3,4,3,4,4,6",
-          descripFive: "Datos obtenidos de manzanas bajas: 8,8,9,10,7,11,6,8,9,8",
+          descripFive:
+            "Datos obtenidos de manzanas bajas: 8,8,9,10,7,11,6,8,9,8",
           descripSix:
             "Resultado: El valor P es menor a 0,05, por criterio convencional esta diferencia es considerada extremadamente significativa estadísticamente.",
         },
@@ -178,11 +180,15 @@ export default {
             </div>
           </div>
           <div class="buttons buttons--buttonOne">
-            <button class="btn btn--small" @click="back" v-if="!isFirstStep">
+            <button class="btn" @click="back" v-if="!isFirstStep">
               Anterior
             </button>
-            <button class="btn btn--small" @click="next" v-if="!isLastStep">
+            <button class="btn --noResponsive" @click="next" v-if="!isLastStep">
               Siguiente
+            </button>
+            <div class="btnInicial" @click="next" v-if="!isLastStep">.</div>
+            <button class="btn --responsive" @click="next" v-if="!isLastStep">
+              >
             </button>
           </div>
         </div>
@@ -220,11 +226,21 @@ export default {
             </div>
           </div>
           <div class="buttons buttons--buttonTwo">
-            <button class="btn btn--small" @click="back" v-if="!isFirstStep">
+            <button
+              class="btn --noResponsive"
+              @click="back"
+              v-if="!isFirstStep"
+            >
               Anterior
             </button>
-            <button class="btn btn--small" @click="next" v-if="!isLastStep">
+            <button class="btn --noResponsive" @click="next" v-if="!isLastStep">
               Siguiente
+            </button>
+            <button class="btn --responsive" @click="back" v-if="!isLastStep">
+              &lt;
+            </button>
+            <button class="btn --responsive" @click="next" v-if="!isLastStep">
+              >
             </button>
           </div>
         </div>
@@ -245,30 +261,25 @@ export default {
           </div>
 
           <div class="cardInfo__ejemplo">
-            <img class="ejemploGif" src="../../public/imgs/gifBusqueda.gif"/>
-            <!--<p>
-              <strong>{{ step.descripThree }}</strong>
-            </p>
-            <div class="ejemploInput">
-              <input
-                class="input input--desabled"
-                id="search"
-                placeholder="Velocidad"
-              />
-              <button class="btn btn--disabled">Buscar</button>
-            </div>
-            <p>{{ step.descripFour }}</p>
-            <p>
-              <strong>{{ step.descripFive }}</strong>
-            </p>-->
+            <img class="ejemploGif" src="../../public/imgs/gifBusqueda.gif" />
           </div>
 
           <div class="buttons buttons--buttonThree">
-            <button class="btn btn--small" @click="back" v-if="!isFirstStep">
+            <button
+              class="btn --noResponsive"
+              @click="back"
+              v-if="!isFirstStep"
+            >
               Anterior
             </button>
-            <button class="btn btn--small" @click="next" v-if="!isLastStep">
+            <button class="btn --noResponsive" @click="next" v-if="!isLastStep">
               Siguiente
+            </button>
+            <button class="btn --responsive" @click="back" v-if="!isLastStep">
+              &lt;
+            </button>
+            <button class="btn --responsive" @click="next" v-if="!isLastStep">
+              >
             </button>
           </div>
         </div>
@@ -293,17 +304,30 @@ export default {
             <p>
               <strong>{{ step.descripFour }}</strong>
             </p>
-            <p>{{ step.descripThree }}</p> <br/>
-            <strong><p>{{step.descripFive}}</p></strong>
-            <p>{{step.descripSix}}</p>
+            <p>{{ step.descripThree }}</p>
+            <br />
+            <strong
+              ><p>{{ step.descripFive }}</p></strong
+            >
+            <p>{{ step.descripSix }}</p>
           </div>
 
           <div class="buttons buttons--buttonFour">
-            <button class="btn btn--small" @click="back" v-if="!isFirstStep">
+            <button
+              class="btn --noResponsive"
+              @click="back"
+              v-if="!isFirstStep"
+            >
               Anterior
             </button>
-            <button class="btn btn--small" @click="next" v-if="!isLastStep">
+            <button class="btn --noResponsive" @click="next" v-if="!isLastStep">
               Siguiente
+            </button>
+            <button class="btn --responsive" @click="back" v-if="!isLastStep">
+              &lt;
+            </button>
+            <button class="btn --responsive" @click="next" v-if="!isLastStep">
+              >
             </button>
           </div>
         </div>
@@ -333,11 +357,21 @@ export default {
           </div>
 
           <div class="buttons buttons--buttonFive">
-            <button class="btn btn--small" @click="back" v-if="!isFirstStep">
+            <button
+              class="btn --noResponsive"
+              @click="back"
+              v-if="!isFirstStep"
+            >
               Anterior
             </button>
-            <button class="btn btn--small" @click="next" v-if="!isLastStep">
+            <button class="btn --noResponsive" @click="next" v-if="!isLastStep">
               Siguiente
+            </button>
+            <button class="btn --responsive" @click="back" v-if="!isLastStep">
+              &lt;
+            </button>
+            <button class="btn --responsive" @click="next" v-if="!isLastStep">
+              >
             </button>
           </div>
         </div>
@@ -366,14 +400,21 @@ export default {
           </div>
 
           <div class="buttons buttons--buttonSix">
-            <button class="btn btn--small" @click="back" v-if="!isFirstStep">
+            <button
+              class="btn --noResponsive"
+              @click="back"
+              v-if="!isFirstStep"
+            >
               Anterior
             </button>
-            <button class="btn btn--small" @click="next" v-if="!isLastStep">
+            <button class="btn --noResponsive" @click="next" v-if="!isLastStep">
               Siguiente
             </button>
+            <button class="btn --responsive" @click="next" v-if="!isFirstStep">
+              &lt;
+            </button>
             <button
-              class="btn btn--small"
+              class="btn --small"
               v-if="!isFirstStep && modalOff"
               @click="scrollWin()"
             >
@@ -445,7 +486,7 @@ export default {
         border-color: $ThirdViolet;
         color: $White;
 
-        a{
+        a {
           color: $White;
         }
       }
@@ -549,7 +590,6 @@ export default {
       .gridText {
         margin-top: 40px;
         color: $MainColorBlue;
-        font-size: $BodyTextSize;
 
         &__top {
           display: flex;
@@ -578,7 +618,7 @@ export default {
 
         .line {
           width: 2px;
-          height: 70px;
+          height: 50px;
           background-color: $SecondPink;
         }
       }
@@ -616,8 +656,6 @@ export default {
             width: 100%;
           }
         }
-
-
       }
 
       .textIntro {
@@ -756,6 +794,131 @@ export default {
       bottom: 25px;
       left: 0;
       right: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .help {
+    margin-right: 0px;
+
+    .progress {
+      display: none;
+    }
+
+    .data {
+      padding: 25px 25px 50px 25px;
+      position: relative;
+      height: fit-content;
+
+      .cardInfo {
+        .step {
+          font-size: $BodyTextSize;
+        }
+        .name {
+          font-size: $SubtitleSize;
+        }
+        .descripOne {
+          margin-top: 20px;
+        }
+
+        .descripTwo {
+          margin-top: 10px;
+        }
+
+        .cardInfo__ejemploOne {
+          margin: 20px 0px;
+          font-size: 14px;
+        }
+      }
+
+      .stepTwoShow {
+        .textIntro {
+          margin-top: 20px;
+          width: 100%;
+        }
+
+        .gridText {
+          margin-top: 20px;
+          font-size: 14px;
+
+          &__top {
+            gap: 20px;
+          }
+
+          &__center {
+            justify-content: center;
+          }
+
+          &__bottom {
+            gap: 20px;
+          }
+
+          .line {
+            height: 100px;
+          }
+        }
+      }
+
+      .stepThreeShow {
+        .cardInfo {
+          &__ejemplo {
+            margin-bottom: 25px;
+          }
+        }
+        .textIntro {
+          &__text {
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+      .stepFourShow {
+
+        .cardInfo__ejemplo {
+          margin-bottom: 25px;
+          font-size: 14px;
+        }
+      }
+
+      .stepFiveShow {
+
+        .textIntro {
+          &__text {
+            margin-bottom: 10px;
+          }
+          &__texts {
+            margin-bottom: 20px;
+          }
+        }
+        .textExample {
+          font-size: 14px;
+          margin-bottom: 20px;
+        }
+      }
+
+      .stepSixShow {
+        .textIntro {
+          margin: 20px 0px;
+        }
+
+        .textExample {
+          margin-bottom: 30px;
+        }
+      }
+
+      .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        left: 15px;
+        .btnInicial {
+          color: transparent;
+        }
+      }
     }
   }
 }

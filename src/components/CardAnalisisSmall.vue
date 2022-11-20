@@ -118,4 +118,11 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 600px) {
+  .modalAnalisis {
+  left: 0;
+  top: 0;
+}
+}
 </style>
