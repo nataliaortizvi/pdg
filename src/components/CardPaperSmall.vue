@@ -42,6 +42,7 @@ export default {
 <template>
   <Modal
     class="modalResume"
+    :showFlecha="true"
     :showButton="true"
     v-if="this.showModalResume"
     @close="closeModalResume"
@@ -93,6 +94,7 @@ export default {
   .titleTxt {
     color: $SecondPink;
     margin-right: 40px;
+    width: 80%;
   }
 
   .authorTxt {

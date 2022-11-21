@@ -40,6 +40,7 @@ export default {
   <Modal
     class="modalAnalisis"
     :showButton="true"
+    :showFlecha="true"
     v-if="this.showModalAnalisis"
     @close="closeModalAnalisis"
   >

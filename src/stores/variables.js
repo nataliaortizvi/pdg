@@ -125,7 +125,10 @@ export const useVariablesStore = defineStore("variables", {
         },
 
         getVariableById(id) {
-            const filteredVariables = this.papers.filter((paper) => id === paper.variable);
+            const removeAccents = (str) => {
+                return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            }
+            const filteredVariables = this.papers.filter((paper) => removeAccents(id.toLowerCase().replace(/ /g, "")) === removeAccents(paper.variable.toLowerCase().replace(/ /g, "")));
             //console.log("filetered: ", filteredVariables)
             return filteredVariables
         },
