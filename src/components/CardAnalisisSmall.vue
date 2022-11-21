@@ -63,6 +63,7 @@ export default {
     <div class="cardContainerAnalisis__title">
       <h2>{{ cadaTipoAnalisis.title }}</h2>
       <p>{{ cadaTipoAnalisis.descrip }}</p>
+      <p class="readMore">Leer más</p>
     </div>
   </div>
 </template>
@@ -89,6 +90,7 @@ export default {
   position: relative;
   margin-top: 20px;
   transition: 0.2s linear;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.03);
@@ -117,6 +119,17 @@ export default {
       color: $ThirdViolet;
       margin-bottom: 10px;
     }
+  }
+
+  .readMore{
+    text-decoration: underline;
+    color: $Hint;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 14px;
   }
 }
 

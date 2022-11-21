@@ -86,6 +86,8 @@ export default {
             "Tu valor P (0.0001) es menor que tu nivel de significancia (0.05).",
           descripFive:
             "Es decir, que tu hipótesis alternativa(H1) de: ''Las manzanas caen del árbol más rápido si están más altas'', es aceptada ✅",
+          descripSix:
+            "*Si necesitas recordar estos pasos y su información, podrás verlos en el botón de ayuda en la esquina inferior derecha de la pantalla.",
         },
       ],
 
@@ -188,7 +190,7 @@ export default {
             </button>
             <div class="btnInicial" @click="next" v-if="!isLastStep">.</div>
             <button class="btn --responsive" @click="next" v-if="!isLastStep">
-              <img src="../../public/icons/goForward.svg"/>
+              <img src="../../public/icons/goForward.svg" />
             </button>
           </div>
         </div>
@@ -237,10 +239,10 @@ export default {
               Siguiente
             </button>
             <button class="btn --responsive" @click="back" v-if="!isLastStep">
-              <img src="../../public/icons/goBack.svg"/>
+              <img src="../../public/icons/goBack.svg" />
             </button>
             <button class="btn --responsive" @click="next" v-if="!isLastStep">
-              <img src="../../public/icons/goForward.svg"/>
+              <img src="../../public/icons/goForward.svg" />
             </button>
           </div>
         </div>
@@ -276,10 +278,10 @@ export default {
               Siguiente
             </button>
             <button class="btn --responsive" @click="back" v-if="!isLastStep">
-              <img src="../../public/icons/goBack.svg"/>
+              <img src="../../public/icons/goBack.svg" />
             </button>
             <button class="btn --responsive" @click="next" v-if="!isLastStep">
-              <img src="../../public/icons/goForward.svg"/>
+              <img src="../../public/icons/goForward.svg" />
             </button>
           </div>
         </div>
@@ -324,10 +326,10 @@ export default {
               Siguiente
             </button>
             <button class="btn --responsive" @click="back" v-if="!isLastStep">
-              <img src="../../public/icons/goBack.svg"/>
+              <img src="../../public/icons/goBack.svg" />
             </button>
             <button class="btn --responsive" @click="next" v-if="!isLastStep">
-              <img src="../../public/icons/goForward.svg"/>
+              <img src="../../public/icons/goForward.svg" />
             </button>
           </div>
         </div>
@@ -368,10 +370,10 @@ export default {
               Siguiente
             </button>
             <button class="btn --responsive" @click="back" v-if="!isLastStep">
-              <img src="../../public/icons/goBack.svg"/>
+              <img src="../../public/icons/goBack.svg" />
             </button>
             <button class="btn --responsive" @click="next" v-if="!isLastStep">
-              <img src="../../public/icons/goForward.svg"/>
+              <img src="../../public/icons/goForward.svg" />
             </button>
           </div>
         </div>
@@ -398,6 +400,11 @@ export default {
             <p>{{ step.descripFour }}</p>
             <p>{{ step.descripFive }}</p>
           </div>
+          <br />
+          <br />
+          <div>
+            <p class="rememberHere">{{ step.descripSix }}</p>
+          </div>
 
           <div class="buttons buttons--buttonSix">
             <button
@@ -411,7 +418,7 @@ export default {
               Siguiente
             </button>
             <button class="btn --responsive" @click="back" v-if="!isFirstStep">
-              <img src="../../public/icons/goBack.svg"/>
+              <img src="../../public/icons/goBack.svg" />
             </button>
             <button
               class="btn"
@@ -783,6 +790,9 @@ export default {
           margin-bottom: 10px;
         }
       }
+      .rememberHere {
+        color: $SecondPink;
+      }
     }
 
     .buttons {
@@ -794,6 +804,10 @@ export default {
       bottom: 25px;
       left: 0;
       right: 0;
+
+      .btnInicial {
+        display: none;
+      }
     }
   }
 }
@@ -874,7 +888,6 @@ export default {
       }
 
       .stepFourShow {
-
         .cardInfo__ejemplo {
           margin-bottom: 25px;
           font-size: 14px;
@@ -882,7 +895,6 @@ export default {
       }
 
       .stepFiveShow {
-
         .textIntro {
           &__text {
             margin-bottom: 10px;
@@ -908,7 +920,6 @@ export default {
       }
 
       .buttons {
-
         .btn {
           width: 140px;
         }
@@ -920,10 +931,9 @@ export default {
         right: 15px;
         left: 15px;
         .btnInicial {
+          display: flex;
           color: transparent;
         }
-
-
       }
     }
   }

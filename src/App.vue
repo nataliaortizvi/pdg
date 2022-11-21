@@ -166,7 +166,7 @@ export default {
     </nav>
   </header>
 
-  <button class="btn helpBtn" @click="openModal">?</button>
+  <button class="btn helpBtn" @click="openModal">Ayuda</button>
   <Modal :showButton="true" :showFlecha="false" v-if="showModal" @close="closeModal">
     <Help :modalOff="false" class="helper"></Help>
   </Modal>

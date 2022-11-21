@@ -191,7 +191,7 @@ body {
 }
 
 .helpBtn {
-  width: 45px;
+  width: auto;
   height: 45px;
   border-radius: 50px;
   position: fixed;
@@ -199,9 +199,9 @@ body {
   bottom: 20px;
   right: 20px;
   transition: 0.2s linear;
-
+  padding: 0px 15px;
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 }
 
