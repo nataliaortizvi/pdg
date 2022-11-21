@@ -67,10 +67,10 @@ export default {
   <!-----------------------GLOBAL HEADER--------------------->
   <header id="navbar" :class="{ onScroll: !view.topOfPage }">
     <RouterLink to="/">
-      <img class="logo" src="../public/icons/logoHorizontalAzul.svg"/>
-      <img class="logoW" src="../public/icons/logoHorizontalBlanco.svg"/>
+      <img class="logo" src="../public/icons/logoHorizontalAzul.svg" />
+      <img class="logoW" src="../public/icons/logoHorizontalBlanco.svg" />
     </RouterLink>
-    
+
     <nav class="navFull">
       <RouterLink to="/" id="linkss" class="link" class-active="active"
         >Inicio</RouterLink
@@ -160,7 +160,7 @@ export default {
   <RouterView />
   <footer>
     <div class="footer">
-      <img class="footer__logo" src="../public/icons/logoVerticalBlanco.svg"/>
+      <img class="footer__logo" src="../public/icons/logoVerticalBlanco.svg" />
       <div class="footer__links">
         <RouterLink to="/" id="linkss" class="linkWhite">Inicio</RouterLink>
         <RouterLink to="/analisis" id="linkss" class="linkWhite"
@@ -195,12 +195,12 @@ export default {
 }
 .logo {
   width: 150px;
-  padding-top:5px;
+  padding-top: 5px;
   display: block;
 }
 
 .logoW {
-  display:none;
+  display: none;
 }
 .navFull {
   .link {
@@ -237,8 +237,8 @@ export default {
   align-items: center;
 
   &__logo {
-    width:150px;
-    margin-top:30px;
+    width: 150px;
+    margin-top: 30px;
   }
   &__links {
     display: flex;
@@ -331,6 +331,11 @@ export default {
     .link {
       color: $White;
     }
+  }
+
+  .helper {
+    height: 80%;
+    width: 100%;
   }
 }
 </style>
