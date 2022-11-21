@@ -76,7 +76,7 @@ export default {
 @import "src/assets/main.scss";
 
 .searcher {
-  padding: 100px 30px 50px 30px;
+  padding: 80px 30px 50px 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -113,7 +113,7 @@ export default {
   width: 100%;
   display: flex;
   align-items: center;
-  height: 450px;
+  height: 400px;
   background-color: rgba(24, 29, 61, 0.5);
   position: relative;
 
@@ -179,7 +179,7 @@ export default {
   }
 
   .banner {
-    background-position: 55% 75%;
+    background-position: 45% 75%;
     height: 300px;
     padding-left: 20px;
 
