@@ -131,6 +131,7 @@ export default {
     },
 
     concludeResults() {
+      console.log("Antes: ",this.message)
       this.remember = false;
       this.analize = false;
       this.conclusion = true;
@@ -149,12 +150,20 @@ export default {
     pruebas() {
       this.message = document.getElementById("pruebaUno").textContent;
       console.log("hhhhhh", this.message);
-      try {
+      navigator.clipboard.writeText(this.message)
+      .then (()=> {
+        alert("¡Copiado!");
+      }).catch (()=> {
+        alert("Error al copia. Intentalo de nuevo");
+      });
+       
+      
+     /* try {
         navigator.clipboard.writeText(this.message);
         alert("¡Copiado!");
       } catch (e) {
         alert("Error al copia. Intentalo de nuevo");
-      }
+      }*/
     },
   },
 };
