@@ -35,8 +35,6 @@ export default {
       this.searchInput != null;
     },
   },
-
-  mounted() {},
 };
 </script>
 

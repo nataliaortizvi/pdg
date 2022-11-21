@@ -4,6 +4,7 @@
 export default {
   props: {
     showButton: Boolean,
+    showFlecha: Boolean,
   },
 
   methods: {
@@ -18,12 +19,12 @@ export default {
         
 <template>
   <div class="backdrop" @click.self="closeModal">
-    <section class="modalContainer">
+    <section class="modalContainer" :class="{ withScroll: showFlecha == true}">
       <div class="modalInfo">
         <slot></slot>
       </div>
-      <img src="/imgs/exitBtn.png" @click="closeModal" v-if="showButton" />
-      <!--<img class="scrolldown" src="../../public/icons/scrolldown.svg" alt="">-->
+      <img class="exit" src="/imgs/exitBtn.png" @click="closeModal" v-if="showButton" />
+      <img class="scrolldown" src="/public/icons/scrolldown.svg" v-if="showFlecha">
     </section>
   </div>
 </template>
@@ -45,7 +46,6 @@ export default {
   z-index: 100;
   overflow-y: unset;
 }
-
 .modalContainer {
   border-radius: 20px;
   background: $White;
@@ -54,9 +54,10 @@ export default {
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
+  
 
   .modalInfo {
-    max-height: 90vh;
+    max-height: 75vh;
     max-width: 70vw;
     display: flex;
     flex-direction: column;
@@ -65,7 +66,7 @@ export default {
     margin: 10px;
   }
 
-  img {
+  .exit {
     position: absolute;
     width: 50px;
     height: 50px;
@@ -79,11 +80,26 @@ export default {
     }
   }
 
-  /*.scrolldown {
+  .scrolldown {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
-  }*/
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    height: 40px;
+    width: 40px;
+    margin: auto;
+    margin-bottom: 0px;
+    cursor: pointer;
+    transition: 0.2s linear;
+
+    &:hover {
+      transform: scale(1.08);
+    }
+  }
+}
+
+.withScroll {
+  padding-bottom: 30px;
 }
 
 @media screen and (max-width: 600px) {

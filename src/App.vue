@@ -18,8 +18,6 @@ export default {
     ...mapStores(useVariablesStore),
   },
 
-  el: "#navbar",
-
   data() {
     return {
       showModal: false,
@@ -65,12 +63,12 @@ export default {
 
 <template>
   <!-----------------------GLOBAL HEADER--------------------->
-  <header id="navbar" :class="{ onScroll: !view.topOfPage }">
+  <header :class="{ onScroll: !view.topOfPage }">
     <RouterLink to="/">
-      <img class="logo" src="../public/icons/logoHorizontalAzul.svg"/>
-      <img class="logoW" src="../public/icons/logoHorizontalBlanco.svg"/>
+      <img class="logo" src="../public/icons/logoHorizontalAzul.svg" />
+      <img class="logoW" src="../public/icons/logoHorizontalBlanco.svg" />
     </RouterLink>
-    
+
     <nav class="navFull">
       <RouterLink to="/" id="linkss" class="link" class-active="active"
         >Inicio</RouterLink
@@ -83,7 +81,7 @@ export default {
         id="linkss"
         class="link"
         class-active="active"
-        >Resultados</RouterLink
+        >Interpretación</RouterLink
       >
 
       <RouterLink
@@ -141,7 +139,17 @@ export default {
             id="linkss"
             class="link"
             class-active="active"
-            >Resultados</RouterLink
+            >Interpretación</RouterLink
+          >
+        </li>
+
+        <li>
+          <RouterLink
+            to="/form"
+            id="linkss"
+            class="link"
+            class-active="active"
+            >Agregar variable</RouterLink
           >
         </li>
 
@@ -159,7 +167,7 @@ export default {
   </header>
 
   <button class="btn helpBtn" @click="openModal">?</button>
-  <Modal :showButton="true" v-if="showModal" @close="closeModal">
+  <Modal :showButton="true" :showFlecha="false" v-if="showModal" @close="closeModal">
     <Help :modalOff="false" class="helper"></Help>
   </Modal>
 
@@ -168,14 +176,17 @@ export default {
   <RouterView />
   <footer>
     <div class="footer">
-      <img class="footer__logo" src="../public/icons/logoVerticalBlanco.svg"/>
+      <img class="footer__logo" src="../public/icons/logoVerticalBlanco.svg" />
       <div class="footer__links">
         <RouterLink to="/" id="linkss" class="linkWhite">Inicio</RouterLink>
         <RouterLink to="/analisis" id="linkss" class="linkWhite"
           >Tipos de análisis</RouterLink
         >
         <RouterLink to="/interpretation" id="linkss" class="linkWhite"
-          >Resultados</RouterLink
+          >Interpretación</RouterLink
+        >
+        <RouterLink to="/form" id="linkss" class="linkWhite"
+          >Agregar variable</RouterLink
         >
         <RouterLink to="/nosotros" id="linkss" class="linkWhite"
           >Nosotros</RouterLink
@@ -203,12 +214,12 @@ export default {
 }
 .logo {
   width: 150px;
-  padding-top:5px;
+  padding-top: 5px;
   display: block;
 }
 
 .logoW {
-  display:none;
+  display: none;
 }
 .navFull {
   .link {
@@ -245,8 +256,8 @@ export default {
   align-items: center;
 
   &__logo {
-    width:150px;
-    margin-top:30px;
+    width: 150px;
+    margin-top: 30px;
   }
   &__links {
     display: flex;
@@ -316,7 +327,7 @@ export default {
     backdrop-filter: blur(3px);
     background-color: $MainColorBlue;
     bottom: 0;
-    height: 230px;
+    height: 260px;
     width: 100vw;
     left: 0;
     top: 0;
@@ -339,6 +350,11 @@ export default {
     .link {
       color: $White;
     }
+  }
+
+  .helper {
+    height: 80%;
+    width: 100%;
   }
 }
 </style>
