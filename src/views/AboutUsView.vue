@@ -55,6 +55,9 @@
     </div>
     <div class="team">
       <h1 class="titlesStyle">Equipo</h1>
+      <br/>
+      <p><strong class="strongName">Validata</strong> se creó como un proyecto de grado de estudiantes de <strong>Diseño de Medios Interactivos</strong> de la <strong>Universidad Icesi</strong> junto con su tutor y director de investigación.
+      </p>
       <div class="containerimg">
         <div class="containerimg__eachImg">
           <img
