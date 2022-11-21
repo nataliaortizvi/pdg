@@ -85,6 +85,14 @@ export default {
         class-active="active"
         >Resultados</RouterLink
       >
+
+      <RouterLink
+        to="/form"
+        id="linkss"
+        class="link"
+        class-active="active"
+        >Agregar variable</RouterLink
+      >
       <RouterLink to="/nosotros" id="linkss" class="link" class-active="active"
         >Nosotros</RouterLink
       >
@@ -204,7 +212,7 @@ export default {
 }
 .navFull {
   .link {
-    margin-left: 80px;
+    margin-left: 60px;
     color: $MainColorBlue;
     position: relative;
     padding: 5px;
