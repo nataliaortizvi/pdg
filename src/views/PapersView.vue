@@ -152,6 +152,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
     padding: 30px;
 
@@ -168,11 +169,13 @@ export default {
   }
 
   .modalButtons {
-    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top:20px;
 
-    .btnHere {
-      margin-right: 20px;
-    }
+
+    
   }
 }
 .results {
@@ -240,12 +243,15 @@ export default {
 
 @media screen and (max-width: 600px) {
 
-  .modalButtons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
+  .modal {
 
+    .modalButtons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+  
   .searcher {
     padding: 100px 20px 40px 20px;
     flex-direction: column;
