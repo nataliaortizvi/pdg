@@ -14,7 +14,8 @@
           <strong class="strongName">Validata,</strong>
           una plataforma pensada para que las personas que trabajan en el campo
           creativo pueda realizar validaciones de tipo cualitativo, utilizando
-          herramientas estadísticas.
+          herramientas estadísticas sencilla de comprender y que además te guía 
+          para que comprender el proceso.
         </p>
         <p class="containerAbout__text">
           <strong class="strongName">Validata</strong> cuenta con dos momentos

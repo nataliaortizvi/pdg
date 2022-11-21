@@ -12,7 +12,7 @@ export const useAnalisisStore = defineStore("analisis", {
                         what: 'Una prueba T es una prueba estadística que compara los promedios y las desviaciones estándar de dos grupos relacionados para determinar si existe una diferencia significativa entre los dos grupos. Una diferencia significativa ocurre cuando es poco probable que las diferencias entre los grupos se deban a un error de muestreo o al azar.',
                         how: [
                             {
-                                info: '1. Ingresa los datos de cada grupo para la prueba T y asi poder calcular la media que tiene cada grupo',
+                                info: '1. Ingresa a la calculadora y agrega los datos de cada grupo para la prueba T y asi poder calcular la media que tiene cada grupo',
                             },
                             {
                                 info: '2. Haz clic en CALCULAR AHORA y observa los resultados',
@@ -29,7 +29,7 @@ export const useAnalisisStore = defineStore("analisis", {
                         what: 'Una prueba T es una prueba estadística que compara los promedios y las desviaciones estándar de dos grupos independientes para determinar si existe una diferencia significativa entre los dos grupos. Una diferencia significativa ocurre cuando es poco probable que las diferencias entre los grupos se deban a un error de muestreo o al azar.',
                         how: [
                             {
-                                info: '1. Ingresa los datos de cada grupo para la prueba T y asi poder calcular la media que tiene cada grupo',
+                                info: '1. Ingresa a la calculadora y agrega los datos de cada grupo para la prueba T y asi poder calcular la media que tiene cada grupo',
                             },
                             {
                                 info: '2. Haz clic en CALCULAR AHORA y observa los resultados',
@@ -46,7 +46,7 @@ export const useAnalisisStore = defineStore("analisis", {
                         what: 'Se utiliza una prueba ANOVA para comparar las medias de tres o más muestras independientes simultáneamente.',
                         how: [
                             {
-                                info: '1. Ingresa los valores de hasta cinco grupos en los cuadros de texto de la calculadora',
+                                info: '1. Ingresa a la calculadora y agrega los valores de hasta cinco grupos en los cuadros de texto de la calculadora',
                             },
                             {
                                 info: '2. Seleccione su nivel de confianza',
@@ -68,7 +68,7 @@ export const useAnalisisStore = defineStore("analisis", {
                         what: 'El coeficiente de correlación(r) de Pearson se usa para medir la fuerza de asociación entre dos variables cuantitativas, donde el valor (r) = 1 significa una correlación positiva perfecta, el valor (r) = -1 significa una correlación negativa perfecta y el valor (r) = 0 significa que no hay correlación existente entre las variables. Las variables deben de ser ambas métricas, en caso de no serlo, se debe hacer una prueba Spearman.',
                         how: [
                             {
-                                info: '1. Para comenzar, debes agregar sus datos a los cuadros de texto a continuación.',
+                                info: '1. Ingresa a la calculadora y agrega los datos a los cuadros de texto de la calculadora.',
                             },
                             {
                                 info: '2. Cuando tus datos estén en su lugar y estés listo para hacer el cálculo, simplemente presiona el botón "Calcular"',
@@ -91,7 +91,7 @@ export const useAnalisisStore = defineStore("analisis", {
                         what: 'El coeficiente de correlación de rangos(r) Spearman es una prueba utilizada para medir la fuerza de asociación entre dos variables, donde el valor (r) = 1 significa una correlación positiva perfecta, el valor (r) = -1 significa una correlación negativa perfecta y el valor (r) = 0 significa que no hay correlación existente entre las variables. En esta prueba las variables pueden ser métricas y tambíen no métricas.',
                         how: [
                             {
-                                info: '1. Para comenzar, debes agregar sus datos a los cuadros de texto a continuación.',
+                                info: '1. Ingresa a la calculadora y agrega los datos a los cuadros de texto de la calculadora.',
                             },
                             {
                                 info: '2. Cuando tus datos estén en su lugar y estés listo para hacer el cálculo, simplemente presiona el botón "Calcular"',

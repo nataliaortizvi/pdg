@@ -188,7 +188,7 @@ export default {
       <div class="dataInputs" v-if="!this.conclusion">
         <div class="theInput">
           <label class="titlesStyle --blue --bodyTextSmall"
-            >Tipo de análisis</label
+            >Tipo de análisis que usaste</label
           >
           <select
             class="input --short"
