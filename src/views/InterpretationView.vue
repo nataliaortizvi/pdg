@@ -230,7 +230,7 @@ export default {
             class="input --number"
             v-model="this.nivelSignificancia"
           />
-          <p class="theInput__remember">*Busca en los resultados de la calculadora el nivel de confianza (confidence interval) y calcula el nivel de significancia.</p>
+          <p class="theInput__remember">*Busca en los resultados de la calculadora el nivel de confianza (%) (confidence interval) y calcula el nivel de significancia según se explica en el recuadro de "Recordemos".</p>
         </div>
         <div class="theInput" v-if="this.analisisSelected == 1">
           <label class="titlesStyle --blue --bodyTextSmall"> Valor P </label>
