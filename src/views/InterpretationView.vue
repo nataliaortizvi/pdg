@@ -230,8 +230,8 @@ export default {
             class="input --number"
             v-model="this.nivelSignificancia"
           />
+          <p class="theInput__remember">*Busca en los resultados de la calculadora el nivel de confianza (confidence interval) y calcula el nivel de significancia.</p>
         </div>
-
         <div class="theInput" v-if="this.analisisSelected == 1">
           <label class="titlesStyle --blue --bodyTextSmall"> Valor P </label>
           <input
@@ -240,6 +240,7 @@ export default {
             class="input --number"
             v-model="this.valorP"
           />
+          <p class="theInput__remember">*Busca en los resultados de la calculadora el valor P (P value) que te da.</p>
         </div>
 
         <div class="theInput" v-if="this.analisisSelected == 2">
@@ -276,9 +277,10 @@ export default {
 
           <p v-if="this.analisisSelected == 1">
             <br />
-            <strong>2. Nivel de significancia: </strong>es normalmente del 5%
+            <strong>2. Nivel de significancia: </strong>Si tu nivel de confianza en la calculadora fue de 95%, tu nivel de significancia sería lo que falta para completar el 100%, o sea 5% (0.05) y este decimal es el que usas para interpretar los resultados.
+            <!--es normalmente del 5%
             (0.05) dependiendo del nivel de confianza, que normalmente es del
-            95% (0.95), por lo que podrías utilizar un nivel del 0.05.
+            95% (0.95), por lo que podrías utilizar un nivel del 0.05.-->
             <br /><br>
           </p>
 
@@ -575,6 +577,10 @@ export default {
 
         select {
           padding: 0px 10px;
+        }
+
+        &__remember {
+          font-size: 13px;
         }
       }
 
