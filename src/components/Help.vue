@@ -564,6 +564,7 @@ export default {
         border: 1px solid $SecondPink;
         padding: 10px 20px;
         margin-top: 30px;
+        font-size: 13px;
       }
     }
 
@@ -709,6 +710,7 @@ export default {
         align-items: center;
         border: 1px solid $SecondPink;
         padding: 10px 20px;
+        font-size: 13px;
 
         .ejemploText {
           margin-bottom: 10px;
@@ -748,6 +750,7 @@ export default {
         }
       }
       .textExample {
+        font-size: 13px;
         border: 1px solid $SecondPink;
         padding: 10px 20px;
 
@@ -783,6 +786,7 @@ export default {
       }
 
       .textExample {
+        font-size: 13px;
         border: 1px solid $SecondPink;
         padding: 10px;
 
