@@ -258,7 +258,7 @@ export default {
 
       <div class="itemForm">
         <label class="text">
-          Escribe el enunciado del ejemplo?</label>
+          Escribe el enunciado del ejemplo</label>
         <input
           class="input"
           placeholder="Ej: Se necesita saber si las manzanas más altas caen más rápido"
